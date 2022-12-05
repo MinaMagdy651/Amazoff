@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "prettier" : "prettier --config .prettierrc --write ./src/**/*.ts",
+    "lint": "eslint \"src/**/*.ts\" ",
+    "jasmine": "jasmine",
+    "test": "npm run build & npm run jasmine",
+    "prettier": "prettier --config .prettierrc --write ./src/**/*.ts",
     "start": "npm run prettier && nodemon src/server.ts"
   },
   "repository": {
@@ -21,15 +23,25 @@
   "homepage": "https://github.com/amwopps/Amazoff#readme",
   "devDependencies": {
     "@types/express": "^4.17.14",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.2",
     "jasmine": "^4.5.0",
     "jasmine-spec-reporter": "^7.0.0",
     "jasmine-ts": "^0.4.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.0",
+    "supertest": "^6.3.2",
     "ts-node": "^10.9.1"
   },
   "dependencies": {
+    "@types/jasmine": "^4.3.1",
+    "@types/pg": "^8.6.5",
+    "@types/typescript": "^2.0.0",
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3"
   }

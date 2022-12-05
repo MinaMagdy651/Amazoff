@@ -10,4 +10,6 @@ app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
 
-app.get('/', (_req, res) => res.send('Home Page..'))
+app.get('/', (_req, res) => res.json('Home Page..'))
+
+export default app
