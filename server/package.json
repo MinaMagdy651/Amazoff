@@ -1,0 +1,36 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prettier" : "prettier --config .prettierrc --write ./src/**/*.ts",
+    "start": "npm run prettier && nodemon src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amwopps/Amazoff.git"
+  },
+  "author": "Aly Zakaria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amwopps/Amazoff/issues"
+  },
+  "homepage": "https://github.com/amwopps/Amazoff#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "express": "^4.18.2",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jasmine-ts": "^0.4.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3"
+  }
+}
