@@ -1,0 +1,19 @@
+{ 
+  "defaultEnv": { "ENV": "NODE_ENV" },
+  "development": {
+    "driver": "pg",
+    "host":  {"ENV" : "host"},
+    "port": {"ENV" : "port"},
+    "database": {"ENV" : "database"},
+    "user": {"ENV" : "user"},
+    "password":  {"ENV" : "password"}
+  },
+  "test": {
+    "driver" : "",
+    "host": "",
+    "port": "",
+    "database" : "",
+    "user": "",
+    "password": ""
+  }
+}
