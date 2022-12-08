@@ -1,31 +1,13 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetchLogin from "../../shared/useFetchLogin";
 import "./style.css";
-import axios from "axios";
 
 function Login() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
-  const [LoginStatus, setLoginStatus] = useState(false);
-
-  useEffect(() => {
-    if (data) {
-      axios
-        .post("http://localhost:3500/login", {
-          Email: data.email,
-          password: data.password,
-        })
-        .then((response) => {
-          setLoginStatus(true);
-          console.log("response", response.data);
-        })
-        .catch((error) => {
-          setLoginStatus(false);
-          console.log(error);
-        });
-    }
-  }, [data]);
+  useFetchLogin(data ? data : null);
 
   const onSubmit = (data) => setData(data);
 
