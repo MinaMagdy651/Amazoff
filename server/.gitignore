@@ -1,8 +1,8 @@
 
 
-#ignore
+#ignore node_module
 node_modules
-
+# environment variables
 .env
-
+#production folder
 build

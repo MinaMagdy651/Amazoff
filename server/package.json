@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/amwopps/Amazoff#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.14",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
@@ -43,6 +44,7 @@
     "@types/pg": "^8.6.5",
     "@types/typescript": "^2.0.0",
     "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3"
   }
 }
