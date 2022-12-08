@@ -4,10 +4,16 @@ function Navbar() {
     <div>
       <ul>
         <Link to="/home">
-          <li> Home</li>
+          <li>Home</li>
         </Link>
         <Link to="/counter">
-          <li> Counter</li>
+          <li>Counter</li>
+        </Link>
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
+        <Link to="/register">
+          <li>Register</li>
         </Link>
       </ul>
     </div>
