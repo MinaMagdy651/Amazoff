@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import axios from "../APIS/axios";
-const LOGIN_URL = "/login";
+const REGISTER_URL = "/register";
 
-const useFetchLogin = (data) => {
+const useFetchRegister = (data) => {
   useEffect(() => {
     if (data) {
       axios
-        .post(LOGIN_URL, {
-          Email: data.email,
+        .post(REGISTER_URL, {
+          name: data.name,
+          email: data.email,
           password: data.password,
+          address: data.address,
+          dob: data.dob,
+          gender: data.gender,
         })
         .then((response) => {
           console.log("response", response.data);
@@ -19,4 +23,5 @@ const useFetchLogin = (data) => {
     }
   });
 };
-export default useFetchLogin;
+
+export default useFetchRegister;
