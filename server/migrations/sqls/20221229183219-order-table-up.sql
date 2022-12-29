@@ -1,6 +1,6 @@
 /* Replace with your SQL commands */
 CREATE TABLE orders (
-    order_id INTEGER,
+    order_id SERIAL ,
     status INTEGER default 0,
     admin_ID INTEGER ,
     PRIMARY KEY (order_id),

@@ -23,7 +23,10 @@
         database_test=ecommerce-test
         host=localhost
         dialect=postgres  
-        port=5432   
+        port=5432
+        BCRYPT_PASSWORD=nasdno!sAOP\SSA
+        SALT_ROUNDS= 15
+        TOKEN=secret_token   
 #### 3- setUp database
 ##### start postgres database on port 5432
         db-migrate up 

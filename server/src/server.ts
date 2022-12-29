@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import customerRoute from './routes/customer.route'
+
 const app = express()
 const port = 3500
 
@@ -34,14 +36,7 @@ app.listen(port, () => {
 
 app.get('/', (_req, res) => res.json('Home Page..'))
 
-app.post('/login', (req: express.Request, res: express.Response) =>
-    res.json(req.body)
-)
-app.post('/register', (req: express.Request, res: express.Response) =>
-    res.json(req.body)
-)
+// apis for customers
+customerRoute(app)
 
-app.post('/emailcheck', (req: express.Request, res: express.Response) =>
-    res.json(req.body)
-)
 export default app

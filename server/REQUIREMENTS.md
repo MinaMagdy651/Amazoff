@@ -1,5 +1,10 @@
 # API ROUTES
 
+## customers
+1. authenticate => /customer-login [POST]
+2. register => /customer-register [POST]
+3. check Email => /customer-check-email [POST]
+
 >* ON WORK 
 
 ## Data Shapes

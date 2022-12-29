@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import { Pool } from 'pg'
 dotenv.config()
 const {
     NODE_ENV,
@@ -20,3 +21,13 @@ export const config = {
     password: password,
     dialect: dialect,
 }
+
+const client = new Pool({
+    host: config.host,
+    port: Number(config.port),
+    database: config.database,
+    user: config.username,
+    password: config.password,
+})
+
+export default client
