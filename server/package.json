@@ -46,6 +46,7 @@
     "body-parser": "^1.20.1",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
+    "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.3"
   }
 }
