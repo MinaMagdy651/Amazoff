@@ -19,7 +19,7 @@ function Login() {
       </span>
       <span>
         <h3>Password</h3>
-        <input {...register("password", { required: true })} />
+        <input type="password" {...register("password", { required: true })} />
       </span>
       <div>
         <button type="submit">Login</button>
