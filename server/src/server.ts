@@ -40,4 +40,8 @@ app.post('/login', (req: express.Request, res: express.Response) =>
 app.post('/register', (req: express.Request, res: express.Response) =>
     res.json(req.body)
 )
+
+app.post('/emailcheck', (req: express.Request, res: express.Response) =>
+    res.json(req.body)
+)
 export default app
