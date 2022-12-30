@@ -22,7 +22,7 @@ const getUserByToken = (
             } else throw new Error()
         } else throw new Error()
     } catch (error) {
-        throw new Error(`User is not verified`)
+        res.status(404).send(`User is not verified`)
     }
 }
 
