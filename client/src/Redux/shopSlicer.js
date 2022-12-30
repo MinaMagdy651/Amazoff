@@ -5,10 +5,12 @@ const initialState = {
     // attrbitutes to be added later
     counter: 0,
     id: -1,
+    type: "",
     name: "",
     email: "",
     dob: "",
     picture: "",
+    status: false,
   },
 };
 
@@ -22,6 +24,7 @@ const shopSlicer = createSlice({
       state.obj.email = data.payload.customer.email;
       state.obj.dob = data.payload.customer.dob;
       console.log(state.obj.name);
+      state.obj.status = true;
     },
     incrementAction: (state, data) => {
       state.obj.counter += data.payload;

@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
+import { useEffect, useState } from "react";
 
 function Navbar_() {
+  const obj = useSelector((state) => state.obj.obj);
+  const [login_status, setLogin_status] = useState(obj?.status);
+
+  useEffect(() => {
+    console.log("navbar updated", obj);
+    if (obj.id !== -1) {
+      setLogin_status(true);
+    }
+  }, [obj]);
   return (
     <div id="header" className="sticky-top">
       <nav
@@ -44,26 +55,19 @@ function Navbar_() {
                   Counter
                 </Link>
               </li>
-
-              <li className="nav-item">
-                <Link
-                  to="/login"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link
-                  to="/register"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Register
-                </Link>
-              </li>
+              {!login_status && (
+                <li className="nav-item">
+                  <button>
+                    <Link
+                      to="/login"
+                      className="nav-link active"
+                      aria-current="page"
+                    >
+                      Login
+                    </Link>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
