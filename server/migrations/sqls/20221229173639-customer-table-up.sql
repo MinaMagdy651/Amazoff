@@ -1,7 +1,7 @@
 /* Replace with your SQL commands */
 CREATE TABLE customers (
     ID  SERIAL,
-    Name VARCHAR(15) default 'user',
+    Name VARCHAR(30) default 'user',
     Email VARCHAR(100) unique NOT NULL,
     Password VARCHAR(255) NOT NULL,
     Address VARCHAR(50) default 'No Address',

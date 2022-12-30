@@ -10,6 +10,9 @@ const {
     host,
     dialect,
     port,
+    BCRYPT_PASSWORD,
+    SALT_ROUNDS,
+    TOKEN,
 } = process.env
 
 export const config = {

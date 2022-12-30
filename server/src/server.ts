@@ -1,7 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import customerRoute from './routes/customer.route'
+import customerRoute from './routes/customer.routes'
+import adminRoute from './routes/admin.routes'
+import sellerRoute from './routes/seller.routes'
 
 const app = express()
 const port = 3500
@@ -36,7 +38,11 @@ app.listen(port, () => {
 
 app.get('/', (_req, res) => res.json('Home Page..'))
 
-// apis for customers
+// apis for all users
 customerRoute(app)
+
+adminRoute(app)
+
+sellerRoute(app)
 
 export default app
