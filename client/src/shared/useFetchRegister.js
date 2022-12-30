@@ -3,6 +3,7 @@ const REGISTER_URL = "/customer-register";
 
 const useFetchRegister = (data) => {
   if (data) {
+    console.log(data);
     axios
       .post(REGISTER_URL, {
         name: data.name,

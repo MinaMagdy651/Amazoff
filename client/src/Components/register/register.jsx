@@ -4,6 +4,7 @@ import useFetchRegister from "../../shared/useFetchRegister";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import useCheckEmail from "../../shared/useCheckEmail";
+import { FaEye } from "react-icons/fa";
 
 function Register() {
   const [data, setData] = useState();
@@ -14,43 +15,117 @@ function Register() {
   useFetchRegister(data ? data : null);
   useCheckEmail(watch("email"));
 
+  const showPassword = () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <span>
-        <h3>Name</h3>
-        <input {...register("name", { required: true })} />
-      </span>
-
-      <span>
-        <h3>Email</h3>
-        <input {...register("email", { required: true })} />
-      </span>
-
-      <span>
-        <h3>Password</h3>
-        <input {...register("password", { required: true })} />
-      </span>
-
-      <span>
-        <h3>Address</h3>
-        <input {...register("address", { required: true })} />
-      </span>
-      <span>
-        <h3>Date Of Birth</h3>
-        <input {...register("dob", { required: true })} />
-      </span>
-
-      <span>
-        <h3>Gender</h3>
-        <input {...register("gender", { required: true })} />
-      </span>
-      <div>
-        <button type="submit">Register</button>
-
-        <Link to="/login">
-          <button type="button">Login</button>
-        </Link>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Full Name
+        </label>
+        <input
+          type="name"
+          className="form-control"
+          id="name"
+          {...register("name", { required: true })}
+        />
       </div>
+
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">
+          Email address
+        </label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          {...register("email", { required: true })}
+        />
+        <div id="emailHelp" className="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="address" className="form-label">
+          Address
+        </label>
+        <input
+          className="form-control"
+          id="address"
+          {...register("address", { required: true })}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="passowrd" className="form-label">
+          Password
+        </label>
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          {...register("password", { required: true })}
+        />
+        <FaEye onClick={showPassword} />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="confirmPassword" className="form-label">
+          Confirm Password
+        </label>
+        <input
+          type="password"
+          className="form-control"
+          id="confirmPassword"
+          required
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="dob" className="form-label">
+          Date of Birth
+        </label>
+        <input
+          type="date"
+          data-date=""
+          data-date-format="DD MMMM YYYY"
+          className="form-control"
+          id="dob"
+          {...register("dob", { required: true })}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="gender" className="form-label">
+          Gender
+        </label>
+        <div className="form-floating">
+          <select
+            className="form-select"
+            id="gender"
+            aria-label="Gender"
+            {...register("gender", { required: true })}
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit">Register</button>
+
+      <Link to="/login">
+        <button type="button">Login</button>
+      </Link>
     </form>
   );
 }
