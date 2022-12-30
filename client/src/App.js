@@ -6,8 +6,9 @@ import Navbar from "./Components/navbar/navbar";
 import Login from "./Components/login/login";
 import Register from "./Components/register/register";
 import Product from "./Components/product/product";
-
+import useFetchToken from "./shared/useFetchToken";
 function App() {
+  useFetchToken(localStorage.getItem("access_token"));
   return (
     <Router>
       <Navbar />

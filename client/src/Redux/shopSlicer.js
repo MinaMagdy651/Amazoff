@@ -19,10 +19,10 @@ const shopSlicer = createSlice({
   initialState,
   reducers: {
     setDataAction: (state, data) => {
-      state.obj.id = data.payload.customer.id;
-      state.obj.name = data.payload.customer.name;
-      state.obj.email = data.payload.customer.email;
-      state.obj.dob = data.payload.customer.dob;
+      state.obj.id = data.payload.id;
+      state.obj.name = data.payload.name;
+      state.obj.email = data.payload.email;
+      state.obj.dob = data.payload.dob;
       console.log(state.obj.name);
       state.obj.status = true;
     },

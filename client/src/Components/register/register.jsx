@@ -10,10 +10,13 @@ function Register() {
   const [data, setData] = useState();
   const { register, handleSubmit, watch } = useForm();
 
-  const onSubmit = (data) => setData(data);
+  const onSubmit = (data) => {
+    setData(data);
+  };
 
   useFetchRegister(data ? data : null);
-  useCheckEmail(watch("email"));
+  const subscription = watch("email");
+  useCheckEmail(subscription);
 
   const showPassword = () => {
     var x = document.getElementById("password");

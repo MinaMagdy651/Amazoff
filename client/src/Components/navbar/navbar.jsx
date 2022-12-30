@@ -9,7 +9,6 @@ function Navbar_() {
   const [login_status, setLogin_status] = useState(obj?.status);
 
   useEffect(() => {
-    console.log("navbar updated", obj);
     if (obj.id !== -1) {
       setLogin_status(true);
     }
