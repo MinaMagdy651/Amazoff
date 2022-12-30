@@ -4,6 +4,7 @@
 1. authenticate => /customer-login [POST]
 2. register => /customer-register [POST]
 3. check Email => /customer-check-email [POST]
+4. getUserByToken [TOKEN NEED] => /customer-token [GET]
 ## admin
 1. authenticate => /admin-login [POST]
 2. register => /admin-register [POST]
