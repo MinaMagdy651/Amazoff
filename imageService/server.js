@@ -1,15 +1,23 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
-const {getImage} = require('./middleware/image')
+const {getImages} = require('./middleware/image')
+const {postImages} = require('./middleware/image')
+
+var fileupload = require("express-fileupload");
+
+const app = express();
 const port = 3600;
 
+app.use(fileupload());
 app.use(bodyParser.json())
 
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
 
-app.get('/product/:id' , getImage , (req, res, next) => {
+app.get('/product/:id/image?' , getImages)
 
-})
+app.post('/product/:id' , postImages)
+
+
+module.exports = app
