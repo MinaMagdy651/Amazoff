@@ -6,7 +6,7 @@ function getImage (req, res, next){
     const id = req.params.id 
     const name = req.params.name
     console.log('here');
-    const file = fs.readdirSync(`${dir}/${name}`);
+    const file = fs.readdirSync(`${dir}/${id}`);
     file.forEach((image) => {
         console.log(image);
     }) 
