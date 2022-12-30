@@ -1,12 +1,12 @@
 import express from 'express'
-import customer from '../models/customer.model'
+import admin from '../models/admin.model'
 import jwt from 'jsonwebtoken'
 import registerError from '../types/error'
 
-let customerObject = new customer()
+let adminObject = new admin()
 const tokenSecret = process.env.TOKEN
 
-export default class customerHandler {
+export default class adminHandler {
     // authentication
     authenticate = async (
         req: express.Request,
@@ -14,14 +14,14 @@ export default class customerHandler {
         next: express.NextFunction
     ) => {
         try {
-            const Customer = await customerObject.authenticate(
+            const Admin = await adminObject.authenticate(
                 req.body.email,
                 req.body.password
             )
-            let token = jwt.sign(Customer, tokenSecret as string)
-            delete Customer['password']
-            let userToken = { customer: Customer, token: token }
-            res.send(userToken)
+            let token = jwt.sign(Admin, tokenSecret as string)
+            delete Admin['password']
+            let adminToken = { admin: Admin, token: token }
+            res.send(adminToken)
         } catch (err: any) {
             res.status(500).send(err.message)
         } finally {
@@ -36,7 +36,7 @@ export default class customerHandler {
         next: express.NextFunction
     ) => {
         try {
-            const newCustomer = await customerObject.create(
+            const newAdmin = await adminObject.create(
                 req.body.name,
                 req.body.email,
                 req.body.password,
@@ -44,7 +44,7 @@ export default class customerHandler {
                 req.body.gender,
                 req.body.dob
             )
-            let token = jwt.sign(newCustomer, tokenSecret as string)
+            let token = jwt.sign(newAdmin, tokenSecret as string)
             res.json(token)
         } catch (e: registerError | any) {
             res.status(404).send(e.message)
@@ -60,7 +60,7 @@ export default class customerHandler {
         next: express.NextFunction
     ) => {
         try {
-            const bool = await customerObject.checkEmail(req.body.email)
+            const bool = await adminObject.checkEmail(req.body.email)
             if (bool) res.send("This email doesn't exist")
         } catch (e: registerError | any) {
             res.status(400).send(e.message)

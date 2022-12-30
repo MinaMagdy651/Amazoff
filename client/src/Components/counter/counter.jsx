@@ -14,7 +14,7 @@ function Counter() {
   return (
     <div>
       <div>counter</div>
-      <h1>{obj.counter}</h1>
+      <h1>{obj.email}</h1>
       <button onClick={increment}>increment</button>
       <button onClick={decrement}>decrement</button>
     </div>

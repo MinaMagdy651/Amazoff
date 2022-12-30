@@ -4,6 +4,14 @@
 1. authenticate => /customer-login [POST]
 2. register => /customer-register [POST]
 3. check Email => /customer-check-email [POST]
+## admin
+1. authenticate => /admin-login [POST]
+2. register => /admin-register [POST]
+3. check Email => /admin-check-email [POST]
+## seller
+1. authenticate => /seller-login [POST]
+2. register => /seller-register [POST]
+3. check Email => /seller-check-email [POST]
 
 >* ON WORK 
 
