@@ -10,6 +10,6 @@ app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
 
-app.get('/product/:id/image?' , getImage , (req, res, next) => {
+app.get('/product/:id' , getImage , (req, res, next) => {
 
 })
