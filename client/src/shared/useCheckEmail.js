@@ -1,5 +1,5 @@
 import axios from "../APIS/axios";
-const CHECK_EMAIL = "/emailcheck";
+const CHECK_EMAIL = "/customer-check-email";
 
 const useCheckEmail = (data) => {
   if (data) {

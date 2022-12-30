@@ -5,7 +5,7 @@ function Counter() {
   const obj = useSelector((state) => state.obj.obj);
   const dispatch = useDispatch();
   const increment = () => {
-    dispatch(incrementAction());
+    dispatch(incrementAction(5));
   };
   const decrement = () => {
     dispatch(decrementAction());

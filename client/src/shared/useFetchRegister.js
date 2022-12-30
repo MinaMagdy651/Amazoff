@@ -1,5 +1,5 @@
 import axios from "../APIS/axios";
-const REGISTER_URL = "/register";
+const REGISTER_URL = "/customer-register";
 
 const useFetchRegister = (data) => {
   if (data) {
