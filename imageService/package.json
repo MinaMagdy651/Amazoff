@@ -11,6 +11,11 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "express-fileupload": "^1.4.0",
+    "fs": "^0.0.1-security",
+    "mv": "^2.1.1",
+    "path": "^0.12.7",
+    "routes": "^2.1.0",
+    "start": "^5.1.0"
   }
 }
