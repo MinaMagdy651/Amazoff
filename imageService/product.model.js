@@ -32,7 +32,7 @@ class product {
             if (!fs.existsSync(fileabs)) fs.mkdirSync(fileabs)
             const file = fs.readdirSync(fileabs)
 
-            // console.log(req);
+          
             let imagesName = []
             Object.keys(images).forEach(function (key) {
                 imagesName.push(images[key].name)
@@ -68,7 +68,7 @@ class product {
     async searchProduct(name) {
         const conn = await client.connect()
         try {
-            const query = `SELECT product_id, name from product where name like '${name}%' limit 5 offset 0;`
+            const query = `SELECT product_id, name from product where name like '%${name}%' limit 5 offset 0;`
             const productResult = await conn.query(query)
             return productResult.rows
         } catch (err) {
