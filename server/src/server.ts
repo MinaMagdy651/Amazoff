@@ -10,7 +10,7 @@ const app = express()
 const port = 3500
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(cors())
 // We set the CORS origin to * so that we don't need to

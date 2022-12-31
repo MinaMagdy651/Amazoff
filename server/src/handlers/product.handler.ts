@@ -4,9 +4,7 @@ import product from '../models/product.model'
 import { fileType } from '../types/file'
 
 const productObject = new product()
-let id = -1;
-
-
+let id = -1
 
 export class productHandler {
     create = async (
@@ -17,8 +15,8 @@ export class productHandler {
         try {
             // const obj = JSON.parse(JSON.stringify(req)) // req.body = [Object: null prototype] { title: 'product' }
             // console.log(obj)
-            let file = req.file;
-            let path = file?.path;
+            // let file = req.file
+            // let path = file?.path
             const newProduct = await productObject.create(
                 req.body.name,
                 req.body.category,
