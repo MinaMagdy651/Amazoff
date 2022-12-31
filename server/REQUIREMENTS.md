@@ -13,6 +13,11 @@
 1. authenticate => /seller-login [POST]
 2. register => /seller-register [POST]
 3. check Email => /seller-check-email [POST]
+## products
+1. search for products => /product?name= [get]
+2. create product => /product [POST]
+3. for product Images => /product/:id/image?name= [get]
+
 
 >* ON WORK 
 

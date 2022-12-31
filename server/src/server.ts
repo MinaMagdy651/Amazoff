@@ -4,11 +4,13 @@ import cors from 'cors'
 import customerRoute from './routes/customer.routes'
 import adminRoute from './routes/admin.routes'
 import sellerRoute from './routes/seller.routes'
+import productRoute from './routes/product.routes'
 
 const app = express()
 const port = 3500
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(cors())
 // We set the CORS origin to * so that we don't need to
@@ -40,9 +42,9 @@ app.get('/', (_req, res) => res.json('Home Page..'))
 
 // apis for all users
 customerRoute(app)
-
 adminRoute(app)
-
 sellerRoute(app)
+// apis for product
+productRoute(app)
 
 export default app

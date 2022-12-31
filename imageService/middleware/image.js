@@ -24,18 +24,22 @@ const getImages = (req, res, next) => {
 }
 
 const postImages = (req, res, next) => {
-    const id = req.params.id 
-    const fileabs = resolve(`${dir}/${id}`);
-    if(!fs.existsSync(fileabs))
-        fs.mkdirSync(fileabs)
-    const file = fs.readdirSync(fileabs)
-    const images = req.files
-   
-    Object.keys(images).forEach(function(key) {
-        const path = resolve(`${dir}/${id}/${images[key].name}`);
-        images[key].mv(path, images[key].name, function(err){})
-    })
-    
+    try{
+        const id = req.params.id 
+        const fileabs = resolve(`${dir}/${id}`);
+        if(!fs.existsSync(fileabs))
+            fs.mkdirSync(fileabs)
+        const file = fs.readdirSync(fileabs)
+        const images = req.files
+        console.log(req);
+        Object.keys(images).forEach(function(key) {
+            const path = resolve(`${dir}/${id}/${images[key].name}`);
+            images[key].mv(path, images[key].name, function(err){})
+        })
+    }catch(err){
+        res.status(500).send('Can not post these images');
+    }
+    res.status(200).send('Images uploaded successfully')
 }
 
 

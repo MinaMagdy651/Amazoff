@@ -4,17 +4,21 @@
   "description": "Server for storing images",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier" : "prettier --config .prettierrc --write ./*.js"
   },
   "author": "Aly",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "fs": "^0.0.1-security",
     "mv": "^2.1.1",
     "path": "^0.12.7",
+    "pg": "^8.8.0",
+    "prettier": "^2.8.1",
     "routes": "^2.1.0",
     "start": "^5.1.0"
   }
