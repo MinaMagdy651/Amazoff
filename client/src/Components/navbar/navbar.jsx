@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { clearDataAction } from "../../Redux/shopSlicer";
+import SearchBar from "../searchBar/searchBar";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
@@ -63,6 +64,9 @@ function Navbar_() {
                   Counter
                 </Link>
               </li>
+
+              <SearchBar></SearchBar>
+
               {!login_status && (
                 <li className="nav-item">
                   <button>
