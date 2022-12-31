@@ -5,7 +5,7 @@ const useCheckEmail = (data) => {
   if (data) {
     axios
       .post(CHECK_EMAIL, {
-        data,
+        email: data,
       })
       .then((response) => {
         console.log("response", response.data);

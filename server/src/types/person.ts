@@ -6,4 +6,5 @@ export default interface person {
     address: string
     gender: string
     dob: Date
+    token?: string
 }

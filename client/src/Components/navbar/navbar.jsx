@@ -1,8 +1,28 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { clearDataAction } from "../../Redux/shopSlicer";
+import SearchBar from "../searchBar/searchBar";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
 function Navbar_() {
+  const obj = useSelector((state) => state.obj.obj);
+  const [login_status, setLogin_status] = useState(obj?.status);
+
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(clearDataAction());
+    localStorage.removeItem("access_token");
+  };
+
+  useEffect(() => {
+    if (obj.status) {
+      setLogin_status(true);
+    } else {
+      setLogin_status(false);
+    }
+  }, [obj]);
   return (
     <div id="header" className="sticky-top">
       <nav
@@ -45,31 +65,44 @@ function Navbar_() {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link
-                  to="/login"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Login
-                </Link>
-              </li>
+              <SearchBar></SearchBar>
 
+              {!login_status && (
+                <li className="nav-item">
+                  <button>
+                    <Link
+                      to="/login"
+                      className="nav-link active"
+                      aria-current="page"
+                    >
+                      Login
+                    </Link>
+                  </button>
+                </li>
+              )}
               <li className="nav-item">
-                <Link
-                  to="/register"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Register
-                </Link>
+                <button>
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </Link>
+                </button>
+              </li>
+              <li className="nav-item">
+                <button>
+                  <Link
+                    to="/register"
+                    className="nav-link active"
+                    aria-current="page"
+                  >
+                    Register
+                  </Link>
+                </button>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

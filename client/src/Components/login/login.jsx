@@ -13,20 +13,34 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <span>
-        <h3>Email</h3>
-        <input {...register("email", { required: true })} />
-      </span>
-      <span>
-        <h3>Password</h3>
-        <input type="password" {...register("password", { required: true })} />
-      </span>
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          id="email"
+          className="form-control"
+          {...register("email", { required: true })}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="paswword" className="form-label">
+          Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          className="form-control"
+          {...register("password", { required: true })}
+        />
+      </div>
       <div>
         <button type="submit">Login</button>
 
-        <Link to="/register">
-          <button type="button">Register</button>
-        </Link>
+        <div>
+          Don't have an account? <Link to="/register">Register</Link>
+        </div>
       </div>
     </form>
   );
