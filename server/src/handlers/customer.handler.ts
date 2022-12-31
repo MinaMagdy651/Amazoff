@@ -20,8 +20,8 @@ export default class customerHandler {
             )
             let token = jwt.sign(Customer, tokenSecret as string)
             delete Customer['password']
-            let userToken = { customer: Customer, token: token }
-            res.send(userToken)
+            Customer['token'] = token
+            res.send(Customer)
         } catch (err: any) {
             res.status(500).send(err.message)
         } finally {

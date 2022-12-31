@@ -4,6 +4,7 @@
 1. authenticate => /customer-login [POST]
 2. register => /customer-register [POST]
 3. check Email => /customer-check-email [POST]
+4. getUserByToken [TOKEN NEED] => /customer-token [GET]
 ## admin
 1. authenticate => /admin-login [POST]
 2. register => /admin-register [POST]
@@ -12,6 +13,11 @@
 1. authenticate => /seller-login [POST]
 2. register => /seller-register [POST]
 3. check Email => /seller-check-email [POST]
+## products
+1. search for products => /product?name= [get]
+2. create product => /product [POST]
+3. for product Images => /product/:id/image?name= [get]
+S
 
 >* ON WORK 
 
