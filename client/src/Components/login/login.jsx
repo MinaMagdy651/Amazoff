@@ -38,9 +38,9 @@ function Login() {
       <div>
         <button type="submit">Login</button>
 
-        <Link to="/register">
-          <button type="button">Register</button>
-        </Link>
+        <div>
+          Don't have an account? <Link to="/register">Register</Link>
+        </div>
       </div>
     </form>
   );
