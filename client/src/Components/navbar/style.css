@@ -1,5 +1,8 @@
-.search-bar {
-  height: 30% !important;
-  width: 50% !important;
-  background-color: rebeccapurple;
+#header {
+  height: 30%;
+  width: 100%;
+}
+#mynav {
+  height: 100%;
+  width: 100%;
 }
