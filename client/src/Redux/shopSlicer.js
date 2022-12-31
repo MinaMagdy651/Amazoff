@@ -26,8 +26,8 @@ const shopSlicer = createSlice({
     incrementAction: (state, data) => {
       state.obj.counter += data.payload;
     },
-    decrementAction: (state) => {
-      state.obj.counter--;
+    decrementAction: (state, data) => {
+      state.obj.counter -= data.payload;
     },
   },
 });
