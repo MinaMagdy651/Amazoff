@@ -2,20 +2,14 @@ import axios from "../APIS/axios";
 const PRODUCT_SEARCH = "/product?name=";
 
 const useSearchProduct = (data) => {
-  console.log(data);
-  var searchSuggestions = [];
-  if (data) {
-    axios
-      .get(PRODUCT_SEARCH + data)
-      .then((response) => {
-        console.log(response);
-        searchSuggestions = response;
-      })
+  if (data !== "") {
+    return axios
+      .get(PRODUCT_SEARCH + data.toLowerCase())
+      .then((response) => response.data)
       .catch((error) => {
         console.log(error);
       });
   }
-  return searchSuggestions;
 };
 
 export default useSearchProduct;
