@@ -1,11 +1,18 @@
 import express from 'express'
-import { productHandler } from '../handlers/product.handler'
-// import {upload} from '../handlers/product.handler'
+import axios from 'axios'
 
-const productHandle = new productHandler()
-
+const url = `http://localhost:3600`
 const productRoute = (app: express.Application) => {
-    app.post('/product', productHandle.create)
+    app.get('/product?', getProducts)
+}
+function getProducts(req: express.Request, res: express.Response) {
+    axios
+        .request({
+            method: 'GET',
+            url: `${url}/product?name=${req.query.name}`,
+        })
+        .then((response) => res.send(response.data))
+        .catch((err) => res.status(404).send('can not get products'))
 }
 
 export default productRoute

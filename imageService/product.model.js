@@ -70,7 +70,6 @@ class product {
         try {
             const query = `SELECT product_id, name from product where name like '${name}%' limit 5 offset 0;`
             const productResult = await conn.query(query)
-            if (productResult.rows.length == 0) throw new Error()
             return productResult.rows
         } catch (err) {
             throw new Error('No products found')

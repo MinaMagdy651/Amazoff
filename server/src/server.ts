@@ -44,6 +44,7 @@ app.get('/', (_req, res) => res.json('Home Page..'))
 customerRoute(app)
 adminRoute(app)
 sellerRoute(app)
+
 // apis for product
 productRoute(app)
 

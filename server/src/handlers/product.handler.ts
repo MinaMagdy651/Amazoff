@@ -15,8 +15,8 @@ export class productHandler {
         try {
             // const obj = JSON.parse(JSON.stringify(req)) // req.body = [Object: null prototype] { title: 'product' }
             // console.log(obj)
-            // let file = req.file
-            // let path = file?.path
+            let file = req.file
+            let path = file?.path
             const newProduct = await productObject.create(
                 req.body.name,
                 req.body.category,
