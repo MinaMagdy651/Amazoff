@@ -38,11 +38,11 @@ app.listen(port, () => {
 
 app.get('/', (_req, res) => res.json('Home Page..'))
 
-// apis for customers
+// apis for all users
 customerRoute(app)
-// for admin
+
 adminRoute(app)
-// for seller
+
 sellerRoute(app)
 
 export default app
