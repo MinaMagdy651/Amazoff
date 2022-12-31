@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { clearDataAction } from "../../Redux/shopSlicer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
-import { useEffect, useState } from "react";
 
 function Navbar_() {
   const obj = useSelector((state) => state.obj.obj);
   const [login_status, setLogin_status] = useState(obj?.status);
 
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(clearDataAction());
+    localStorage.removeItem("access_token");
+  };
+
   useEffect(() => {
-    if (obj.id !== -1) {
+    if (obj.status) {
       setLogin_status(true);
+    } else {
+      setLogin_status(false);
     }
   }, [obj]);
   return (
@@ -67,6 +76,17 @@ function Navbar_() {
                   </button>
                 </li>
               )}
+              <li className="nav-item">
+                <button>
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </Link>
+                </button>
+              </li>
             </ul>
           </div>
         </div>
