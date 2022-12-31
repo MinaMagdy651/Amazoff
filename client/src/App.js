@@ -7,6 +7,7 @@ import Login from "./Components/login/login";
 import Register from "./Components/register/register";
 import Product from "./Components/product/product";
 import useFetchToken from "./shared/useFetchToken";
+import Footer from "./Components/footer/footer";
 function App() {
   useFetchToken(localStorage.getItem("access_token"));
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<Product />} />
       </Routes>
+      <Footer></Footer>
     </Router>
   );
 }
