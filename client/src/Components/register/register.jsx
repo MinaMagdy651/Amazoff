@@ -126,9 +126,9 @@ function Register() {
 
       <button type="submit">Register</button>
 
-      <Link to="/login">
-        <button type="button">Login</button>
-      </Link>
+      <div>
+        Already have an account? <Link to="/login">Login</Link>
+      </div>
     </form>
   );
 }

@@ -87,6 +87,17 @@ function Navbar_() {
                   </Link>
                 </button>
               </li>
+              <li className="nav-item">
+                <button>
+                  <Link
+                    to="/register"
+                    className="nav-link active"
+                    aria-current="page"
+                  >
+                    Register
+                  </Link>
+                </button>
+              </li>
             </ul>
           </div>
         </div>
