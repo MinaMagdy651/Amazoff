@@ -9,7 +9,6 @@ import Product from "./Components/product/product";
 import useFetchToken from "./shared/useFetchToken";
 // import Footer from "./Components/footer/footer";
 function App() {
-  console.log(localStorage.getItem("access_token"));
   sessionStorage.setItem("access_token", localStorage.getItem("access_token"));
   useFetchToken(sessionStorage.getItem("access_token"));
   return (
