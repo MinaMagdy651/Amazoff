@@ -1,31 +1,33 @@
 .card-image {
-    /*height: 70%;
+  /*height: 70%;
     width: 100%;*/
-    height: 300px;
-    width: 300px;
+  height: 300px;
+  width: 300px;
 }
 
 .card-body {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .card-title {
-    font-family: "Rubik", sans-serif;
-    font-size: medium;
-    font-weight: bold;
-    margin-top: -5%;
+  font-family: "Rubik", sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  margin-top: -5%;
 }
 
 .container-price {
-    display: flex;
+  display: flex;
 }
 
 .card-text {
-    margin-top: 0%;
-
+  margin-top: 0%;
 }
 
 .card-button {
-    margin-left: auto;
+  margin-left: auto;
+}
+.card:hover {
+  cursor: pointer;
 }
