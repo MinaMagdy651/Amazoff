@@ -20,7 +20,10 @@ const useFetchLogin = (data) => {
           password: data.password,
         })
         .then((response) => {
-          localStorage.setItem("access_token", response.data.token);
+          if (data.remember_me) {
+            localStorage.setItem("access_token", response.data.token);
+            sessionStorage.setItem("access_token", response.data.token);
+          } else sessionStorage.setItem("access_token", response.data.token);
           setData(response.data);
           navigate("/home");
         })

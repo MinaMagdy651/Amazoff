@@ -40,7 +40,11 @@ function Login() {
         </div>
         <div className="remember-me-container">
           <label className="remember-me-label" htmlFor="">
-            <input className="remember-me-checkbox" type="checkbox" />
+            <input
+              className="remember-me-checkbox"
+              type="checkbox"
+              {...register("remember_me")}
+            />
             Remember me
           </label>
         </div>
