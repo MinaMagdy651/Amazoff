@@ -14,13 +14,14 @@ function App() {
   return (
     <Router>
       <Navbar />
-
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/search_query/:name" element={<Product></Product>}></Route>
       </Routes>
       {/* <Footer></Footer> */}
     </Router>
