@@ -22,6 +22,8 @@ app.post('/product', productHandle.create)
 
 app.get('/product?', productHandle.searchProduct)
 
+app.get('/products', productHandle.getAllProducts)
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })

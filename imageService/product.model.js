@@ -7,11 +7,11 @@ const url = 'http://localhost:3600/product/'
 
 class product {
     // to create procduct
-    async create(name, category, quantity, images) {
+    async create(name, category, quantity,price ,images) {
         const conn = await client.connect()
         try {
-            // console.log(images)
-            const query = `INSERT INTO product (name, category, quantity) VALUES ('${name}', '${category}', ${quantity}) RETURNING *`
+            // console.log(name +' ' + category + ' ' + quantity)
+            const query = `INSERT INTO product (name, category, quantity, price) VALUES ('${name}', '${category}', ${quantity}, ${price}) RETURNING *`
             const newProduct = await conn.query(query)
             if (newProduct.rows.length) {
                 this.postImages(newProduct.rows[0], images)
@@ -32,7 +32,6 @@ class product {
             if (!fs.existsSync(fileabs)) fs.mkdirSync(fileabs)
             const file = fs.readdirSync(fileabs)
 
-          
             let imagesName = []
             Object.keys(images).forEach(function (key) {
                 imagesName.push(images[key].name)
@@ -76,6 +75,34 @@ class product {
         } finally {
             conn.release()
         }
+    }
+
+    //get All products
+    async getAllProducts() {
+        const conn = await client.connect()
+        try {
+            const query = `SELECT p.product_id, p.name, p.price ,p.rating, pi.url FROM product AS p, product_images AS pi WHERE p.product_id = pi.product_id ORDER BY p.product_id;`
+            const allProducts = await conn.query(query)
+            if (allProducts.rows.length == 0) throw new Error()
+            const products_1Image = this.filtering(allProducts.rows)
+            return products_1Image
+        } catch (err) {
+            throw new Error('No products found')
+        } finally {
+            conn.release()
+        }
+    }
+
+    filtering(allProducts) {
+        var stack = []
+        allProducts.forEach((product) => {
+            if (
+                stack.length == 0 ||
+                stack[stack.length - 1].product_id != product.product_id
+            )
+                stack.push(product)
+        })
+        return stack
     }
 }
 

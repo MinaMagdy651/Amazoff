@@ -17,7 +17,7 @@
 1. search for products => /product?name= [get]
 2. create product => /product [POST]
 3. for product Images => /product/:id/image?name= [get]
-S
+4. get All products => /products [GET]
 
 >* ON WORK 
 

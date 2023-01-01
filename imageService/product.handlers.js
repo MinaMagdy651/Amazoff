@@ -12,6 +12,7 @@ class productHandler {
                 req.body.name,
                 req.body.category,
                 Number(req.body.quantity),
+                Number(req.body.price),
                 req.files
             )
 
@@ -30,6 +31,17 @@ class productHandler {
                 req.query.name
             )
             res.send(productResults)
+        } catch (err) {
+            res.status(404).send(err.message)
+        } finally {
+            next()
+        }
+    }
+    // get All products
+    getAllProducts = async (req, res, next) => {
+        try {
+            const products = await porductObject.getAllProducts()
+            res.send(products)
         } catch (err) {
             res.status(404).send(err.message)
         } finally {

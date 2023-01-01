@@ -5,6 +5,7 @@ CREATE TABLE product (
     Name VARCHAR(30) NOT NULL,
     Category VARCHAR(30) NOT NULL,
     Quantity INTEGER NOT NULL,
+    price float default 0,
     Rating float default 0.0, 
     PRIMARY KEY (product_id)
 );
