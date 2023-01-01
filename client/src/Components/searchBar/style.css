@@ -1,26 +1,17 @@
-
-#parent{
-   position: relative;  
-   overflow: inherit;
-   margin: px 50px 0px 0px;
-   width: 80%;
-  /*left: 25%;*/
-  /* margin: 10px auto;  */
+#parent {
+  position: relative;
+  overflow: inherit;
+  margin: px 50px 0px 0px;
+  width: 100%;
+  margin-right: 20px;
 }
 
-#child{
-  /* position: absolute; */
-  /* width: 200%; */
+#child {
   border-radius: 5px;
   bottom: 0px;
   top: 73%;
- 
-  /* display: block; */
-  /* z-index: 5; */
 }
 #child > * {
-  /* padding: 10px;
-  margin: 5px;   */
   background-color: #eee;
   position: absolute;
   display: block;

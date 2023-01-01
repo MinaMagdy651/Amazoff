@@ -25,87 +25,96 @@ function Navbar_() {
   }, [obj]);
   return (
     <div id="header" className="sticky-top">
-      <nav
-        className="navbar navbar-expand-lg bg-body-tertiary"
-        data-bs-theme="dark"
-      >
-        <div className="container-fluid">
-          <Link to="/home" className="navbar-brand">
-            Amazoff
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  to="/home"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/counter"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Counter
-                </Link>
-              </li>
-              
-              <SearchBar></SearchBar>
-            
-              {!login_status && (
-                <li className="nav-item">
-                  <button className = "button">
-                    <Link
-                      to="/login"
-                      className="nav-link active"
-                      aria-current="page"
-                    >
-                      Login
-                    </Link>
-                  </button>
+      <div className="container">
+        <nav
+          className="navbar navbar-expand-lg bg-body-tertiary"
+          data-bs-theme="dark"
+        >
+          <div className="container-fluid">
+            <Link to="/home" className="navbar-brand">
+              <h3 id="brand">Amazoff</h3>
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li className="nav-item d-flex justify-content-center">
+                  <Link
+                    to="/home"
+                    className="nav-link active name redirect"
+                    aria-current="page"
+                  >
+                    Home
+                  </Link>
                 </li>
-              )}
-              <li className="nav-item">
-                <button className = "button">
+                <li className="nav-item d-flex justify-content-center">
                   <Link
-                    className="nav-link active"
-                    aria-current="page"
-                    onClick={logOut}
-                  >
-                    Log Out
-                  </Link>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className = "button">
-                  <Link
-                    to="/register"
-                    className="nav-link active"
+                    to="/counter"
+                    className="nav-link active name redirect"
                     aria-current="page"
                   >
-                    Register
+                    Counter
                   </Link>
-                </button>
-              </li>
-            </ul>
+                </li>
+
+                <SearchBar></SearchBar>
+                {!login_status && (
+                  <li className="nav-item d-flex flex-row">
+                    <button className="button">
+                      <Link
+                        to="/login"
+                        className="nav-link active"
+                        aria-current="page"
+                      >
+                        Login
+                      </Link>
+                    </button>
+                    <button className="button">
+                      <Link
+                        to="/register"
+                        className="nav-link active"
+                        aria-current="page"
+                      >
+                        Register
+                      </Link>
+                    </button>
+                  </li>
+                )}
+                {login_status && (
+                  <li className="nav-item d-flex flex-row name">
+                    Hello, <strong>{obj.name.split(" ")[0]}</strong>
+                  </li>
+                )}
+                {login_status && (
+                  <li>
+                    <button id="logout" className="button">
+                      <Link
+                        className="nav-link active"
+                        aria-current="page"
+                        onClick={logOut}
+                      >
+                        Log Out
+                      </Link>
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
   );
 }

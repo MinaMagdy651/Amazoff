@@ -23,7 +23,7 @@ function SearchBar() {
 
   const p = useSearchProduct(query);
   return (
-    <div id="parent" className="col-md-6">
+    <div id="parent" className="col-md-6 col-lg-12">
       <div className="form">
         <i className="fa fa-search"></i>
         <input
