@@ -8,7 +8,7 @@ function Counter() {
     dispatch(incrementAction(5));
   };
   const decrement = () => {
-    dispatch(decrementAction());
+    dispatch(decrementAction(5));
   };
 
   return (

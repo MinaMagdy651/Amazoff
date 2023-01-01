@@ -1,6 +1,55 @@
-form {
-  /* background-color: red; */
+.login-form {
+  font-family: "Rubik", sans-serif;
+  display: grid;
+  justify-content: center;
+  width: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 15%;
 }
-button {
-  background-color: wheat;
+
+.login-form .container {
+  width: 300px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.login-form .container .login-logo {
+  width: 100%;
+  padding-top: 30px;
+}
+
+.login-form .container .login-logo .amazoff-logo {
+  width: 100%;
+}
+
+.login-form .text-input {
+  width: 100%;
+}
+
+.login-form .remember-me-container .remember-me-checkbox {
+  vertical-align: middle;
+}
+
+.login-form .remember-me-container .remember-me-label {
+  font-family: "Rubik", sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  padding-right: 10px;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.login-button-container .login-button {
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+  height: 40px;
+  background-color: #098666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-form .login-button-container {
+  padding-bottom: 20px;
 }

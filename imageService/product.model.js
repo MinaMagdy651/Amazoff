@@ -36,7 +36,7 @@ class product {
             Object.keys(images).forEach(function (key) {
                 imagesName.push(images[key].name)
                 const path = resolve(`${dir}/${id}/${images[key].name}`)
-                images[key].mv(path, images[key].name, function (err) {})
+                images[key].mv(path, images[key].name, function (err) { })
             })
             //  insert URL into database
             await this.addUrl(imagesName, id)

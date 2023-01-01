@@ -7,7 +7,7 @@ class productHandler {
     // create porduct
     create = async (req, res, next) => {
         try {
-            // console.log(req.files);
+            console.log(req.body.quantity);
             const newProduct = await porductObject.create(
                 req.body.name,
                 req.body.category,
