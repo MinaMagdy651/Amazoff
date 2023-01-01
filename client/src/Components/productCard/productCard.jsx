@@ -4,7 +4,7 @@ function ProductCard(probs) {
   return (
     <Card
       style={{ width: "18rem" }}
-      className="bg-success  col-sm-6 col-md-4 col-lg-3 m-3"
+      className="bg-success  col-sm-6 col-md-2 col-lg-3 m-3"
     >
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
