@@ -24,8 +24,10 @@ const useFetchRegister = (data) => {
           gender: data.gender,
         })
         .then((response) => {
-          console.log("response", response.data);
-          localStorage.setItem("access_token", response.data);
+          if (data.remember_me) {
+            localStorage.setItem("access_token", response.data.token);
+            sessionStorage.setItem("access_token", response.data.token);
+          } else sessionStorage.setItem("access_token", response.data.token);
           setData(data);
           navigate("/home");
         })

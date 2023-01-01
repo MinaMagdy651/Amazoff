@@ -11,7 +11,7 @@ const useFetchToken = (data) => {
   const setData = (data) => {
     dispatch(setDataAction(data));
   };
-  if (data) {
+  if (data !== "null") {
     axios
       .get(TOKEN_CHECK)
       .then((response) => {

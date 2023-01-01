@@ -1,11 +1,19 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import useFetchLogin from "../../shared/useFetchLogin";
-import "./style.css";
 import logo from "../../Assets/amazoff-logo.jpeg";
+import "./style.css";
 
 function Login() {
+  const obj = useSelector((state) => state.obj.obj);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (obj.status) {
+      navigate("/home");
+    }
+  });
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
@@ -40,7 +48,11 @@ function Login() {
         </div>
         <div className="remember-me-container">
           <label className="remember-me-label" htmlFor="">
-            <input className="remember-me-checkbox" type="checkbox" />
+            <input
+              className="remember-me-checkbox"
+              type="checkbox"
+              {...register("remember_me")}
+            />
             Remember me
           </label>
         </div>

@@ -1,19 +1,26 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from "react-router-dom";
+import "./style.css";
+
 function ProductCard(probs) {
+  const navigate = useNavigate();
   return (
     <Card
       style={{ width: "18rem" }}
-      className="bg-success  col-sm-6 col-md-2 col-lg-3 m-3"
+      className="col-sm-6 col-md-2 col-lg-3 m-3 card"
+      onClick={() => navigate(`/product/${probs.product.product_id}`)}
     >
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+      <Card.Img className="card-image" variant="top" src={probs.product.url} />
+      <Card.Body className="card-body">
+        <Card.Title className="card-title">{probs.product.name}</Card.Title>
+        <div className="container-price">
+          <Card.Text className="card-text">
+            {probs.product.rating}
+            {probs.product.price}
+          </Card.Text>
+          <Button className="card-button" variant="primary">Add to cart</Button>
+        </div>
       </Card.Body>
     </Card>
   );

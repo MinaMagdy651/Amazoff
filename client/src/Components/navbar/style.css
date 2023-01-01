@@ -1,22 +1,50 @@
 #header {
-  height: 30%;
-  width: 100%;
+  background-color: #2b3035;
 }
+.name {
+  display: inherit;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+#brand {
+  margin-right: 60px;
+}
+
 #mynav {
   height: 100%;
   width: 100%;
 }
-.button{
+.button {
   background-color: #343a40;
   color: white;
   border: 0px;
   width: 100px;
   margin: 5px 10px;
   border-radius: 5px;
+  transition: 0.5s;
+  font-weight: 500;
 }
-/* #rest_container{
-  display: flex;
-  flex-wrap: nowrap;
-  
-} */
+@media screen and (min-width: 1200px) {
+  .searchBar-listItem {
+    width: 500px;
+  }
+}
+.button:hover {
+  background-color: #098666;
+}
+#logout:hover {
+  background-color: red;
+}
 
+.redirect {
+  font-weight: 500;
+  margin-right: 2px;
+}
+#brand {
+  transition: 0.5s;
+}
+
+#brand:hover {
+  color: rgb(237, 173, 55);
+}
