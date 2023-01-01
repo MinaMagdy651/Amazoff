@@ -2,13 +2,10 @@ import axios from "../APIS/axios";
 const PRODUCT = "/product/";
 
 const useGetProduct = (id) => {
-  console.log(id);
   if (id) {
-    axios
+    return axios
       .get(PRODUCT + id)
-      .then((response) => {
-        console.log(response);
-      })
+      .then((response) => response.data)
       .catch((error) => {
         console.log(error);
       });

@@ -9,9 +9,13 @@ function ProductCard(probs) {
     <Card
       style={{ width: "18rem" }}
       className="col-sm-6 col-md-2 col-lg-3 m-3 card"
-      onClick={() => navigate(`/product/${probs.product.product_id}`)}
     >
-      <Card.Img className="card-image" variant="top" src={probs.product.url} />
+      <Card.Img
+        className="card-image"
+        variant="top"
+        src={probs.product.url}
+        onClick={() => navigate(`/product/${probs.product.product_id}`)}
+      />
       <Card.Body className="card-body">
         <Card.Title className="card-title">{probs.product.name}</Card.Title>
         <div className="container-price">
@@ -19,7 +23,9 @@ function ProductCard(probs) {
             {probs.product.rating}
             {probs.product.price}
           </Card.Text>
-          <Button className="card-button" variant="primary">Add to cart</Button>
+          <Button className="card-button" variant="primary">
+            Add to cart
+          </Button>
         </div>
       </Card.Body>
     </Card>
