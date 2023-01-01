@@ -24,6 +24,10 @@ app.get('/product?', productHandle.searchProduct)
 
 app.get('/products', productHandle.getAllProducts)
 
+app.get('/product/search?', productHandle.cardSearchProduct)
+
+app.get('/product/:id', productHandle.getProduct)
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })

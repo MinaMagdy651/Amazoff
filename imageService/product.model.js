@@ -7,10 +7,11 @@ const url = 'http://localhost:3600/product/'
 
 class product {
     // to create procduct
-    async create(name, category, quantity,price ,images) {
+    async create(name, category, quantity, price, images) {
         const conn = await client.connect()
         try {
-            // console.log(name +' ' + category + ' ' + quantity)
+            // // console.log(name +' ' + category + ' ' + quantity)
+            // console.log(images);
             const query = `INSERT INTO product (name, category, quantity, price) VALUES ('${name}', '${category}', ${quantity}, ${price}) RETURNING *`
             const newProduct = await conn.query(query)
             if (newProduct.rows.length) {
@@ -36,7 +37,7 @@ class product {
             Object.keys(images).forEach(function (key) {
                 imagesName.push(images[key].name)
                 const path = resolve(`${dir}/${id}/${images[key].name}`)
-                images[key].mv(path, images[key].name, function (err) { })
+                images[key].mv(path, images[key].name, function (err) {})
             })
             //  insert URL into database
             await this.addUrl(imagesName, id)
@@ -63,6 +64,73 @@ class product {
         }
     }
 
+    // products cards results from search
+    async cardSearchProduct(name) {
+        const conn = await client.connect()
+        try {
+            const query = `select p.product_id, p.name, p.quantity, p.price, pi.url from product p, product_images pi where p.product_id = pi.product_id and p.name like '${name}%' order by product_id;`
+            const productResult = await conn.query(query)
+            if (productResult.rows.length == 0) throw new Error()
+            const products_1Image = this.filtering(productResult.rows)
+            return products_1Image
+        } catch (err) {
+            throw new Error('No products found')
+        } finally {
+            conn.release()
+        }
+    }
+    // get all product details by id
+    async getProduct(id) {
+        const conn = await client.connect()
+        try {
+            const query = `select p.product_id, p.name, p.category, p.quantity, p.price,p.rating as product_rating, r.customer_id, c.name as customer_name,r.review_id ,re.title, re.description, re.rating  from product p left join reviews r on p.product_id = r.product_id left join  review re on r.review_id = re.review_id left join customers c on r.customer_id = c.id where p.product_id = ${id};`
+            const productResult = await conn.query(query)
+            const query2 = `select url from product_images where product_id = ${id};`
+            const urls = await conn.query(query2)
+            // product details
+            // get reviews
+            const reviews = this.getReview(productResult.rows)
+            // console.log(reviews.customer_id + ' ' + typeof reviews.customer_id)
+            // get urls
+            // console.log(reviews[0].customer_id === null)  
+            const url = this.getUrl(urls.rows)
+            const product = {
+                product_id: productResult.rows[0].product_id,
+                name: productResult.rows[0].name,
+                category: productResult.rows[0].category,
+                quantity: productResult.rows[0].quantity,
+                price: productResult.rows[0].price,
+                rating: productResult.rows[0].product_rating,
+                reviews: reviews[0].customer_id == null? null : reviews,
+                urls: url,
+            }
+            return product
+        } catch (err) {
+            // console.log(err.message)
+            throw new Error('No product found')
+        } finally {
+            conn.release()
+        }
+    }
+    getUrl(urls) {
+        const path = []
+        urls.forEach((url) => path.push(url.url))
+        return path
+    }
+    getReview(reviews) {
+        const getReview = []
+        for (let i = 0; i < reviews.length; i++) {
+            getReview.push({
+                customer_id: reviews[i].customer_id,
+                customer_name: reviews[i].customer_name,
+                review_id: reviews[i].review_id,
+                title: reviews[i].title,
+                description: reviews[i].description,
+                rating: reviews[i].rating,
+            })
+        }
+        return getReview
+    }
     //search for product
     async searchProduct(name) {
         const conn = await client.connect()
