@@ -1,6 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
+import { FaShoppingCart } from "react-icons/fa";
 import "./style.css";
 
 function ProductCard(probs) {
@@ -20,11 +22,20 @@ function ProductCard(probs) {
         <Card.Title className="card-title">{probs.product.name}</Card.Title>
         <div className="container-price">
           <Card.Text className="card-text">
-            {probs.product.rating}
-            {probs.product.price}
+            <div>
+              <Rating
+                size={20}
+                initialValue={probs.product.rating}
+                transition
+                allowFraction
+                readonly
+              />
+            </div>
+            <div>{probs.product.price + " EGP"}</div>
           </Card.Text>
           <Button className="card-button" variant="primary">
             Add to cart
+            <FaShoppingCart></FaShoppingCart>
           </Button>
         </div>
       </Card.Body>

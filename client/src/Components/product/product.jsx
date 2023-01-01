@@ -30,6 +30,7 @@ function Product(probs) {
       rating: 3.5,
     },
   ];
+
   const [product, setProduct] = useState({});
   const id = useParams().id;
   const p = useGetProduct(id);
