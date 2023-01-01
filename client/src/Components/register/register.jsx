@@ -29,111 +29,111 @@ function Register() {
 
   return (
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="register-container">
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Full Name
-          </label>
-          <input
-            type="name"
-            className="form-control"
-            id="name"
-            {...register("name", { required: true })}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            {...register("email", { required: true })}
-          />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
+      <div className="register-container container">
+        <div className="row">
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Full Name
+            </label>
+            <input
+              type="name"
+              className="form-control"
+              id="name"
+              {...register("name", { required: true })}
+            />
           </div>
-        </div>
 
-        <div className="mb-3">
-          <label htmlFor="address" className="form-label">
-            Address
-          </label>
-          <input
-            className="form-control"
-            id="address"
-            {...register("address", { required: true })}
-          />
-        </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              {...register("email", { required: true })}
+            />
+            <div id="emailHelp" className="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
 
-        <div className="mb-3">
-          <label htmlFor="passowrd" className="form-label">
-            Password
-          </label>
-          <div className="password-container">
+          <div className="mb-3">
+            <label htmlFor="address" className="form-label">
+              Address
+            </label>
+            <input
+              className="form-control"
+              id="address"
+              {...register("address", { required: true })}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="passowrd" className="form-label">
+              Password
+            </label>
+            <div className="password-container">
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                {...register("password", { required: true })}
+              />
+              <FaEye className="eye-icon" onClick={showPassword} />
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="confirmPassword" className="form-label">
+              Confirm Password
+            </label>
             <input
               type="password"
               className="form-control"
-              id="password"
-              {...register("password", { required: true })}
+              id="confirmPassword"
+              required
             />
-            <FaEye className="eye-icon" onClick={showPassword} />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="dob" className="form-label">
+              Date of Birth
+            </label>
+            <input
+              type="date"
+              data-date=""
+              data-date-format="DD MMMM YYYY"
+              className="form-control"
+              id="dob"
+              {...register("dob", { required: true })}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="gender" className="form-label">
+              Gender
+            </label>
+            <div className="form-floating">
+              <select
+                className="form-select gender-selection-field"
+                id="gender"
+                aria-label="Gender"
+                {...register("gender", { required: true })}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="unidentified">Prefer no to say</option>
+              </select>
+            </div>
+            <button className="register-button my-2" type="submit">
+              Register
+            </button>
+            <div>
+              Already have an account? <Link to="/login">Login</Link>
+            </div>
           </div>
         </div>
-
-        <div className="mb-3">
-          <label htmlFor="confirmPassword" className="form-label">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            required
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="dob" className="form-label">
-            Date of Birth
-          </label>
-          <input
-            type="date"
-            data-date=""
-            data-date-format="DD MMMM YYYY"
-            className="form-control"
-            id="dob"
-            {...register("dob", { required: true })}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="gender" className="form-label">
-            Gender
-          </label>
-          <div className="form-floating">
-            <select
-              className="form-select gender-selection-field"
-              id="gender"
-              aria-label="Gender"
-              {...register("gender", { required: true })}
-            >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="unidentified">Prefer no to say</option>
-            </select>
-          </div>
-        </div>
-
-        <button className="register-button" type="submit">Register</button>
-      </div>
-
-      <button type="submit">Register</button>
-
-      <div>
-        Already have an account? <Link to="/login">Login</Link>
       </div>
     </form>
   );

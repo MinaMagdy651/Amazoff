@@ -255,8 +255,6 @@ function SearchBar() {
   }, [query]);
 
   const p = useSearchProduct(query);
-  console.log(query);
-
   return (
     <div className="col-md-6">
       <div className="form">
