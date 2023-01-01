@@ -5,12 +5,13 @@
   width: auto;
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .login-form .container {
-  width: 300px;
-  border: 1px solid grey;
+
+  width: 400px;
+  border: 1px solid white;
   border-radius: 10px;
 }
 
@@ -21,6 +22,7 @@
 
 .login-form .container .login-logo .amazoff-logo {
   width: 100%;
+  padding-bottom: 10px;
 }
 
 .login-form .text-input {
