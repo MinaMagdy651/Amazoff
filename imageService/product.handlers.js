@@ -68,10 +68,11 @@ class productHandler {
             )
             // res.setHeader('Content-Type', 'application/json')
             res.send(products)
-        } catch (err) {
-            res.send(err.message)
+        }catch (err) {  
+            // console.log(err + ' ' + 'here');
+           res.status(400).send(err.message)
         } finally {
-            next()
+            // next()
         }
     }
 }
