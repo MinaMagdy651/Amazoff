@@ -18,6 +18,8 @@
 2. create product => /product [POST]
 3. for product Images => /product/:id/image?name= [get]
 4. get All products => /products [GET]
+5. get product by Id => /product/:id [GET]
+6. search for products /product/search?name= [GET]
 
 >* ON WORK 
 
