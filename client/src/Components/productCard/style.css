@@ -1,0 +1,31 @@
+.card-image {
+    /*height: 70%;
+    width: 100%;*/
+    height: 300px;
+    width: 300px;
+}
+
+.card-body {
+    height: 100%;
+    width: 100%;
+}
+
+.card-title {
+    font-family: "Rubik", sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: -5%;
+}
+
+.container-price {
+    display: flex;
+}
+
+.card-text {
+    margin-top: 0%;
+
+}
+
+.card-button {
+    margin-left: auto;
+}
