@@ -256,7 +256,7 @@ function SearchBar() {
 
   const p = useSearchProduct(query);
   return (
-    <div className="col-md-6">
+    <div id = "parent" className="col-md-6" >
       <div className="form">
         <i className="fa fa-search"></i>
         <input
@@ -271,7 +271,7 @@ function SearchBar() {
           </i>
         </span>
       </div>
-      <div>
+      <div id = "child">
         <ul className="searchbar-list">
           {search_result.map((user) => (
             <li className="searchbar-listItem" key={user.product_id}>

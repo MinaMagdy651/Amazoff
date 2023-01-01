@@ -1,3 +1,30 @@
+
+#parent{
+   position: relative;  
+   overflow: inherit;
+   margin: px 50px 0px 0px;
+   width: 80%;
+  /*left: 25%;*/
+  /* margin: 10px auto;  */
+}
+
+#child{
+  /* position: absolute; */
+  /* width: 200%; */
+  border-radius: 5px;
+  bottom: 0px;
+  top: 73%;
+ 
+  /* display: block; */
+  /* z-index: 5; */
+}
+#child > * {
+  /* padding: 10px;
+  margin: 5px;   */
+  background-color: #eee;
+  position: absolute;
+  display: block;
+}
 .form {
   position: relative;
 }
@@ -29,17 +56,20 @@
   border: none;
 }
 .searchbar-list {
-  margin-top: 5px;
+  /* margin-top: 5px; */
   border-radius: 10px;
   list-style-type: none;
   z-index: 10;
+  width: 100%;
+  padding-left: 5px;
   /* box-shadow: 10px 5px 5px red; */
 }
 .searchbar-listItem {
   font-weight: 400;
-  padding-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 .searchbar-listItem:hover {
-  background-color: #ffe6e6;
+  background-color: #ffffff;
   cursor: pointer;
 }

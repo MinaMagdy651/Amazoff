@@ -6,3 +6,17 @@
   height: 100%;
   width: 100%;
 }
+.button{
+  background-color: #343a40;
+  color: white;
+  border: 0px;
+  width: 100px;
+  margin: 5px 10px;
+  border-radius: 5px;
+}
+/* #rest_container{
+  display: flex;
+  flex-wrap: nowrap;
+  
+} */
+

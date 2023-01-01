@@ -64,12 +64,12 @@ function Navbar_() {
                   Counter
                 </Link>
               </li>
-
+              
               <SearchBar></SearchBar>
-
+            
               {!login_status && (
                 <li className="nav-item">
-                  <button>
+                  <button className = "button">
                     <Link
                       to="/login"
                       className="nav-link active"
@@ -81,7 +81,7 @@ function Navbar_() {
                 </li>
               )}
               <li className="nav-item">
-                <button>
+                <button className = "button">
                   <Link
                     className="nav-link active"
                     aria-current="page"
@@ -92,7 +92,7 @@ function Navbar_() {
                 </button>
               </li>
               <li className="nav-item">
-                <button>
+                <button className = "button">
                   <Link
                     to="/register"
                     className="nav-link active"
