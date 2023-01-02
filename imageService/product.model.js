@@ -169,7 +169,7 @@ class product {
     async getAllProducts() {
         const conn = await client.connect()
         try {
-            const query = `SELECT p.product_id, p.name, p.price ,p.rating, pi.url FROM product AS p, product_images AS pi WHERE p.product_id = pi.product_id ORDER BY p.product_id;`
+            const query = `SELECT p.product_id, p.name, p.price ,p.rating, p.category ,pi.url FROM product AS p, product_images AS pi WHERE p.product_id = pi.product_id ORDER BY p.product_id;`
             const allProducts = await conn.query(query)
             if (allProducts.rows.length == 0) throw new Error()
             const products_1Image = this.filtering(allProducts.rows)

@@ -25,12 +25,15 @@ function SearchBar() {
 
   const p = useSearchProduct(query);
   console.log(search_result)
+
   return (
     <div id="parent" className="col-md-6 col-lg-12">
       <div className="form">
         <i className="fa fa-search"></i>
         <input
           type="text"
+          id = "input"
+          onfocus="this.value=''"
           className="form-control form-input"
           placeholder="Search anything..."
           onChange={(e) => setQuery(e.target.value)}
@@ -43,9 +46,11 @@ function SearchBar() {
       </div>
       <div id="child">
         <ul className="searchbar-list">
+          {/* <p>Products</p> */}
           {search_result.map((product) => (
             <li
-              onClick={() => navigate(`/product/${product.product_id}`)}
+              onClick={() => { navigate(`/product/${product.product_id}`); 
+              setSearch_result([]) }}
               className="searchbar-listItem"
               key={product.product_id}
             >
