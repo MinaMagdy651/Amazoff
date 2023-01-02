@@ -1,12 +1,24 @@
 .review-form {
+  font-family: "Rubik", sans-serif;
+  border-radius: 2%;
   background-color: #faf9f6;
   border: 1px #d9d8d7;
   padding: 5px;
 }
-.review-form-title {
-  text-align: center;
+
+.add-review-container {
+  margin: 3% 5%;
 }
+
 .review-button {
   height: 40px;
-  width: 30%;
+  width: 200px;
+}
+
+.text-input {
+  width: 50%;
+}
+
+.submit-container {
+  margin-left: -1%;
 }

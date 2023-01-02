@@ -11,11 +11,13 @@
   bottom: 0px;
   top: 73%;
 }
-#child > * {
+
+#child>* {
   background-color: #eee;
   position: absolute;
   display: block;
 }
+
 .form {
   position: relative;
 }
@@ -46,6 +48,7 @@
   box-shadow: none;
   border: none;
 }
+
 .searchbar-list {
   /* margin-top: 5px; */
   border-radius: 10px;
@@ -55,11 +58,13 @@
   padding-left: 5px;
   /* box-shadow: 10px 5px 5px red; */
 }
+
 .searchbar-listItem {
   font-weight: 400;
   padding: 5px;
   border-radius: 5px;
 }
+
 .searchbar-listItem:hover {
   background-color: #ffffff;
   cursor: pointer;

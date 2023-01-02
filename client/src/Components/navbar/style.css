@@ -1,20 +1,25 @@
 #header {
   background-color: #2b3035;
+  font-family: "Rubik", sans-serif;
 }
+
 .name {
   display: inherit;
   color: white;
   justify-content: center;
   align-items: center;
 }
+
 #brand {
   margin-right: 60px;
+  margin-top: 5%;
 }
 
 #mynav {
   height: 100%;
   width: 100%;
 }
+
 .button {
   background-color: #343a40;
   color: white;
@@ -29,6 +34,7 @@
 .button:hover {
   background-color: #098666;
 }
+
 #logout:hover {
   background-color: red;
 }
@@ -37,6 +43,7 @@
   font-weight: 500;
   margin-right: 2px;
 }
+
 #brand {
   transition: 0.5s;
 }

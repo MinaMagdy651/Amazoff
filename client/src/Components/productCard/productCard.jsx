@@ -31,11 +31,11 @@ function ProductCard(probs) {
                 readonly
               />
             </span>
-            <span className="d-block">{probs.product.price + " EGP"}</span>
+            <span className="d-block price">{probs.product.price + " EGP"}</span>
           </Card.Text>
-          <Button className="card-button" variant="primary">
-            Add to cart
-            <FaShoppingCart></FaShoppingCart>
+          <Button id="card-button" variant="primary">
+            Add to<span> </span>
+            <FaShoppingCart className="cart-logo"></FaShoppingCart>
           </Button>
         </div>
       </Card.Body>

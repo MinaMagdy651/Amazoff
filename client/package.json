@@ -26,7 +26,7 @@
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.4",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "react-search-box": "^2.3.0",
     "react-simple-star-rating": "^5.1.7",
     "redux": "^4.2.0",

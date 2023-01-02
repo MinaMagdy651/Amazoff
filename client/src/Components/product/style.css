@@ -2,3 +2,51 @@
   height: auto;
   max-width: 100%;
 }
+
+.slider-button {
+  border: none;
+  border-radius: 50%;
+
+}
+
+.container {
+  font-family: "Rubik", sans-serif;
+}
+
+.slider-button:hover {
+  background-color: #ddd;
+}
+
+#back-icon {
+  margin-top: -15%;
+  margin-left: -10%;
+}
+
+#forward-icon {
+  margin-top: -15%;
+  margin-left: -10%;
+}
+
+.product-name {
+  text-transform: capitalize;
+}
+
+.category {
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+.currency {
+  font-size: 40%;
+  margin-left: -1%;
+}
+
+.shipping {
+  color: #028a0f;
+}
+
+.quantity {
+  margin-left: 3%;
+  font-weight: 400;
+  font-size: 60%;
+}

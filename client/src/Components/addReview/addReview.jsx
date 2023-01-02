@@ -14,36 +14,37 @@ function Addreview() {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="review-form">
-      <h4 className="review-form-title">Add A Review!</h4>
-      <Rating
-        size={30}
-        initialValue={rating}
-        onClick={handleRating}
-        transition
-        allowFraction
-        className="my-3"
-        showTooltip
-      />
-      <div className="mb-3 text-input col-lg-5">
-        <input
-          id="title"
-          className="form-control"
-          placeholder="Title.."
-          {...register("title", { required: true })}
+      <div className="add-review-container">
+        <h4 className="review-form-title">Add Review</h4>
+        <Rating
+          size={30}
+          initialValue={rating}
+          onClick={handleRating}
+          transition
+          allowFraction
+          className="my-3"
         />
-      </div>
-      <div className="mb-3 text-input col-lg-8">
-        <textarea
-          id="title"
-          className="form-control"
-          placeholder="Description.."
-          {...register("description")}
-        />
-      </div>
-      <div className="d-flex justify-content-center">
-        <button className="button review-button" type="submit">
-          Add Review
-        </button>
+        <div className="mb-3 text-input col-lg-5">
+          <input
+            id="title"
+            className="form-control"
+            placeholder="Title.."
+            {...register("title", { required: true })}
+          />
+        </div>
+        <div className="mb-3 text-input col-lg-8">
+          <textarea
+            id="title"
+            className="form-control"
+            placeholder="Description.."
+            {...register("description")}
+          />
+        </div>
+        <div className="d-flex submit-container">
+          <button className="button review-button" type="submit">
+            Submit Review
+          </button>
+        </div>
       </div>
     </form>
   );
