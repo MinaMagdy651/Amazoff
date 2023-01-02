@@ -97,7 +97,12 @@ class product {
     async getProduct(id) {
         const conn = await client.connect()
         try {
-            const query = `select p.product_id, p.name, p.category, p.quantity, p.price,p.rating as product_rating, r.customer_id, c.name as customer_name,r.review_id ,re.title, re.description, re.rating  from product p left join reviews r on p.product_id = r.product_id left join  review re on r.review_id = re.review_id left join customers c on r.customer_id = c.id where p.product_id = ${id};`
+            const query = `select p.product_id, p.name, p.category, p.quantity,p.description as product_description 
+            ,p.price,p.rating  as product_rating, r.customer_id, c.name as customer_name,s.id as seller_id,s.name as sellerName
+            ,r.review_id ,re.title, re.description, re.rating  from product p left join provides pr 
+            on p.product_id = pr.product_id left join seller s on s.id = pr.seller_id left join reviews r
+            on p.product_id = r.product_id left join  review re on r.review_id = re.review_id left join customers c 
+            on r.customer_id = c.id where p.product_id = ${id};`
             const productResult = await conn.query(query)
             const query2 = `select url from product_images where product_id = ${id};`
             const urls = await conn.query(query2)
@@ -110,8 +115,11 @@ class product {
                 name: productResult.rows[0].name,
                 category: productResult.rows[0].category,
                 quantity: productResult.rows[0].quantity,
+                description: productResult.rows[0].description,
                 price: productResult.rows[0].price,
                 rating: productResult.rows[0].product_rating,
+                seller_id: productResult.rows[0].seller_id,
+                sellerName: productResult.rows[0].sellername,
                 reviews: reviews[0].customer_id == null ? null : reviews,
                 urls: url,
             }
