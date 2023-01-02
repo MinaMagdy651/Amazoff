@@ -4,6 +4,9 @@
   height: 300px;
   width: 300px;
 }
+.card {
+  border: 0 !important;
+}
 
 .card-body {
   height: 100%;
@@ -30,4 +33,5 @@
 }
 .card:hover {
   cursor: pointer;
+  box-shadow: 0 0 5px 2px #979da6;
 }
