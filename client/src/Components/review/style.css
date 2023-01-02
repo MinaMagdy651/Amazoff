@@ -1,3 +1,19 @@
-.customer_title {
-  align-content: flex-end;
+.whole-container {
+  font-family: "Rubik", sans-serif;
+}
+
+.purchase {
+  font-size: 80%;
+  margin-left: 1%;
+  color: #ff9A5A;
+}
+
+.customer-title {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.customer-name {
+  text-transform: capitalize;
+  font-weight: 600;
 }

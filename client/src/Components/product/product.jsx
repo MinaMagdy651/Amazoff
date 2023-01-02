@@ -81,19 +81,19 @@ function Product(probs) {
               ))}
             </Slider>
             <div className="d-flex justify-content-center p-2">
-              <ButtonBack>
-                <FaBackward></FaBackward>
+              <ButtonBack className="slider-button" id="back">
+                <FaBackward id="back-icon"></FaBackward>
               </ButtonBack>
-              <ButtonNext>
-                <FaForward></FaForward>
+              <ButtonNext className="slider-button" id="forward">
+                <FaForward id="forward-icon"></FaForward>
               </ButtonNext>
             </div>
           </CarouselProvider>
         )}
         {product && (
           <div key={product.product_id} className="col-lg-7 col-md-6 col-sm-12">
-            <h2>{product.name}</h2>
-            <h6>
+            <h2 className="product-name">{product.name}</h2>
+            <h6 className="category">
               Category: <strong>{product.category}</strong>
             </h6>
             <Rating
@@ -104,10 +104,23 @@ function Product(probs) {
               readonly
             />
             <div>
-              <h2>{product.price + " EGP"}</h2>
-              <p>
-                {"Quantity left in stock: "} <i>{product.quantity}</i>
-              </p>
+              <h2>
+                {product.price} <span className="currency">EGP</span>
+                {product.quantity < 10 && (
+                  <span className="quantity text-danger">
+                    <strong></strong>
+                    {`Only ${product.quantity} Left`}
+                  </span>
+                )}
+                {product.quantity >= 10 && (
+                  <span className="quantity">In stock</span>
+                )}
+              </h2>
+              {product.price >= 300 && (
+                <p>
+                  <span className="shipping"> Eligible for FREE shipping</span>
+                </p>
+              )}
               <p>{product.description}</p>
             </div>
           </div>

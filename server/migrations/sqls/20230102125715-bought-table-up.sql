@@ -6,4 +6,4 @@ CREATE TABLE bought (
     FOREIGN key (product_id) REFERENCES product(product_id) on DELETE CASCADE
 );
 
-insert into bought values (2,3) ,(1,6) , (4,5) ,(5,5);
+-- insert into bought values (2,3) ,(1,6) , (4,5) ,(5,5);

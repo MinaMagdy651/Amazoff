@@ -3,11 +3,16 @@ import "./style.css";
 function ProductGrid(probs) {
   return (
     <div className="container product-grid">
-      <div className="row d-flex align-items-center justify-content-center">
-        {probs.allProducts.map((product) => (
-          <ProductCard key={product.product_id} product={product}></ProductCard>
-        ))}
-      </div>
+      {probs.allProducts !== "No products found" && (
+        <div className="row d-flex align-items-center justify-content-center">
+          {probs.allProducts.map((product) => (
+            <ProductCard
+              key={product.product_id}
+              product={product}
+            ></ProductCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
