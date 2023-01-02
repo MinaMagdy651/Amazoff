@@ -115,7 +115,7 @@ class product {
                 name: productResult.rows[0].name,
                 category: productResult.rows[0].category,
                 quantity: productResult.rows[0].quantity,
-                description: productResult.rows[0].description,
+                description: productResult.rows[0].product_description,
                 price: productResult.rows[0].price,
                 rating: productResult.rows[0].product_rating,
                 seller_id: productResult.rows[0].seller_id,
