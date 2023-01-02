@@ -1,7 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from "pure-react-carousel";
+import { Rating } from "react-simple-star-rating";
+import "pure-react-carousel/dist/react-carousel.es.css";
 import useGetProduct from "../../shared/useGetProduct";
 import Review from "../review/review";
+import "./style.css";
+import { FaBackward, FaForward } from "react-icons/fa";
 
 function Product(probs) {
   const reviews = [
@@ -49,9 +60,61 @@ function Product(probs) {
   }, []);
   console.log(product);
   return (
-    <div className="container">
-      <h1>{id}</h1>
-      {product.product_id}
+    <div className="container my-2">
+      <div className="row">
+        {product.urls && (
+          <CarouselProvider
+            className="col-lg-5 col-md-6 col-sm-12"
+            naturalSlideWidth={50}
+            naturalSlideHeight={40}
+            totalSlides={product.urls.length}
+          >
+            <Slider>
+              {product.urls.map((url, index) => (
+                <Slide key={index}>
+                  <img
+                    key={index + "img"}
+                    className="carousel_image"
+                    src={url}
+                    alt=""
+                  />
+                </Slide>
+              ))}
+            </Slider>
+            <div className="d-flex justify-content-center p-2">
+              <ButtonBack>
+                <FaBackward></FaBackward>
+              </ButtonBack>
+              <ButtonNext>
+                <FaForward></FaForward>
+              </ButtonNext>
+            </div>
+          </CarouselProvider>
+        )}
+        {product && (
+          <div key={product.product_id} className="col-lg-7 col-md-6 col-sm-12">
+            <h2>{product.name}</h2>
+            <h6>
+              Category: <strong>{product.category}</strong>
+            </h6>
+            <Rating
+              size={20}
+              initialValue={product.rating}
+              transition
+              allowFraction
+              readonly
+            />
+            <div>
+              <h2>{product.price + " EGP"}</h2>
+              <p>
+                {"Quantity left in stockquantity left in stock: " +
+                  product.quantity}
+              </p>
+              <p>{product.description}</p>
+            </div>
+          </div>
+        )}
+      </div>
       <Review reviews={reviews}></Review>
     </div>
   );
