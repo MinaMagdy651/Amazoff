@@ -22,7 +22,7 @@ function ProductCard(probs) {
         <Card.Title className="card-title">{probs.product.name}</Card.Title>
         <div className="container-price">
           <Card.Text className="card-text">
-            <div>
+            <span className="d-block">
               <Rating
                 size={20}
                 initialValue={probs.product.rating}
@@ -30,8 +30,8 @@ function ProductCard(probs) {
                 allowFraction
                 readonly
               />
-            </div>
-            <div>{probs.product.price + " EGP"}</div>
+            </span>
+            <span className="d-block">{probs.product.price + " EGP"}</span>
           </Card.Text>
           <Button className="card-button" variant="primary">
             Add to cart

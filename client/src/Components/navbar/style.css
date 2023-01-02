@@ -25,11 +25,7 @@
   transition: 0.5s;
   font-weight: 500;
 }
-@media screen and (min-width: 1200px) {
-  .searchBar-listItem {
-    width: 500px;
-  }
-}
+
 .button:hover {
   background-color: #098666;
 }
