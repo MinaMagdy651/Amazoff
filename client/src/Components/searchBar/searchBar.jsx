@@ -22,6 +22,7 @@ function SearchBar() {
   }, [query]);
 
   const p = useSearchProduct(query);
+  console.log(search_result)
   return (
     <div id="parent" className="col-md-6 col-lg-12">
       <div className="form">

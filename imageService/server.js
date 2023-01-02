@@ -28,6 +28,11 @@ app.get('/product/search?', productHandle.cardSearchProduct)
 
 app.get('/product/:id', productHandle.getProduct)
 
+app.get('/customer-purchases/:customer_id', productHandle.getCustomerPurchases)
+
+app.get('/product-reviewed/:customer_id', productHandle.getProductReviewedByCustomerId)
+
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
