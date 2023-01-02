@@ -57,10 +57,9 @@ function Product(probs) {
     }
     execute();
     // eslint-disable-next-line
-  }, []);
-  console.log(product);
+  }, [id]);
   return (
-    <div className="container my-2">
+    <div className="container my-5">
       <div className="row">
         {product.urls && (
           <CarouselProvider
@@ -107,8 +106,7 @@ function Product(probs) {
             <div>
               <h2>{product.price + " EGP"}</h2>
               <p>
-                {"Quantity left in stockquantity left in stock: " +
-                  product.quantity}
+                {"Quantity left in stock: "} <i>{product.quantity}</i>
               </p>
               <p>{product.description}</p>
             </div>
