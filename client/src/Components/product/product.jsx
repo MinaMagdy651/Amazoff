@@ -104,10 +104,23 @@ function Product(probs) {
               readonly
             />
             <div>
-              <h2>{product.price} <span className="currency">EGP</span><span className="quantity" >In Stock.</span></h2>
-              <p>
-                <span className="shipping"> Eligible for FREE shipping</span>
-              </p>
+              <h2>
+                {product.price} <span className="currency">EGP</span>
+                {product.quantity < 10 && (
+                  <span className="quantity text-danger">
+                    <strong></strong>
+                    {`Only ${product.quantity} Left`}
+                  </span>
+                )}
+                {product.quantity >= 10 && (
+                  <span className="quantity">In stock</span>
+                )}
+              </h2>
+              {product.price >= 300 && (
+                <p>
+                  <span className="shipping"> Eligible for FREE shipping</span>
+                </p>
+              )}
               <p>{product.description}</p>
             </div>
           </div>
