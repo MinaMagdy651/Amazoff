@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 import useSearchProduct from "../../shared/useSearchProduct";
 
 function SearchBar() {
   const [query, setQuery] = useState("");
   const [search_result, setSearch_result] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function execute() {
@@ -40,9 +42,13 @@ function SearchBar() {
       </div>
       <div id="child">
         <ul className="searchbar-list">
-          {search_result.map((user) => (
-            <li className="searchbar-listItem" key={user.product_id}>
-              {user.name}
+          {search_result.map((product) => (
+            <li
+              onClick={() => navigate(`/product/${product.product_id}`)}
+              className="searchbar-listItem"
+              key={product.product_id}
+            >
+              {product.name}
             </li>
           ))}
         </ul>
