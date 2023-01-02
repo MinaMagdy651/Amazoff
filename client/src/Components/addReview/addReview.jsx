@@ -22,7 +22,6 @@ function Addreview() {
         transition
         allowFraction
         className="my-3"
-        showTooltip
       />
       <div className="mb-3 text-input col-lg-5">
         <input

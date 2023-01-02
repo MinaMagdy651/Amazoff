@@ -124,18 +124,20 @@ function Register() {
             <label htmlFor="gender" className="form-label">
               Gender
             </label>
-            <div className="form-floating">
-              <select
-                className="form-select gender-selection-field"
-                id="gender"
-                aria-label="Gender"
-                {...register("gender", { required: true })}
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="unidentified">Prefer no to say</option>
-              </select>
-            </div>
+            <select
+              defaultValue={"DEFAULT"}
+              className="form-select gender-selection-field"
+              id="gender"
+              aria-label="Gender"
+              {...register("gender", { required: true })}
+            >
+              <option value="DEFAULT" disabled>
+                Gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="prefer not to say">Prefer not to say</option>
+            </select>
             <button className="register-button my-2" type="submit">
               Register
             </button>

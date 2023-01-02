@@ -8,5 +8,5 @@ CREATE TABLE provides(
     FOREIGN KEY (manufact_id) REFERENCES manufacturer(manufact_id) on delete cascade
 );
 
-insert into provides values (1 , 6, 1),
-(2, 5, 4), (3, 3, 3) , (4, 4, 2);
+-- insert into provides values (1 , 6, 1),
+-- (2, 5, 4), (3, 3, 3) , (4, 4, 2);

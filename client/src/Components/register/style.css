@@ -1,5 +1,5 @@
 .register-form {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   display: grid;
   justify-content: center;
   width: auto;
@@ -13,12 +13,8 @@
   width: 450px;
 }
 
-.register-container .gender-selection-field {
-  height: 20px;
-}
-
 .register-form .register-button {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   width: 100%;
   height: 40px;
   background-color: #098666;

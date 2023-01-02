@@ -14,4 +14,4 @@ CREATE TABLE reviews(
 -- insert into reviews values (3,2,2);
 -- insert into reviews values (3,3,3);
 -- insert into reviews values (4,3,4);
-insert into reviews values (3, 2,3) , ( 6 , 1 , 1), ( 5 , 4 , 3) , (5, 5, 2)
+-- insert into reviews values (3, 2,3) , ( 6 , 1 , 1), ( 5 , 4 , 3) , (5, 5, 2)
