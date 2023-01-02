@@ -11,12 +11,12 @@ CREATE TABLE admin (
     PRIMARY KEY (ID)
 );
 
-insert into admin(ID, Name, Email, Password, Gender, DOB)
- values (
-    1,
-    'admin' , 
-    'admin@outlook.com', 
-    '0000',
-    'Male',
-    '2001-04-27'
-);
+-- insert into admin(ID, Name, Email, Password, Gender, DOB)
+--  values (
+--     1,
+--     'admin' , 
+--     'admin@outlook.com', 
+--     '0000',
+--     'Male',
+--     '2001-04-27'
+-- );

@@ -108,6 +108,7 @@ class product {
             const urls = await conn.query(query2)
             // product details
             // get reviews
+            // console.log(productResult.rows[0].product_description)
             const reviews = this.getReview(productResult.rows)
             const url = this.getUrl(urls.rows)
             const product = {
@@ -154,7 +155,7 @@ class product {
     async searchProduct(name) {
         const conn = await client.connect()
         try {
-            const query = `SELECT product_id, name from product where name like '%${name}%' limit 5 offset 0;`
+            const query = `SELECT product_id, name from product where lower(name) like lower('%${name}%') limit 5 offset 0;`
             const productResult = await conn.query(query)
             return productResult.rows
         } catch (err) {
@@ -190,6 +191,34 @@ class product {
                 stack.push(product)
         })
         return stack
+    }
+    async getCustomerPurchases(customerId) {
+        const conn = await client.connect();
+        try{
+            // console.log('here');
+            const query = `SELECT p.product_id FROM bought b , product p where b.product_id = p.product_id and b.customer_id = ${customerId};`
+            const products = await conn.query(query);
+            // console.log(products.rows)
+            if(products.rows.length == 0) throw new Error();
+            return products.rows
+        }catch(err){
+            throw new Error(`There are no purchases`);
+        }finally{
+            conn.release();
+        }
+    }
+    async getProductReviewedByCustomerId(customerId) {
+        const conn = await client.connect();
+        try{
+            const query = `select product_id from reviews where customer_id = ${customerId};`
+            const products = await conn.query(query);
+            if(products.rows.length == 0) throw new Error();
+            return products.rows;
+        }catch(err){
+            throw new Error();
+        }finally{
+            conn.release();
+        }
     }
 }
 

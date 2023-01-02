@@ -13,7 +13,6 @@ const useFetchRegister = (data) => {
   };
   useEffect(() => {
     if (data) {
-      console.log(data);
       axios
         .post(REGISTER_URL, {
           name: data.name,
@@ -24,10 +23,8 @@ const useFetchRegister = (data) => {
           gender: data.gender,
         })
         .then((response) => {
-          if (data.remember_me) {
-            localStorage.setItem("access_token", response.data.token);
-            sessionStorage.setItem("access_token", response.data.token);
-          } else sessionStorage.setItem("access_token", response.data.token);
+          localStorage.setItem("access_token", response.data);
+          sessionStorage.setItem("access_token", response.data);
           setData(data);
           navigate("/home");
         })
@@ -35,7 +32,8 @@ const useFetchRegister = (data) => {
           console.log(error);
         });
     }
-  });
+    // eslint-disable-next-line
+  }, [data]);
 };
 
 export default useFetchRegister;

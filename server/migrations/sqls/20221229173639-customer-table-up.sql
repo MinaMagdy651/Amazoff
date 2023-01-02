@@ -10,12 +10,12 @@ CREATE TABLE customers (
     PRIMARY KEY (ID)
 );
 
-insert into customers(ID, Name, Email, Password, Gender, DOB)
- values (
-    1,
-    'Aly' , 
-    'ali.zakariya1929@outlook.com', 
-    '5555',
-    'Male',
-    '2001-04-27'
-);
+-- insert into customers(ID, Name, Email, Password, Gender, DOB)
+--  values (
+--     1,
+--     'Aly' , 
+--     'ali.zakariya1929@outlook.com', 
+--     '5555',
+--     'Male',
+--     '2001-04-27'
+-- );

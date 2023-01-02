@@ -4,13 +4,14 @@ import { useDispatch } from "react-redux";
 const TOKEN_CHECK = "/customer-token";
 
 axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("access_token");
+  "Bearer " + sessionStorage.getItem("access_token");
 
 const useFetchToken = (data) => {
   const dispatch = useDispatch();
   const setData = (data) => {
     dispatch(setDataAction(data));
   };
+
   if (data !== "null") {
     axios
       .get(TOKEN_CHECK)

@@ -76,6 +76,30 @@ class productHandler {
             // next()
         }
     }
+
+    getCustomerPurchases = async (req, res, next) => {
+        try{
+            // console.log(req.params)
+            const product = await porductObject.getCustomerPurchases(
+                Number(req.params.customer_id)
+                );
+            res.send(product);
+        }catch(err){
+            res.status(400).send(`There are no purchases`);
+        }
+    }
+    getProductReviewedByCustomerId = async (req, res, next) => {
+        try{
+            const products = await porductObject.getProductReviewedByCustomerId(
+               Number(req.params.customer_id)
+            );
+            res.send(products);
+        }catch(err){
+            res.status(400).send(`No products reviewed by this customer`);
+        }finally{
+
+        }
+    }
 }
 
 module.exports = productHandler

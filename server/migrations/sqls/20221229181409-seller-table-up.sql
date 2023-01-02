@@ -10,12 +10,10 @@ CREATE TABLE seller (
     PRIMARY KEY (ID)
 );
 
-insert into seller(ID, Name, Email, Password, Gender, DOB)
- values (
-    1,
-    'mina' , 
-    'mina@gmail.com', 
-    '1111',
-    'Male',
-    '2001-01-07'
-);
+-- insert into seller(ID, Name, Email, Password, Gender, DOB)
+--  values (  1,  'mina' ,  'mina@gmail.com',  '0000', 'Male', '2001-01-07') ,
+--  (2, 'tamer' , 'tamer@gmail.com', '0000', 'male', '2001-05-03'),
+--  (3, 'mostafa', 'mostafa@gmail.com', '0000', 'male', '2001-08-22'),
+--  (4, 'assem', 'assem@gmail.com', '0000', 'male', '2002-05-18') 
+
+

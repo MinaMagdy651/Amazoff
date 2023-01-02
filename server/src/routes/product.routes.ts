@@ -8,7 +8,36 @@ const productRoute = (app: express.Application) => {
     app.get('/products', getAllProducts)
     app.get('/product/search?', cardSearchProduct)
     app.get('/product/:id', getProduct)
+    app.get('/customer-purchases/:customer_id', getCustomerPurchases)
+    app.get('/product-reviewed/:customer_id', getProductReviewedByCustomerId)
     // app.post('/product', createProduct)
+}
+
+function getProductReviewedByCustomerId(
+    req: express.Request,
+    res: express.Response
+) {
+    axios
+        .request({
+            method: 'GET',
+            url: `${url}/product-reviewed/${req.params.customer_id}`,
+        })
+        .then((response) => res.send(response.data))
+        .catch((err) => res.status(404).send(err.response.data))
+}
+
+function getCustomerPurchases(req: express.Request, res: express.Response) {
+    // console.log(req.params)
+    axios
+        .request({
+            method: 'GET',
+            url: `${url}/customer-purchases/${req.params.customer_id}`,
+        })
+        .then((response) => res.send(response.data))
+        .catch((err) => {
+            // console.log(err.response.data)
+            res.status(404).send(err.response.data)
+        })
 }
 
 function getProduct(req: express.Request, res: express.Response) {
