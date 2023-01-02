@@ -25,6 +25,7 @@ function Review(probs) {
             <span>{review.title}</span>
           </div>
           <div>{review.description}</div>
+          <hr />
         </div>
       ))}
     </div>
