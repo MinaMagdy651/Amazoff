@@ -7,12 +7,10 @@ const url = 'http://localhost:3600/product/'
 
 class product {
     // to create procduct
-    async create(name, category, quantity, price, images) {
+    async create(name, category, discription, quantity, price, images) {
         const conn = await client.connect()
         try {
-            // // console.log(name +' ' + category + ' ' + quantity)
-            // console.log(images);
-            const query = `INSERT INTO product (name, category, quantity, price) VALUES ('${name}', '${category}', ${quantity}, ${price}) RETURNING *`
+            const query = `INSERT INTO product (name, category,description ,quantity, price) VALUES ('${name}', '${category}', '${discription}',${quantity}, ${price}) RETURNING *`
             const newProduct = await conn.query(query)
             if (newProduct.rows.length) {
                 this.postImages(newProduct.rows[0], images)
@@ -28,21 +26,38 @@ class product {
     // post Images
     async postImages(product, images) {
         try {
-            const id = product.product_id
+            let id = product.product_id
+            // console.log(images.length + ' ' + 'here')
+            // if (images.length == 0) id = -1
+
             const fileabs = resolve(`${dir}/${id}`)
             if (!fs.existsSync(fileabs)) fs.mkdirSync(fileabs)
-            const file = fs.readdirSync(fileabs)
+            // const file = fs.readdirSync(fileabs)
 
             let imagesName = []
-            Object.keys(images).forEach(function (key) {
-                imagesName.push(images[key].name)
-                const path = resolve(`${dir}/${id}/${images[key].name}`)
-                images[key].mv(path, images[key].name, function (err) {})
-            })
+           // if there is no images add the default
+            if (images == null){
+                const copyFilePath = `${dir}/${id}/default.jpg`;
+                const filepath = `${dir}/-1/default.jpg`;
+                fs.copyFile(filepath, copyFilePath, (err) => {
+                    if (err) throw err;
+                      
+                    console.log('File Copy Successfully.');
+                  });
+                
+                imagesName.push('default.jpg')
+            }
+            else {
+                Object.keys(images).forEach(function (key) {
+                    imagesName.push(images[key].name)
+                    const path = resolve(`${dir}/${id}/${images[key].name}`)
+                    images[key].mv(path, images[key].name, function (err) {})
+                })
+            }
             //  insert URL into database
             await this.addUrl(imagesName, id)
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             throw new Error('Can not post these images')
         }
     }
@@ -50,7 +65,6 @@ class product {
     async addUrl(imagesName, id) {
         const conn = await client.connect()
         try {
-            // console.log(imagesName)
             for (let i = 0; i < imagesName.length; i++) {
                 const api = `${url}${id}/image?name=${imagesName[i]}`
                 const query = `INSERT INTO product_images VALUES(${id} ,'${api}') RETURNING *`
@@ -90,9 +104,6 @@ class product {
             // product details
             // get reviews
             const reviews = this.getReview(productResult.rows)
-            // console.log(reviews.customer_id + ' ' + typeof reviews.customer_id)
-            // get urls
-            // console.log(reviews[0].customer_id === null)  
             const url = this.getUrl(urls.rows)
             const product = {
                 product_id: productResult.rows[0].product_id,
@@ -101,7 +112,7 @@ class product {
                 quantity: productResult.rows[0].quantity,
                 price: productResult.rows[0].price,
                 rating: productResult.rows[0].product_rating,
-                reviews: reviews[0].customer_id == null? null : reviews,
+                reviews: reviews[0].customer_id == null ? null : reviews,
                 urls: url,
             }
             return product

@@ -7,10 +7,11 @@ class productHandler {
     // create porduct
     create = async (req, res, next) => {
         try {
-            console.log(req)
+            // console.log(req.body)
             const newProduct = await porductObject.create(
                 req.body.name,
                 req.body.category,
+                req.body.description,
                 Number(req.body.quantity),
                 Number(req.body.price),
                 req.files
@@ -68,9 +69,9 @@ class productHandler {
             )
             // res.setHeader('Content-Type', 'application/json')
             res.send(products)
-        }catch (err) {  
+        } catch (err) {
             // console.log(err + ' ' + 'here');
-           res.status(400).send(err.message)
+            res.status(400).send(err.message)
         } finally {
             // next()
         }
