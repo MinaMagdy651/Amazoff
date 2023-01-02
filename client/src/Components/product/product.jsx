@@ -58,9 +58,8 @@ function Product(probs) {
     execute();
     // eslint-disable-next-line
   }, [id]);
-  console.log(product);
   return (
-    <div className="container my-2">
+    <div className="container my-5">
       <div className="row">
         {product.urls && (
           <CarouselProvider
