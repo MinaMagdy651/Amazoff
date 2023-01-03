@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier" : "prettier --config .prettierrc --write ./*.js"
+    "prettier": "prettier --config .prettierrc --write ./*.js",
+    "start": "nodemon server.js"
   },
   "author": "Aly",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "express-fileupload": "^1.4.0",
     "fs": "^0.0.1-security",
     "mv": "^2.1.1",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "pg": "^8.8.0",
     "prettier": "^2.8.1",

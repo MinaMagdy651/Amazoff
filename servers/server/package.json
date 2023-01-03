@@ -9,7 +9,7 @@
     "jasmine": "jasmine",
     "test": "npm run build & npm run jasmine",
     "prettier": "prettier --config .prettierrc --write ./src/**/*.ts",
-    "start": "npm run prettier && nodemon src/server.ts"
+    "start": "nodemon src/server.ts"
   },
   "repository": {
     "type": "git",

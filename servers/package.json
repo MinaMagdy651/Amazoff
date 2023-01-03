@@ -1,0 +1,14 @@
+{
+  "name": "amazoff_servers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start1": "cd server && npm start",
+    "start2":"cd ../productServer && npm start",
+    "start":"concurrently \"cd server && npm start\" \"cd productServer && npm start\""
+  },
+  "author": "Aly",
+  "license": "ISC"
+}
