@@ -25,10 +25,6 @@
   width: 100%;
 }
 
-.login-form .remember-me-container .remember-me-checkbox {
-  /* vertical-align: middle; */
-}
-
 .login-form .remember-me-container .remember-me-label {
   font-family: "Rubik", sans-serif;
   font-weight: 100;
@@ -55,4 +51,10 @@
 .login-button:hover {
   transition: 0.5s;
   opacity: 1;
+}
+.remember-me-checkbox {
+  margin-right: 5px;
+}
+.error {
+  border: 1px solid red;
 }

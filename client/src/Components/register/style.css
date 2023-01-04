@@ -37,3 +37,7 @@
   transition: 0.5s;
   opacity: 1;
 }
+
+.error {
+  border: 1px solid red;
+}
