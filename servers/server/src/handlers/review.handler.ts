@@ -13,7 +13,7 @@ export default class reviewHandler {
         next: express.NextFunction
     ) => {
         try {
-            // console.log(req.query)
+            // console.log(req.body)
             const reviewAdded = await reviewObject.addreview(
                 req.body.title,
                 req.body.description,
