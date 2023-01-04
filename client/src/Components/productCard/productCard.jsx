@@ -1,8 +1,8 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { FaShoppingCart } from "react-icons/fa";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import "./style.css";
 
 function ProductCard(probs) {

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import "./style.css";
-import useFetchRegister from "../../shared/useFetchRegister";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import useCheckEmail from "../../shared/useCheckEmail";
 import { FaEye } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useFetchRegister from "../../shared/useFetchRegister";
+import useCheckEmail from "../../shared/useCheckEmail";
+import "./style.css";
 
 function Register() {
   const obj = useSelector((state) => state.obj.obj);
