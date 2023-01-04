@@ -17,7 +17,8 @@ const getUserByToken = (
             if (token && bearer === 'bearer') {
                 const decoded = jwt.verify(token, Token as unknown as string)
                 if (decoded) {
-                    res.send(decoded)
+                   req.body.decoded = decoded; 
+                   next();
                 } else throw new Error()
             } else throw new Error()
         } else throw new Error()

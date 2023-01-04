@@ -31,8 +31,11 @@
 8. get Product Reviewed By CustomerId => /product-reviewed/:customer_id [GET]
 
 ## reviews
-
 1. add review =>[TOKEN NEED] /product/addreview [POST]
+
+## cart
+1. add To Cart => [Token Need] /product/:product_id/add-to-cart [POST]
+2. cart page => [Token Need] /cart [GET] 
     > - ON WORK
 
 ## Data Shapes

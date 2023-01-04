@@ -1,7 +1,7 @@
 import express from 'express'
 import seller from '../models/seller.model'
 import jwt from 'jsonwebtoken'
-import registerError from '../types/error'
+import {registerError} from '../types/error'
 
 let sellerObject = new seller()
 const tokenSecret = process.env.TOKEN

@@ -6,6 +6,7 @@ import adminRoute from './routes/admin.routes'
 import sellerRoute from './routes/seller.routes'
 import productRoute from './routes/product.routes'
 import reviewRoute from './routes/review.routes'
+import cartRoute from './routes/cart.routes'
 
 const app = express()
 const port = 3500
@@ -50,5 +51,7 @@ sellerRoute(app)
 productRoute(app)
 // apis for reviews
 reviewRoute(app)
+
+cartRoute(app)
 
 export default app

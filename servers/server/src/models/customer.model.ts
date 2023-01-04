@@ -1,7 +1,7 @@
 import client from '../config'
 import person from '../types/person'
 import bcrypt from 'bcrypt'
-import registerError from '../types/error'
+import {registerError} from '../types/error'
 
 const saltRounds = process.env.SALT_ROUNDS
 const pepper = process.env.BCRYPT_PASSWORD
@@ -63,6 +63,19 @@ export default class customer {
             throw e
         } finally {
             conn.release()
+        }
+    }
+    async getUserByToken(customer_id: number): Promise<person>{
+        const conn = await client.connect();
+        try{
+            const query = `select * from customers where id = ${customer_id};`
+            const user = await conn.query(query)
+            if(user.rows.length == 0) throw new Error();
+            return user.rows[0];
+        }catch (e){
+            throw e;
+        }finally{
+            conn.release();
         }
     }
 }

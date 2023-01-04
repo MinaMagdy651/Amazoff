@@ -8,7 +8,7 @@ const customerRoute = (app: express.Application) => {
     app.post('/customer-register', customerHandle.create)
     app.post('/customer-check-email', customerHandle.checkEmail)
     app.post('/customer-login', customerHandle.authenticate)
-    app.get('/customer-token', getUserByToken)
+    app.get('/customer-token', getUserByToken , customerHandle.getUserByToken)
 }
 
 export default customerRoute

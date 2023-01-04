@@ -1,5 +1,5 @@
-import client from '../config'
-import reviewType from '../types/review'
+import client from '../../config'
+import reviewType from '../../types/review'
 // import bcrypt from 'bcrypt'
 // import registerError from '../types/error'
 

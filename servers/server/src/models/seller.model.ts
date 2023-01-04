@@ -1,7 +1,7 @@
 import client from '../config'
 import person from '../types/person'
 import bcrypt from 'bcrypt'
-import registerError from '../types/error'
+import {registerError} from '../types/error'
 
 const saltRounds = process.env.SALT_ROUNDS
 const pepper = process.env.BCRYPT_PASSWORD

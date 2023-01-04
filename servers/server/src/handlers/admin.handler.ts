@@ -1,7 +1,7 @@
 import express from 'express'
 import admin from '../models/admin.model'
 import jwt from 'jsonwebtoken'
-import registerError from '../types/error'
+import {registerError} from '../types/error'
 
 let adminObject = new admin()
 const tokenSecret = process.env.TOKEN

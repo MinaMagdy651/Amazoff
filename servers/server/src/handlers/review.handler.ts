@@ -1,7 +1,7 @@
 import express from 'express'
-import review from '../models/review.model'
+import review from '../models/service/review.model'
 import jwt from 'jsonwebtoken'
-import registerError from '../types/error'
+import {registerError} from '../types/error'
 
 let reviewObject = new review()
 const tokenSecret = process.env.TOKEN
