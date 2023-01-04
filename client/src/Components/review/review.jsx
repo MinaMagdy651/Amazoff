@@ -1,33 +1,42 @@
 import { Rating } from "react-simple-star-rating";
+import { useSelector } from "react-redux";
 import "./style.css";
 import Addreview from "../addReview/addReview";
 function Review(probs) {
+  const obj = useSelector((state) => state.obj.obj);
   return (
     <div className="whole-container">
-      <Addreview></Addreview>
+      {obj.purchase_list.includes(probs.product_id) &&
+        !obj.reviews_list.includes(probs.product_id) && (
+          <Addreview product_id={probs.product_id}></Addreview>
+        )}
       {probs.reviews.length === 0 && <div> No reviews found</div>}
-      {probs.reviews.map((review) => (
-        <div key={review.review_id} className="my-5">
-          <div className="review_customer_name">
-            <span className="customer-name">{review.customer_name}</span>
-          </div>
-          <div className="rating">
-            <Rating
-              size={20}
-              initialValue={review.rating}
-              transition
-              allowFraction
-              readonly
-            />
-            <span className="purchase">Verified Purchase</span>
-          </div>
-          <div className="customer-title">
-            <span>{review.title}</span>
-          </div>
-          <div>{review.description}</div>
-          <hr />
-        </div>
-      ))}
+      <ul className="review-list">
+        {probs.reviews.map((review) => (
+          <li key={review.review_id} className="review-list-item">
+            <div className="my-5 transition">
+              <div className="review_customer_name">
+                <span className="customer-name">{review.customer_name}</span>
+              </div>
+              <div className="rating">
+                <Rating
+                  size={20}
+                  initialValue={review.rating}
+                  transition
+                  allowFraction
+                  readonly
+                />
+                <span className="purchase">Verified Purchase</span>
+              </div>
+              <div className="customer-title">
+                <span>{review.title}</span>
+              </div>
+              <div>{review.description}</div>
+              <hr />
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

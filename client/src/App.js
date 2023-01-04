@@ -7,10 +7,15 @@ import Login from "./Components/login/login";
 import Register from "./Components/register/register";
 import Product from "./Components/product/product";
 import useFetchToken from "./shared/useFetchToken";
+import useFetchCustomerProducts from "./shared/useFetchCustomerProducts";
+import useFetchCustomerReviews from "./shared/useFetchCustomerReviews";
 // import Footer from "./Components/footer/footer";
 function App() {
   sessionStorage.setItem("access_token", localStorage.getItem("access_token"));
   useFetchToken(sessionStorage.getItem("access_token"));
+  useFetchCustomerProducts();
+  useFetchCustomerReviews();
+
   return (
     <Router>
       <Navbar />

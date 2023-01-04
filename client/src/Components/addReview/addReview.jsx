@@ -1,16 +1,24 @@
 import { useForm } from "react-hook-form";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import useAddReview from "../../shared/useAddReview";
+
 import "./style.css";
-function Addreview() {
+function Addreview(probs) {
+  const obj = useSelector((state) => state.obj.obj);
   const { register, handleSubmit } = useForm();
   const [rating, setRating] = useState(0);
+  const [customerReview, setCustomerReview] = useState({});
   const handleRating = (rate) => {
     setRating(rate);
   };
+  useAddReview(customerReview);
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(rating);
+    data.rating = rating;
+    data.product_id = probs.product_id;
+    data.customer_id = obj.id;
+    setCustomerReview(data);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="review-form">

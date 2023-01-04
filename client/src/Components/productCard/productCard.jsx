@@ -20,6 +20,7 @@ function ProductCard(probs) {
       />
       <Card.Body className="card-body">
         <Card.Title className="card-title">{probs.product.name}</Card.Title>
+        <div>{probs.product.category}</div>
         <div className="container-price">
           <Card.Text className="card-text">
             <span className="d-block">

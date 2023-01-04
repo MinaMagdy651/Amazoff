@@ -9,7 +9,6 @@ import "./style.css";
 function Navbar_() {
   const obj = useSelector((state) => state.obj.obj);
   const [login_status, setLogin_status] = useState(obj?.status);
-
   const dispatch = useDispatch();
   const logOut = () => {
     dispatch(clearDataAction());

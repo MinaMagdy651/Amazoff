@@ -13,36 +13,12 @@ import useGetProduct from "../../shared/useGetProduct";
 import Review from "../review/review";
 import "./style.css";
 import { FaBackward, FaForward } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function Product(probs) {
-  const reviews = [
-    {
-      customer_name: "Mina",
-      review_id: 1,
-      title: "Title",
-      description: "gamed awy",
-      rating: 4.5,
-    },
-
-    {
-      customer_name: "msh mina",
-      review_id: 2,
-      title: "another title",
-      description: "",
-      rating: 2,
-    },
-
-    {
-      customer_name: "aloyka",
-      review_id: 3,
-      title: "by2olo 7lw",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, optio. Quibusdam, quia explicabo assumenda distinctio iusto eveniet quisquam non perferendis eaque? Fuga esse, atque dolorum reprehenderit rem minus perferendis numquam.",
-      rating: 3.5,
-    },
-  ];
-
+  const obj = useSelector((state) => state.obj.obj);
   const [product, setProduct] = useState({});
+  const [reviews, setReviews] = useState([]);
   const id = useParams().id;
   const p = useGetProduct(id);
   useEffect(() => {
@@ -51,13 +27,16 @@ function Product(probs) {
         const value = await p;
         if (value) setProduct(value);
         else setProduct({});
+
+        if (value.reviews) setReviews(value.reviews);
+        else setReviews([]);
       } catch (err) {
         console.log(err);
       }
     }
     execute();
     // eslint-disable-next-line
-  }, [id]);
+  }, [id, obj]);
   return (
     <div className="container my-5">
       <div className="row">
@@ -126,7 +105,7 @@ function Product(probs) {
           </div>
         )}
       </div>
-      <Review reviews={reviews}></Review>
+      <Review reviews={reviews} product_id={product.product_id}></Review>
     </div>
   );
 }

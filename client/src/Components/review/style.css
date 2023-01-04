@@ -5,7 +5,7 @@
 .purchase {
   font-size: 80%;
   margin-left: 1%;
-  color: #ff9A5A;
+  color: #ff9a5a;
 }
 
 .customer-title {
@@ -16,4 +16,13 @@
 .customer-name {
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.review-list {
+  padding-left: 0;
+  transition: 0.3s;
+}
+.review-list-item {
+  list-style-type: none;
+  transition: 0.3s;
 }

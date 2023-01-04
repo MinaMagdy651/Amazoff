@@ -24,7 +24,6 @@ function SearchBar() {
   }, [query]);
 
   const p = useSearchProduct(query);
-  console.log(search_result)
 
   return (
     <div id="parent" className="col-md-6 col-lg-12">
@@ -32,8 +31,7 @@ function SearchBar() {
         <i className="fa fa-search"></i>
         <input
           type="text"
-          id = "input"
-          onfocus="this.value=''"
+          id="input"
           className="form-control form-input"
           placeholder="Search anything..."
           onChange={(e) => setQuery(e.target.value)}
@@ -49,8 +47,10 @@ function SearchBar() {
           {/* <p>Products</p> */}
           {search_result.map((product) => (
             <li
-              onClick={() => { navigate(`/product/${product.product_id}`); 
-              setSearch_result([]) }}
+              onClick={() => {
+                navigate(`/product/${product.product_id}`);
+                setSearch_result([]);
+              }}
               className="searchbar-listItem"
               key={product.product_id}
             >
