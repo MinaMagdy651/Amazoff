@@ -23,7 +23,9 @@ const useFetchLogin = (data) => {
           if (data.remember_me) {
             localStorage.setItem("access_token", response.data.token);
             sessionStorage.setItem("access_token", response.data.token);
-          } else sessionStorage.setItem("access_token", response.data.token);
+          } else {
+            sessionStorage.setItem("access_token", response.data.token);
+          }
           setData(response.data);
           navigate("/home");
         })
@@ -31,6 +33,7 @@ const useFetchLogin = (data) => {
           console.log(error);
         });
     }
-  });
+    // eslint-disable-next-line
+  }, [data]);
 };
 export default useFetchLogin;
