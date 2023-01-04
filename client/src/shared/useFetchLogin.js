@@ -1,11 +1,12 @@
 import { setDataAction } from "../Redux/shopSlicer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "../APIS/axios";
 const LOGIN_URL = "/customer-login";
 
 const useFetchLogin = (data) => {
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const setData = (data) => {
     dispatch(setDataAction(data));
@@ -30,10 +31,11 @@ const useFetchLogin = (data) => {
           navigate("/home");
         })
         .catch((error) => {
-          console.log(error);
+          setError(true);
         });
     }
     // eslint-disable-next-line
   }, [data]);
+  return [error];
 };
 export default useFetchLogin;

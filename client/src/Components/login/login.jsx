@@ -8,6 +8,7 @@ import "./style.css";
 
 function Login() {
   const obj = useSelector((state) => state.obj.obj);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,11 +19,17 @@ function Login() {
 
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
-  useFetchLogin(data ? data : null);
+  const [error] = useFetchLogin(data ? data : null);
 
   const onSubmit = (data) => {
     setData(data);
   };
+
+  if (error) {
+    const element = document.getElementById("password");
+    element.value = "";
+    element.focus();
+  }
 
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -36,6 +43,7 @@ function Login() {
               <input
                 id="email"
                 className="form-control"
+                type="email"
                 placeholder="Email"
                 {...register("email", { required: true })}
               />
@@ -49,7 +57,7 @@ function Login() {
                 {...register("password", { required: true })}
               />
             </div>
-            <div className="remember-me-container">
+            <div className="remember-me-container d-flex justify-content-start  ">
               <label className="remember-me-label" htmlFor="">
                 <input
                   className="remember-me-checkbox"
@@ -63,6 +71,11 @@ function Login() {
               <button className="login-button" type="submit">
                 Sign in
               </button>
+              {error && (
+                <p className="text-danger text-center">
+                  Wrong Email or Password
+                </p>
+              )}
             </div>
             <div className="login-info">
               Don't have an account? <Link to="/register">Register</Link>

@@ -26,8 +26,8 @@ function Register() {
 
   useFetchRegister(data ? data : null);
   const subscription = watch("email");
-  useCheckEmail(subscription);
-
+  const [error] = useCheckEmail(subscription);
+  const [confirm_error, setConfirm_error] = useState(false);
   const showPassword = () => {
     var x = document.getElementById("password");
     if (x.type === "password") {
@@ -36,7 +36,10 @@ function Register() {
       x.type = "password";
     }
   };
-
+  const confirmPassowrd = () => {
+    if (watch("confirm-password") !== watch("password")) setConfirm_error(true);
+    else setConfirm_error(false);
+  };
   return (
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="register-container container">
@@ -63,9 +66,16 @@ function Register() {
               id="email"
               {...register("email", { required: true })}
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
+            {!error && (
+              <div id="emailHelp" className="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            )}
+            {error && (
+              <div id="emailHelp" className="form-text text-danger">
+                Email Already exists
+              </div>
+            )}
           </div>
 
           <div className="mb-3">
@@ -95,17 +105,21 @@ function Register() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label">
+            <label htmlFor="confirm-password" className="form-label">
               Confirm Password
             </label>
             <input
               type="password"
               className="form-control"
-              id="confirmPassword"
+              id="confirm-password"
               required
+              {...register("confirm-password", { required: true })}
+              onBlur={confirmPassowrd}
             />
           </div>
-
+          {confirm_error && (
+            <p className="text-danger">Passwords don't match</p>
+          )}
           <div className="mb-3">
             <label htmlFor="dob" className="form-label">
               Date of Birth

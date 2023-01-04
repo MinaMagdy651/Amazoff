@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "../APIS/axios";
 const CHECK_EMAIL = "/customer-check-email";
 
 const useCheckEmail = (data) => {
+  const [error, setError] = useState(false);
   useEffect(() => {
     if (data) {
       axios
@@ -10,13 +11,14 @@ const useCheckEmail = (data) => {
           email: data,
         })
         .then((response) => {
-          console.log("response", response.data);
+          setError(false);
         })
         .catch((error) => {
-          console.log(error);
+          setError(true);
         });
     }
     // eslint-disable-next-line
   }, [data]);
+  return [error];
 };
 export default useCheckEmail;
