@@ -59,15 +59,6 @@ function Navbar_() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item d-flex justify-content-center">
-                  <Link
-                    to="/counter"
-                    className="nav-link active name redirect"
-                    aria-current="page"
-                  >
-                    Counter
-                  </Link>
-                </li>
 
                 <SearchBar></SearchBar>
                 {!login_status && (
@@ -94,7 +85,10 @@ function Navbar_() {
                 )}
                 {login_status && (
                   <li className="nav-item d-flex flex-row name">
-                    Hello, <strong className="nameNav">{`${obj.name.split(" ")[0]}`}</strong>
+                    Hello,{" "}
+                    <strong className="nameNav">{`${
+                      obj.name.split(" ")[0]
+                    }`}</strong>
                   </li>
                 )}
                 {login_status && (
