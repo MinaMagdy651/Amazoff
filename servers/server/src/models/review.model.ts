@@ -18,12 +18,10 @@ export default class review {
             const review = await conn.query(query)
             if (review.rows.length == 0) throw new Error()
             // add review to the product
-            console.log(productId + ' ' + customerId + review.rows[0].review_id)
             const query2 = `insert into reviews values(${productId} , ${customerId} ,${review.rows[0].review_id}) returning *`
             const reviews = await conn.query(query2)
             if (reviews.rows.length == 0) throw new Error()
             // update the rating
-            console.log(reviews.rows)
             const query3 = `update product set rating = (select AVG(r.rating) from product p , reviews rs, review r where p.product_id = rs.product_id and rs.review_id = r.review_id and p.product_id = ${productId}) where product_id = ${productId}`
             const ratingUpdated = await conn.query(query3)
 
