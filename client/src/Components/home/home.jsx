@@ -1,10 +1,10 @@
-// import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import ProductGrid from "../product_grid/product_grid";
 import useGetAllProducts from "../../shared/useGetAllProducts";
-import { useEffect, useState } from "react";
+
 function Home() {
-  // const obj = useSelector((state) => state.obj.obj);
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     async function execute() {
       try {

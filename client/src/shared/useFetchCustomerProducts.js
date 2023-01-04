@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import axios from "../APIS/axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setPurchaseAction } from "../Redux/shopSlicer";
+import axios from "../APIS/axios";
 const CUSTOMER_PURCHASE = "/customer-purchases/";
+
 const useFetchCustomerProducts = () => {
   const dispatch = useDispatch();
   const obj = useSelector((state) => state.obj.obj);

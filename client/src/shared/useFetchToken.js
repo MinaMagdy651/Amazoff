@@ -1,6 +1,6 @@
-import axios from "../APIS/axios";
 import { setDataAction } from "../Redux/shopSlicer";
 import { useDispatch } from "react-redux";
+import axios from "../APIS/axios";
 const TOKEN_CHECK = "/customer-token";
 
 const useFetchToken = (data) => {

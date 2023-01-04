@@ -8,8 +8,10 @@ import "./style.css";
 
 function Navbar_() {
   const obj = useSelector((state) => state.obj.obj);
+
   const [login_status, setLogin_status] = useState(obj?.status);
   const dispatch = useDispatch();
+
   const logOut = () => {
     dispatch(clearDataAction());
     localStorage.removeItem("access_token");
@@ -23,6 +25,7 @@ function Navbar_() {
       setLogin_status(false);
     }
   }, [obj]);
+
   return (
     <div id="header" className="sticky-top">
       <div className="container">
@@ -59,7 +62,6 @@ function Navbar_() {
                     Home
                   </Link>
                 </li>
-
                 <SearchBar></SearchBar>
                 {!login_status && (
                   <li className="nav-item d-flex flex-row">

@@ -1,4 +1,24 @@
 .footer {
-  background: rgba(51, 51, 51, 0.7);
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
   text-align: center;
+}
+
+.reset-a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+}
+
+.reset-a:hover {
+  transition: 0.3s;
+  color: rgb(187, 186, 186);
+}
+
+.github-icon {
+  margin-right: 5px;
 }

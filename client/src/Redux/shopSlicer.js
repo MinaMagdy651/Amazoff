@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   obj: {
-    // attrbitutes to be added later
-    counter: 0,
     id: -1,
     type: "",
     name: "",
@@ -51,17 +49,9 @@ const shopSlicer = createSlice({
     updateReviewsAction: (state, data) => {
       state.obj.reviews_list.push(data.payload);
     },
-    incrementAction: (state, data) => {
-      state.obj.counter += data.payload;
-    },
-    decrementAction: (state, data) => {
-      state.obj.counter -= data.payload;
-    },
   },
 });
 export const {
-  incrementAction,
-  decrementAction,
   setDataAction,
   clearDataAction,
   setPurchaseAction,

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import axios from "../APIS/axios";
 import { useNavigate } from "react-router-dom";
 import { setDataAction } from "../Redux/shopSlicer";
 import { useDispatch } from "react-redux";
+import axios from "../APIS/axios";
 const REGISTER_URL = "/customer-register";
 
 const useFetchRegister = (data) => {

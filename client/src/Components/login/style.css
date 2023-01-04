@@ -2,15 +2,11 @@
   font-family: "Rubik", sans-serif;
   display: grid;
   justify-content: center;
-  width: auto;
-  margin-left: 20%;
-  margin-right: 20%;
   margin-top: 10%;
+  height: 100%;
 }
 
 .login-form .container {
-
-  width: 400px;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -30,7 +26,7 @@
 }
 
 .login-form .remember-me-container .remember-me-checkbox {
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .login-form .remember-me-container .remember-me-label {
@@ -47,6 +43,7 @@
   width: 100%;
   height: 40px;
   background-color: #098666;
+  opacity: 0.9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -54,4 +51,8 @@
 
 .login-form .login-button-container {
   padding-bottom: 20px;
+}
+.login-button:hover {
+  transition: 0.5s;
+  opacity: 1;
 }

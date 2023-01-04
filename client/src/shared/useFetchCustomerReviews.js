@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setReviewsAction } from "../Redux/shopSlicer";
 const CUSTOMER_REVIEWS = "/product-reviewed/";
+
 const useFetchCustomerReviews = () => {
   const dispatch = useDispatch();
   const obj = useSelector((state) => state.obj.obj);

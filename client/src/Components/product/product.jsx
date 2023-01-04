@@ -8,12 +8,12 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import { Rating } from "react-simple-star-rating";
+import { FaBackward, FaForward } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import useGetProduct from "../../shared/useGetProduct";
 import Review from "../review/review";
 import "./style.css";
-import { FaBackward, FaForward } from "react-icons/fa";
-import { useSelector } from "react-redux";
 
 function Product(probs) {
   const obj = useSelector((state) => state.obj.obj);
