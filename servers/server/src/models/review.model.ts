@@ -16,7 +16,6 @@ export default class review {
         try {
             const query = `insert into review (title, description, rating) values ('${title}', '${description}', ${rating}) returning *;`
             const review = await conn.query(query)
-            console.log(review.rows)
             if (review.rows.length == 0) throw new Error()
             // add review to the product
             console.log(productId + ' ' + customerId + review.rows[0].review_id)

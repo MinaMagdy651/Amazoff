@@ -26,3 +26,17 @@
   list-style-type: none;
   transition: 0.3s;
 }
+
+#reviewer-icon{
+  margin-bottom: 7px;
+  margin-right: 7px;
+}
+
+.no-reviews{
+  border-top: 0.3px solid black;
+  padding-top: 50px;
+  margin: 100px auto;
+  font-weight: bold;
+  font-size: 50px;
+  color: rgb(217, 216, 216)
+}

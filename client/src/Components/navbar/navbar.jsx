@@ -93,7 +93,7 @@ function Navbar_() {
                 )}
                 {login_status && (
                   <li className="nav-item d-flex flex-row name">
-                    Hello, <strong>{obj.name.split(" ")[0]}</strong>
+                    Hello, <strong className="nameNav">{`${obj.name.split(" ")[0]}`}</strong>
                   </li>
                 )}
                 {login_status && (
