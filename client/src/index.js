@@ -6,6 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 
+if (localStorage.getItem("access_token")) {
+  sessionStorage.setItem("access_token", localStorage.getItem("access_token"));
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
