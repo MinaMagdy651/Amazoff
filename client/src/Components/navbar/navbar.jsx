@@ -13,6 +13,7 @@ function Navbar_() {
   const logOut = () => {
     dispatch(clearDataAction());
     localStorage.removeItem("access_token");
+    sessionStorage.removeItem("access_token");
   };
 
   useEffect(() => {
