@@ -1,9 +1,9 @@
-<img src = "https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/amazoff-logo.svg">
 
 
+![logo](https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/amazoff-logo.svg)
 
 
-![](https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/Backend.gif)
+![myGif](https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/Backend.gif)
 
 ## Database Setup
 ->  Start postgres database on port 5432
