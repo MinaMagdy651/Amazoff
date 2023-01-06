@@ -1,7 +1,7 @@
 
 ## 
-<img src = "https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/logo.jpg">
-
+![logo](https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/logo.jpg)
+********************************
 ## 
 ![myGif](https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif)
 ********************************
