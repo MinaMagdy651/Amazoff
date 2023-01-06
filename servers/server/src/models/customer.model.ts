@@ -56,6 +56,7 @@ export default class customer {
         try {
             const query = `SELECT email FROM customers WHERE email = '${email}'`
             const emailExists = await conn.query(query)
+            
             if (emailExists.rows.length)
                 throw new Error(`This email already exists`)
             return true
