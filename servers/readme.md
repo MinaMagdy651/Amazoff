@@ -1,16 +1,15 @@
 
 ## 
 <div align = "center">
-<img src = "https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/logo.jpg" >
+<img src = "https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/amazoff-logo.svg" >
 </div>
 <br>
 <br><br>
 <br><br>
-<br><br>
-<br>
 
 
-<img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="300" height="300">
+
+<img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="350" height="350">
 </div>
 
 ********************************
@@ -30,7 +29,7 @@
 ## project Setup
 #### 1- Install Dependencies:
         npm install
-#### 2- Create .env file in both folders 'server' & 'productServer **You should put your own password in variable called password**
+#### 2- Create .env file in both folders 'server' & 'productServer' **You should put your own password in variable called password**
         NODE_ENV=development
         user=postgres
         password=
