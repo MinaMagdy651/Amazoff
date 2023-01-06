@@ -9,8 +9,8 @@
 <br><br>
 <br>
 
-<div align = "center">
-<img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="250" height="250">
+
+<img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="300" height="300">
 </div>
 
 ********************************
