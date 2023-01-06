@@ -4,9 +4,6 @@
 <img src = "https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/amazoff-logo.svg" >
 </div>
 <br>
-<br><br>
-<br><br>
-
 
 
 <img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="350" height="350">
