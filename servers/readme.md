@@ -1,10 +1,10 @@
 
-
+## 
 ![logo](https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/amazoff-logo.svg)
 
-
-![myGif](https://github.com/amwopps/Amazoff/tree/main/servers/screenshots/Backend.gif)
-
+## 
+![myGif](https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif)
+********************************
 ## Database Setup
 ->  Start postgres database on port 5432
 1. you need to open sql shell (psql) 
