@@ -1,8 +1,14 @@
 
 ## 
 <div align = "center">
+
 <img src = "https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/logo.jpg" >
 </div>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br>
 
 ![myGif](https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif)
 ********************************
