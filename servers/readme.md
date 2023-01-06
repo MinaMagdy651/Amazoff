@@ -12,6 +12,7 @@
 <div align = "center">
 <img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="250" height="250">
 </div>
+
 ********************************
 ## Database Setup
 ->  Start postgres database on port 5432
