@@ -12,7 +12,7 @@ these products. In addition, you can write your own rating and review on your pu
     ![sc1](https://github.com/amwopps/Amazoff/blob/main/screenShots/sc1.png)
 
 -   You can create your own account which provides alot of services as you can add products to the cart and purchase products and rate your purchased products.
-    ![sc2](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc2.png)
+    ![sc2](https://github.com/amwopps/Amazoff/blob/main/screenShots/sc2.png)
 
 -   you are allowed to search on specific product 
     ![sc3](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc3.png)
