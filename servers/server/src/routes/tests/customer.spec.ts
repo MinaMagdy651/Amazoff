@@ -54,21 +54,20 @@ describe ('Customers endpoints' , () => {
         const response = await request
             .get('/customer-token')
             .set('Authorization', `Bearer ${token}`)    
-        console.log(response.body + '   ' + customer)
         expect(response.status).toEqual(200);
         expect(response.body.email).toEqual(customer.email);
     })
     
-    afterAll(async () => {
-        const conn = await client.connect()
-        try{
-            const query = `Truncate table customers cascade`
-            const response = await conn.query(query)
+    // afterAll(async () => {
+    //     const conn = await client.connect()
+    //     try{
+    //         const query = `Truncate table customers cascade`
+    //         const response = await conn.query(query)
 
-        }catch(err){
-            throw err
-        }finally{
-            conn.release();
-        }
-    })
+    //     }catch(err){
+    //         throw err
+    //     }finally{
+    //         conn.release();
+    //     }
+    // })
 })

@@ -3,7 +3,6 @@
 <div align = "center">
 <img src = "https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/amazoff-logo.svg" >
 </div>
-<br>
 
 
 <img src="https://github.com/amwopps/Amazoff/blob/main/servers/screenshots/Backend.gif" width="350" height="350">

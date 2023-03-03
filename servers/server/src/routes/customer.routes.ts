@@ -12,3 +12,5 @@ const customerRoute = (app: express.Application) => {
 }
 
 export default customerRoute
+
+
