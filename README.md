@@ -12,30 +12,30 @@ these products. In addition, you can write your own rating and review on your pu
     ![sc1](https://github.com/amwopps/Amazoff/blob/main/screenShots/sc1.png)
 
 -   You can create your own account which provides alot of services as you can add products to the cart and purchase products and rate your purchased products.
-    ![sc2]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc2.png")
+    ![sc2](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc2.png)
 
 -   you are allowed to search on specific product 
-    ![sc3]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc3.png")
+    ![sc3](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc3.png)
 
 -   product details 
-    ![sc4]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc4.png")
+    ![sc4](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc4.png)
 
 -   rate your product 
-    ![sc5]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc5.png")
+    ![sc5](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc5.png)
 
 -   frontend responsive design
-    ![sc6]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc6.png")
+    ![sc6](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc6.png)
 
 <hr>
 
 ## Database Overview
 ### ERD Design
 -   Here's our erd diagram 
-    ![sc8]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc7.png")
+    ![sc8](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc7.png)
 
 ### Relational Mapping
 -   relational mapping
-    ![sc9]("https://github.com/amwopps/Amazoff/tree/main/screenShots/sc8.png")
+    ![sc9](https://github.com/amwopps/Amazoff/tree/main/screenShots/sc8.png)
 
 <hr>
 
