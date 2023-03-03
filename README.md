@@ -9,9 +9,7 @@ these products. In addition, you can write your own rating and review on your pu
 <b>Here's examples of our application</b>
 
 -   Home Page
-<div>
-<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc1.png"  width="350" height="350">
-</div>
+    [sc1](https://github.com/amwopps/Amazoff/blob/main/screenShots/sc1.png)
 
 -   You can create your own account which provides alot of services as you can add products to the cart and purchase products and rate your purchased products.
 <img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc2.png">
