@@ -3,7 +3,7 @@
 ## Overview
 
 Amazoff is a simple ecommerce application which built using 
-Reactjs and express. In this app you can get online shopping 
+Reactjs and express. In this app you can go online shopping which
 helps you to get your desired products and get a good knowlege about the rating and reviews of people who purchased 
 these products. In addition, you can write your own rating and review on your purchased product and to keep in mind you are not permitted to rate a product you didn't actually purchase it. 
 <b>Here's examples of our application</b>
