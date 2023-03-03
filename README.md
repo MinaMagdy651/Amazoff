@@ -9,39 +9,33 @@ these products. In addition, you can write your own rating and review on your pu
 <b>Here's examples of our application</b>
 
 -   Home Page
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc1.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc1.png">
 
 -   You can create your own account which provides alot of services as you can add products to the cart and purchase products and rate your purchased products.
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc2.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc2.png">
 
 -   you are allowed to search on specific product 
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc3.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc3.png">
 
 -   product details 
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc4.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc4.png">
 
 -   rate your product 
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc5.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc5.png">
 
 -   frontend responsive design
-<img src = "https://github.com/amwopps/Amazoff/
-screenShots/sc6.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc6.png">
 
 <hr>
 
 ## Database Overview
 ### ERD Design
 -   Here's our erd diagram 
-<img src = "https://github.com/amwopps/Amazoff/screenShots/sc7.png"> 
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc7.png"> 
 
 ### Relational Mapping
 -   relational mapping
-<img src = "https://github.com/amwopps/Amazoff/screenShots/sc8.png">
+<img src = "https://github.com/amwopps/Amazoff/tree/main/screenShots/sc8.png">
 
 <hr>
 
