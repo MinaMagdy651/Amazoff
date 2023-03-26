@@ -3,5 +3,6 @@
   "allProducts": "/products",
   "login": "/customer-login",
   "product": "/product/",
-  "checkEmail": "/customer-check-email"
+  "checkEmail": "/customer-check-email",
+  "register": "/customer-register"
 }
