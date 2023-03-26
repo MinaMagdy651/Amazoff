@@ -1,5 +1,6 @@
 {
   "addReview": "/product/addreview",
   "allProducts": "/products",
-  "login": "/customer-login"
+  "login": "/customer-login",
+  "product": "/product/"
 }
