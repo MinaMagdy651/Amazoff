@@ -10,6 +10,7 @@ const productRoute = (app: express.Application) => {
     app.get('/product/:id', getProduct)
     app.get('/customer-purchases/:customer_id', getCustomerPurchases)
     app.get('/product-reviewed/:customer_id', getProductReviewedByCustomerId)
+    app.get('/products-category', getAllCategories)
     // app.post('/product', createProduct)
 }
 
@@ -67,6 +68,16 @@ function getAllProducts(req: express.Request, res: express.Response) {
         .request({
             method: 'GET',
             url: `${url}/products`,
+        })
+        .then((response) => res.send(response.data))
+        .catch((err) => res.status(404).send(err.message))
+}
+
+function getAllCategories(req: express.Request, res: express.Response) {
+    axios
+        .request({
+            method: 'GET',
+            url: `${url}/products-category`,
         })
         .then((response) => res.send(response.data))
         .catch((err) => res.status(404).send(err.message))

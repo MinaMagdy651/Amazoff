@@ -35,19 +35,18 @@ class product {
             // const file = fs.readdirSync(fileabs)
 
             let imagesName = []
-           // if there is no images add the default
-            if (images == null){
-                const copyFilePath = `${dir}/${id}/default.jpg`;
-                const filepath = `${dir}/-1/default.jpg`;
+            // if there is no images add the default
+            if (images == null) {
+                const copyFilePath = `${dir}/${id}/default.jpg`
+                const filepath = `${dir}/-1/default.jpg`
                 fs.copyFile(filepath, copyFilePath, (err) => {
-                    if (err) throw err;
-                      
-                    console.log('File Copy Successfully.');
-                  });
-                
+                    if (err) throw err
+
+                    console.log('File Copy Successfully.')
+                })
+
                 imagesName.push('default.jpg')
-            }
-            else {
+            } else {
                 Object.keys(images).forEach(function (key) {
                     imagesName.push(images[key].name)
                     const path = resolve(`${dir}/${id}/${images[key].name}`)
@@ -180,6 +179,33 @@ class product {
             conn.release()
         }
     }
+    //get All categories
+    async getAllCategories() {
+        const conn = await client.connect()
+        try {
+            const query = `SELECT P.PRODUCT_ID, P.NAME, P.CATEGORY, P.PRICE, P.RATING, PI.URL
+            FROM PRODUCT AS P, PRODUCT_IMAGES AS PI
+            WHERE P.PRODUCT_ID = PI.PRODUCT_ID
+            ORDER BY P.CATEGORY;
+            `
+            const allProducts = await conn.query(query)
+            if (allProducts.rows.length == 0) throw new Error()
+            const products_1Image = this.filtering(allProducts.rows)
+            const groupedProducts = products_1Image.reduce((acc, curr) => {
+                const key = curr.category
+                if (!acc[key]) {
+                    acc[key] = []
+                }
+                acc[key].push(curr)
+                return acc
+            }, {})
+            return groupedProducts
+        } catch (err) {
+            throw new Error('No products found')
+        } finally {
+            conn.release()
+        }
+    }
 
     filtering(allProducts) {
         var stack = []
@@ -193,31 +219,31 @@ class product {
         return stack
     }
     async getCustomerPurchases(customerId) {
-        const conn = await client.connect();
-        try{
+        const conn = await client.connect()
+        try {
             // console.log('here');
             const query = `SELECT p.product_id FROM bought b , product p where b.product_id = p.product_id and b.customer_id = ${customerId};`
-            const products = await conn.query(query);
+            const products = await conn.query(query)
             // console.log(products.rows)
-            if(products.rows.length == 0) throw new Error();
+            if (products.rows.length == 0) throw new Error()
             return products.rows
-        }catch(err){
-            throw new Error(`There are no purchases`);
-        }finally{
-            conn.release();
+        } catch (err) {
+            throw new Error(`There are no purchases`)
+        } finally {
+            conn.release()
         }
     }
     async getProductReviewedByCustomerId(customerId) {
-        const conn = await client.connect();
-        try{
+        const conn = await client.connect()
+        try {
             const query = `select product_id from reviews where customer_id = ${customerId};`
-            const products = await conn.query(query);
-            if(products.rows.length == 0) throw new Error();
-            return products.rows;
-        }catch(err){
-            throw new Error();
-        }finally{
-            conn.release();
+            const products = await conn.query(query)
+            if (products.rows.length == 0) throw new Error()
+            return products.rows
+        } catch (err) {
+            throw new Error()
+        } finally {
+            conn.release()
         }
     }
 }
