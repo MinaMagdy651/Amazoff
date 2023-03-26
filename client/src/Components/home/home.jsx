@@ -1,32 +1,91 @@
-import { useEffect, useState } from "react";
-import ProductGrid from "../product_grid/product_grid";
-import useGetAllProducts from "../../shared/useGetAllProducts";
+import "./style.css"
+import welcomeImage from "../../welcomePage.jpeg"
+import welcomeImage2 from "../../welcomePage2.jpeg"
+import Product_categories from "../productsCategories/productsCategories";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { Container } from "react-bootstrap";
 
-function Home() {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function execute() {
-      try {
-        const value = await p;
-        if (value) setProducts(value);
-        else setProducts([]);
-      } catch (err) {
-        console.log(err);
-      }
+function Home(){ 
+    const products = {
+        electronics: [{product_id: 2, url: 1, price: 500, rating: 1 , name: "test1", category: "electronics "},{url: 1, price: 500, rating: 1 , name: "test2", category: "electronics "},
+        {url: 1, price: 500, rating: 1 , name: "test3", category: "electronics "},{url: 1, price: 500, rating: 1 , name: "test4", category: "electronics "},
+        {url: 1, price: 500, rating: 1 , name: "test5", category: "electronics "},{url: 1, price: 500, rating: 1 , name: "test6", category: "electronics "}],
+        Jewellery_Accessories: [{url: 1, price: 500, rating: 1 , name: "test", category: "electronics "}, {url: 1, price: 500, rating: 1 , name: "test", category: "electronics "}] 
     }
-    execute();
-    // eslint-disable-next-line
-  }, []);
-
-  const p = useGetAllProducts();
-
-  return (
-    <div className="container">
-      <div className="row">
-        <ProductGrid allProducts={products}></ProductGrid>
-      </div>
-    </div>
-  );
+    let Products_categories = [];
+    function categories(){
+        for(let category in products)
+            Products_categories.push(category)   
+    }
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 1
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 1
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 1
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
+    const welcomeImages = [welcomeImage, welcomeImage2];
+    return(
+  
+        <div className="home">
+            {/* <div className = "welcome">
+                <h1>Get Start</h1>
+                <h1>Your favourite shopping</h1>
+            </div> */}
+        
+                 <Carousel  
+                    responsive={responsive}
+                    autoPlay={true}
+                    autoPlaySpeed={500}
+                    infinite={true}
+                    swipeable={true}
+                    draggable={false}
+                    showDots={false}
+                    keyBoardControl={true}
+                    customTransition="all .5"
+                    transitionDuration={500}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    itemClass="carousel-item-padding-40-px"
+                    // deviceType={this.props.deviceType}
+                    
+                    >   
+                    
+                    {welcomeImages.map(image => 
+                        {return(
+                            
+                            <div className="image col">
+                                    <img src = {image} />
+                            </div>
+                        );
+                        }
+                    
+                    )}
+                </Carousel>
+            <hr></hr>
+            <div className = "container categories">
+                {categories()}
+                
+                {Products_categories.map(category=> <Product_categories category={category} products = {products[`${category}`]}/>)}
+            </div>
+        </div>
+    );
 }
+
 export default Home;
+
+

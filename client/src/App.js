@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Products from "./Components/products/products";
 import Home from "./Components/home/home";
 import Navbar from "./Components/navbar/navbar";
 import Login from "./Components/login/login";
@@ -25,14 +26,15 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/products" element={<Products />} />
         <Route exact path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </Router>
   );
 }
