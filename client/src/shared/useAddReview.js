@@ -14,7 +14,6 @@ const useAddReview = (data) => {
       const response = await axios.post(URL, data);
       if (response.status === 200) {
         dispatch(updateReviewsAction(data.product_id));
-        console.log(response);
         setLoading(false);
         setError(false);
       }

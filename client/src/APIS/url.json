@@ -2,5 +2,6 @@
   "addReview": "/product/addreview",
   "allProducts": "/products",
   "login": "/customer-login",
-  "product": "/product/"
+  "product": "/product/",
+  "checkEmail": "/customer-check-email"
 }

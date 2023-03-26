@@ -26,7 +26,8 @@ function Register() {
 
   useFetchRegister(data ? data : null);
   const subscription = watch("email");
-  const [error] = useCheckEmail(subscription);
+  const { error } = useCheckEmail(subscription);
+  console.log(error);
   const [confirm_error, setConfirm_error] = useState(false);
   const showPassword = () => {
     var x = document.getElementById("password");
