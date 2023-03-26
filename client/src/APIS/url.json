@@ -4,5 +4,7 @@
   "login": "/customer-login",
   "product": "/product/",
   "checkEmail": "/customer-check-email",
-  "register": "/customer-register"
+  "register": "/customer-register",
+  "purchaseList": "/customer-purchases/",
+  "reviewList": "/product-reviewed/"
 }

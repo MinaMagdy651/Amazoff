@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import axios from "../APIS/axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setReviewsAction } from "../Redux/shopSlicer";
-const CUSTOMER_REVIEWS = "/product-reviewed/";
+import axios from "../APIS/axios";
+import urls from "../APIS/url.json";
+const URL = urls.reviewList;
 
 const useFetchCustomerReviews = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const useFetchCustomerReviews = () => {
   useEffect(() => {
     if (obj.status) {
       axios
-        .get(CUSTOMER_REVIEWS + obj.id)
+        .get(URL + obj.id)
         .then((response) => {
           var data = [];
           response.data.map((product_id) => data.push(product_id.product_id));
