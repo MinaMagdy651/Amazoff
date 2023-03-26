@@ -23,8 +23,8 @@ const useAddReview = (data) => {
   };
   useEffect(() => {
     if (Object.keys(data).length !== 0) postData();
-  });
+    // eslint-disable-next-line
+  }, []);
   return { loading, error };
 };
 export default useAddReview;
-//title description rating product_id customer_id

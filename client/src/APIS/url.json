@@ -1,3 +1,4 @@
 {
-  "addReview": "/product/addreview"
+  "addReview": "/product/addreview",
+  "allProducts": "/products"
 }

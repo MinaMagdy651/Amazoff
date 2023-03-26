@@ -16,7 +16,7 @@ function Addreview(probs) {
     setRating(rate);
   };
 
-  useAddReview(customerReview);
+  const { error, loading } = useAddReview(customerReview);
 
   const onSubmit = (data) => {
     data.rating = rating;
@@ -24,6 +24,8 @@ function Addreview(probs) {
     data.customer_id = obj.id;
     setCustomerReview(data);
   };
+  if (error) return <>error</>;
+  if (loading) return <>loading</>;
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="review-form">
       <h4 className="review-form-title">Add Review</h4>
