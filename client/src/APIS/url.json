@@ -6,5 +6,6 @@
   "checkEmail": "/customer-check-email",
   "register": "/customer-register",
   "purchaseList": "/customer-purchases/",
-  "reviewList": "/product-reviewed/"
+  "reviewList": "/product-reviewed/",
+  "productsCategory": "/products-category"
 }

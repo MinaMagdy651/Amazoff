@@ -1,93 +1,35 @@
 import "./style.css";
-import welcomeImage from "../../welcomePage.jpeg";
-import welcomeImage2 from "../../welcomePage2.jpeg";
+import {useState} from "react"
+import welcomeImage from "../../Assets/welcomePage.jpeg";
+import welcomeImage2 from "../../Assets/welcomePage2.jpeg";
 import Product_categories from "../productsCategories/productsCategories";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Container } from "react-bootstrap";
+import axios from "../../APIS/axios";
+import { useEffect } from "react";
+import urls from "../../APIS/url.json";
+const URL = urls.productsCategory;
+
 
 function Home() {
-  const products = {
-    electronics: [
-      {
-        product_id: 2,
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test1",
-        category: "electronics ",
-      },
-      {
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test2",
-        category: "electronics ",
-      },
-      {
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test3",
-        category: "electronics ",
-      },
-      {
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test4",
-        category: "electronics ",
-      },
-      {
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test5",
-        category: "electronics ",
-      },
-      {
-        url: 1,
-        price: 500,
-        rating: 1,
-        name: "test6",
-        category: "electronics ",
-      },
-    ],
-    Jewellery_Accessories: [
-      { url: 1, price: 500, rating: 1, name: "test", category: "electronics " },
-      { url: 1, price: 500, rating: 1, name: "test", category: "electronics " },
-    ],
-  };
+  let [products, setProducts] = useState({});
+ 
   let Products_categories = [];
   function categories() {
     for (let category in products) Products_categories.push(category);
   }
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+  
+  useEffect( 
+    () => {
+      axios.get(URL).then(res => {
+        setProducts(res.data)
+      })
+    }
+    , [])
+
   const welcomeImages = [welcomeImage, welcomeImage2];
   return (
     <div className="home">
-      {/* <div className = "welcome">
-                <h1>Get Start</h1>
-                <h1>Your favourite shopping</h1>
-            </div> */}
 
       <Carousel
         responsive={responsive}
@@ -129,3 +71,24 @@ function Home() {
 }
 
 export default Home;
+
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
