@@ -1,16 +1,32 @@
 import { updateCart } from "../../Redux/shopSlicer";
 import "./style.css"
-import {useSelector, useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {useState} from 'react';
+import axios from "../../APIS/axios";
+import URL from "../../APIS/url.json"
+const url = URL.removeCart;
+const urlUpdate = URL.updateCart;
 
 function ProductCardCart(probs){
     let [product, setProduct] = useState(probs.product);
-    const obj = useSelector((state) => state.obj.obj);
     const dispatch = useDispatch();
-    function removeProduct(product_id){
-        let newProducts = probs.allProducts.filter(product => product.product_id != product_id)
-        probs.setAllProducts(newProducts)
-        dispatch(updateCart(newProducts.length))
+    async function removeProduct(product_id){
+        const response = await axios.delete(`${url}/${product_id}`);
+        if(response.status === 200){
+                let newProducts = probs.allProducts.filter(product => product.product_id !== product_id);
+                probs.setAllProducts(newProducts)
+                dispatch(updateCart(newProducts.length))
+        }
+    }
+    async function updateQuantity(sign){
+        if(sign == "+")
+            setProduct({...product, quantity: ++product.quantity})  
+        else
+            setProduct({...product, quantity: product.quantity-1 >=0? --product.quantity: product.quantity})
+        const response = await axios.patch(`${urlUpdate}/${product.product_id}` , {
+            quantity: product.quantity
+        })
+
     }
     return (
         <div className = "row ">
@@ -23,9 +39,10 @@ function ProductCardCart(probs){
                     <p>{probs.product.name}</p>
                 </div>
                 <div className="prod_quantity">
-                    <button onClick = {() => setProduct({...product, quantity: product.quantity-1 >=0? --product.quantity: product.quantity})}>-</button>
+                    <button onClick = {() => updateQuantity('-')}>-</button>
+                    {/* {console.log(probs.product.quantity)} */}
                     <p>{product.quantity}</p>
-                    <button onClick = {() => setProduct({...product, quantity: ++product.quantity})}>+</button>
+                    <button onClick = {() => updateQuantity('+')}>+</button>
                 </div>
                 <div className = "prod_price">
                     <p>Price: {probs.product.price}$</p>

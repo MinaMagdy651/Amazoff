@@ -52,6 +52,7 @@ function Cart(){
     const fetchData = async () => {
         try{
             const response = await axios.get(url);
+            console.log(response.data)
             if (response.status === 200) {
                 // console.log(response.data)
                 setProducts(response.data);

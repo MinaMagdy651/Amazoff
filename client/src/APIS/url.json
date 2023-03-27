@@ -9,5 +9,7 @@
   "reviewList": "/product-reviewed/",
   "productsCategory": "/products-category",
   "addToCart":"/product",
-  "getCart":"/cart"
+  "getCart":"/cart",
+  "removeCart": "/remove-cart",
+  "updateCart": "/update-cart"
 }

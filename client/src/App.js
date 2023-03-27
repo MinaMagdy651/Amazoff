@@ -6,7 +6,7 @@ import Login from "./Components/login/login";
 import Register from "./Components/register/register";
 import Product from "./Components/product/product";
 import Cart from "./Components/cart/cart";
-
+import Footer from "./Components/footer/footer";
 import {
   useCustomerProducts,
   useCustomerReviews,
@@ -39,7 +39,7 @@ function App() {
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
         <Route path = "/cart" element = {<Cart />}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </Router>
   );
 }
