@@ -1,5 +1,5 @@
 import { setDataAction } from "../Redux/shopSlicer";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "../APIS/axios";
 const TOKEN_CHECK = "/customer-token";
 
@@ -8,7 +8,7 @@ const useFetchToken = (data) => {
 
   const dispatch = useDispatch();
   const setData = (data) => {
-      dispatch(setDataAction(data));
+    dispatch(setDataAction(data));
   };
 
   if (data !== "null" && data) {
@@ -16,8 +16,7 @@ const useFetchToken = (data) => {
     axios
       .get(TOKEN_CHECK)
       .then((response) => {
-        if(obj.status === -1)
-          setData(response.data);
+        if (obj.status === false) setData(response.data);
       })
       .catch((error) => {
         console.log(error);
