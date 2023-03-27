@@ -10,8 +10,8 @@ import {
 import { Rating } from "react-simple-star-rating";
 import { FaBackward, FaForward } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useGetProduct } from "../../shared/hooks";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import useGetProduct from "../../shared/useGetProduct";
 import Review from "../review/review";
 import "./style.css";
 

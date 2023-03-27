@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import useFetchRegister from "../../shared/useFetchRegister";
-import useCheckEmail from "../../shared/useCheckEmail";
+import { useCheckEmail, useRegister } from "../../shared/hooks";
 import "./style.css";
 
 function Register() {
@@ -27,7 +26,7 @@ function Register() {
 
   const subscription = watch("email");
   const { error: errorCheck } = useCheckEmail(subscription);
-  const { error, loading } = useFetchRegister(data ? data : null);
+  const { error, loading } = useRegister(data ? data : null);
   const [confirm_error, setConfirm_error] = useState(false);
   const showPassword = () => {
     var x = document.getElementById("password");

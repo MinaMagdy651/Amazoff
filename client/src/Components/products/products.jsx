@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import ProductGrid from "../product_grid/product_grid";
-import useGetAllProducts from "../../shared/useGetAllProducts";
+import { useGetAllProducts } from "../../shared/hooks";
 
 function Products() {
   const { data: products, error, loading } = useGetAllProducts();

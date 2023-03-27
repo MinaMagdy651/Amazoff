@@ -6,7 +6,7 @@ import axios from "../APIS/axios";
 import urls from "../APIS/url.json";
 const URL = urls.reviewList;
 
-const useFetchCustomerReviews = () => {
+const useCustomerReviews = () => {
   const dispatch = useDispatch();
   const obj = useSelector((state) => state.obj.obj);
 
@@ -24,4 +24,4 @@ const useFetchCustomerReviews = () => {
     // eslint-disable-next-line
   }, [obj?.status]);
 };
-export default useFetchCustomerReviews;
+export default useCustomerReviews;

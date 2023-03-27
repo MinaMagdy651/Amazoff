@@ -1,10 +1,10 @@
 import "./style.css";
 import welcomeImage from "../../welcomePage.jpeg";
 import welcomeImage2 from "../../welcomePage2.jpeg";
-import Product_categories from "../productsCategories/productsCategories";
+import ProductCategories from "../productsCategories/productsCategories";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { Container } from "react-bootstrap";
+// import "react-multi-carousel/lib/styles.css";
+// import { Container } from "react-bootstrap";
 
 function Home() {
   const products = {
@@ -105,10 +105,10 @@ function Home() {
         itemClass="carousel-item-padding-40-px"
         // deviceType={this.props.deviceType}
       >
-        {welcomeImages.map((image) => {
+        {welcomeImages.map((image, index) => {
           return (
-            <div className="image col">
-              <img src={image} />
+            <div className="image col" key={index}>
+              <img src={image} alt="" />
             </div>
           );
         })}
@@ -117,8 +117,9 @@ function Home() {
       <div className="container categories">
         {categories()}
 
-        {Products_categories.map((category) => (
-          <Product_categories
+        {Products_categories.map((category, index) => (
+          <ProductCategories
+            key={index}
             category={category}
             products={products[`${category}`]}
           />

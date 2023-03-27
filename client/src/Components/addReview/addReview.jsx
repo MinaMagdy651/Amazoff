@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import useAddReview from "../../shared/useAddReview";
+import { useAddReview } from "../../shared/hooks";
 import "./style.css";
 
 function Addreview(probs) {

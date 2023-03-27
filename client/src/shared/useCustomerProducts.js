@@ -6,7 +6,7 @@ import axios from "../APIS/axios";
 import urls from "../APIS/url.json";
 const URL = urls.purchaseList;
 
-const useFetchCustomerProducts = () => {
+const useCustomerProducts = () => {
   const dispatch = useDispatch();
   const obj = useSelector((state) => state.obj.obj);
 
@@ -24,4 +24,4 @@ const useFetchCustomerProducts = () => {
     // eslint-disable-next-line
   }, [obj?.status]);
 };
-export default useFetchCustomerProducts;
+export default useCustomerProducts;
