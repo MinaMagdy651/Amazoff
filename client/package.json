@@ -25,7 +25,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
     "react-icons": "^4.7.1",
-    "react-loading": "^2.0.3",
+    "react-multi-carousel": "^2.8.2",
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.4",

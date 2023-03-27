@@ -53,6 +53,7 @@ function Navbar_() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+
                 <li className="nav-item d-flex justify-content-center">
                   <Link
                     to="/home"
@@ -60,6 +61,15 @@ function Navbar_() {
                     aria-current="page"
                   >
                     Home
+                  </Link>
+                </li>
+                <li className="nav-item d-flex justify-content-center">
+                  <Link
+                    to="/products"
+                    className="nav-link active name redirect"
+                    aria-current="page"
+                  >
+                    Products
                   </Link>
                 </li>
                 <SearchBar></SearchBar>
