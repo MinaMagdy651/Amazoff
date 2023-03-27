@@ -11,6 +11,7 @@ import "./style.css";
 function Register() {
   const obj = useSelector((state) => state.obj.obj);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (obj.status) {
       navigate("/home");
@@ -24,9 +25,9 @@ function Register() {
     setData(data);
   };
 
-  useFetchRegister(data ? data : null);
   const subscription = watch("email");
-  const [error] = useCheckEmail(subscription);
+  const { error: errorCheck } = useCheckEmail(subscription);
+  const { error, loading } = useFetchRegister(data ? data : null);
   const [confirm_error, setConfirm_error] = useState(false);
   const showPassword = () => {
     var x = document.getElementById("password");
@@ -40,6 +41,8 @@ function Register() {
     if (watch("confirm-password") !== watch("password")) setConfirm_error(true);
     else setConfirm_error(false);
   };
+  if (error) return <>error</>;
+  if (loading) return <>looding</>;
   return (
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="register-container container">
@@ -66,12 +69,12 @@ function Register() {
               id="email"
               {...register("email", { required: true })}
             />
-            {!error && (
+            {!errorCheck && (
               <div id="emailHelp" className="form-text">
                 We'll never share your email with anyone else.
               </div>
             )}
-            {error && (
+            {errorCheck && (
               <div id="emailHelp" className="form-text text-danger">
                 Email Already exists
               </div>

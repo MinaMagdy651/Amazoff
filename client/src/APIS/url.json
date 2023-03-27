@@ -1,0 +1,10 @@
+{
+  "addReview": "/product/addreview",
+  "allProducts": "/products",
+  "login": "/customer-login",
+  "product": "/product/",
+  "checkEmail": "/customer-check-email",
+  "register": "/customer-register",
+  "purchaseList": "/customer-purchases/",
+  "reviewList": "/product-reviewed/"
+}

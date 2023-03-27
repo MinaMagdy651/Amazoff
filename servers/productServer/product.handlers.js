@@ -62,6 +62,18 @@ class productHandler {
             next()
         }
     }
+
+    // get All Categories
+    getAllCategories = async (req, res, next) => {
+        try {
+            const products = await porductObject.getAllCategories()
+            res.send(products)
+        } catch (err) {
+            res.send(err.message)
+        } finally {
+            next()
+        }
+    }
     cardSearchProduct = async (req, res, next) => {
         try {
             const products = await porductObject.cardSearchProduct(
@@ -78,26 +90,25 @@ class productHandler {
     }
 
     getCustomerPurchases = async (req, res, next) => {
-        try{
+        try {
             // console.log(req.params)
             const product = await porductObject.getCustomerPurchases(
                 Number(req.params.customer_id)
-                );
-            res.send(product);
-        }catch(err){
-            res.status(400).send(`There are no purchases`);
+            )
+            res.send(product)
+        } catch (err) {
+            res.status(400).send(`There are no purchases`)
         }
     }
     getProductReviewedByCustomerId = async (req, res, next) => {
-        try{
+        try {
             const products = await porductObject.getProductReviewedByCustomerId(
-               Number(req.params.customer_id)
-            );
-            res.send(products);
-        }catch(err){
-            res.status(400).send(`No products reviewed by this customer`);
-        }finally{
-
+                Number(req.params.customer_id)
+            )
+            res.send(products)
+        } catch (err) {
+            res.status(400).send(`No products reviewed by this customer`)
+        } finally {
         }
     }
 }

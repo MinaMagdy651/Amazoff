@@ -8,18 +8,11 @@ import "./style.css";
 
 function Login() {
   const obj = useSelector((state) => state.obj.obj);
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (obj.status) {
-      navigate("/home");
-    }
-  });
-
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
-  const [error] = useFetchLogin(data ? data : null);
+
+  const { error, loading } = useFetchLogin(data ? data : null);
 
   const onSubmit = (data) => {
     setData(data);
@@ -30,7 +23,12 @@ function Login() {
     element.value = "";
     element.focus();
   }
-
+  useEffect(() => {
+    if (obj.status) {
+      navigate("/home");
+    }
+  });
+  if (loading) return <>loading</>;
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="container">

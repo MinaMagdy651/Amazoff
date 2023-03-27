@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "../APIS/axios";
-const CHECK_EMAIL = "/customer-check-email";
+import urls from "../APIS/url.json";
+const URL = urls.checkEmail;
 
 const useCheckEmail = (data) => {
   const [error, setError] = useState(false);
-  useEffect(() => {
-    if (data) {
-      axios
-        .post(CHECK_EMAIL, {
-          email: data,
-        })
-        .then((response) => {
-          setError(false);
-        })
-        .catch((error) => {
-          setError(true);
-        });
+
+  const postData = async () => {
+    try {
+      const response = await axios.post(URL, { email: data });
+      if (response.status === 200) setError(false);
+      else setError(true);
+    } catch {
+      setError(true);
     }
+  };
+
+  useEffect(() => {
+    if (data) postData();
     // eslint-disable-next-line
   }, [data]);
-  return [error];
+  return { error };
 };
 export default useCheckEmail;

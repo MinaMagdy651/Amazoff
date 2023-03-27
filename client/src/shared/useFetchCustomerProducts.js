@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setPurchaseAction } from "../Redux/shopSlicer";
 import axios from "../APIS/axios";
-const CUSTOMER_PURCHASE = "/customer-purchases/";
+import urls from "../APIS/url.json";
+const URL = urls.purchaseList;
 
 const useFetchCustomerProducts = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const useFetchCustomerProducts = () => {
   useEffect(() => {
     if (obj.status) {
       axios
-        .get(CUSTOMER_PURCHASE + obj.id)
+        .get(URL + obj.id)
         .then((response) => {
           var data = [];
           response.data.map((product_id) => data.push(product_id.product_id));
