@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import useFetchLogin from "../../shared/useFetchLogin";
+import { useLogin } from "../../shared/hooks";
 import logo from "../../Assets/amazoff-logo.jpeg";
 import "./style.css";
 
@@ -12,7 +12,7 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
 
-  const { error, loading } = useFetchLogin(data ? data : null);
+  const { error, loading } = useLogin(data ? data : null);
 
   const onSubmit = (data) => {
     setData(data);

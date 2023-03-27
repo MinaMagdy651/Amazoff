@@ -5,11 +5,15 @@ import Navbar from "./Components/navbar/navbar";
 import Login from "./Components/login/login";
 import Register from "./Components/register/register";
 import Product from "./Components/product/product";
-import useFetchToken from "./shared/useFetchToken";
-import useFetchCustomerProducts from "./shared/useFetchCustomerProducts";
-import useFetchCustomerReviews from "./shared/useFetchCustomerReviews";
+import Cart from "./Components/cart/cart";
+
+import {
+  useCustomerProducts,
+  useCustomerReviews,
+  useCheckToken,
+} from "../src/shared/hooks";
 import "./App.css";
-import Footer from "./Components/footer/footer";
+// import Footer from "./Components/footer/footer";
 function App() {
   if (localStorage.getItem("access_token")) {
     sessionStorage.setItem(
@@ -18,9 +22,9 @@ function App() {
     );
   }
 
-  useFetchToken(sessionStorage.getItem("access_token"));
-  useFetchCustomerProducts();
-  useFetchCustomerReviews();
+  useCheckToken(sessionStorage.getItem("access_token"));
+  useCustomerProducts();
+  useCustomerReviews();
 
   return (
     <Router>
@@ -33,6 +37,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
+        <Route path = "/cart" element = {<Cart />}></Route>
       </Routes>
       {/* <Footer></Footer> */}
     </Router>

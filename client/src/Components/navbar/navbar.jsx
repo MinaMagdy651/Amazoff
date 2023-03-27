@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { clearDataAction } from "../../Redux/shopSlicer";
 import SearchBar from "../searchBar/searchBar";
 import "bootstrap/dist/css/bootstrap.css";
+import cart from "../../Assets/carts.png"
 import "./style.css";
 
 function Navbar_() {
@@ -116,6 +117,19 @@ function Navbar_() {
                     </button>
                   </li>
                 )}
+                {login_status && (
+                  <Link      
+                  to="/cart"
+                  className="nav-link active"
+                  aria-current="page">
+                    <li style = {{cursor: "pointer"}}>
+                      <img src = {cart}  width = "50px" height = "50px"/>
+                      {console.log(obj)}
+                      <span>{`${obj.counter}`}</span>
+                    </li>
+                  </Link>
+                )
+                }
               </ul>
             </div>
           </div>

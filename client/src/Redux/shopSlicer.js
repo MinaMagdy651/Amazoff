@@ -9,6 +9,7 @@ const initialState = {
     dob: "",
     picture: "",
     address: "",
+    counter: 0,
     status: false,
     purchase_list: [],
     reviews_list: [],
@@ -25,6 +26,7 @@ const shopSlicer = createSlice({
       state.obj.email = data.payload.email;
       state.obj.dob = data.payload.dob;
       state.obj.address = data.payload.address;
+      state.obj.counter = data.payload.counter;
       state.obj.status = true;
     },
     clearDataAction: (state) => {
@@ -34,6 +36,7 @@ const shopSlicer = createSlice({
       state.obj.dob = "";
       state.obj.address = "";
       state.obj.status = false;
+      state.obj.counter = 0;
       state.obj.purchase_list = [];
       state.obj.reviews_list = [];
     },
@@ -42,6 +45,9 @@ const shopSlicer = createSlice({
     },
     setReviewsAction: (state, data) => {
       state.obj.reviews_list = data.payload;
+    },
+    updateCounter: (state, data) => {
+      state.obj.counter = data.payload;
     },
     updatePurchaseAction: (state, data) => {
       state.obj.purchase_list.push(data);
@@ -56,6 +62,7 @@ export const {
   clearDataAction,
   setPurchaseAction,
   setReviewsAction,
+  updateCounter,
   updatePurchaseAction,
   updateReviewsAction,
 } = shopSlicer.actions;
