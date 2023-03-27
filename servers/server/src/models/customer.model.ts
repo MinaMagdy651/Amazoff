@@ -21,7 +21,7 @@ export default class customer {
             )
                 query = `SELECT COUNT(*) FROM CART WHERE CUSTOMER_ID = ${Customer.rows[0].id};`
             let getCart = await conn.query(query)
-            Customer.rows[0].cart = getCart.rows[0].count
+            Customer.rows[0].cart = Number(getCart.rows[0].count)
             return Customer.rows[0]
             throw new Error(`NOT FOUND`)
         } catch (err) {
