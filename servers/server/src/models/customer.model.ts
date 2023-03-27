@@ -1,7 +1,7 @@
 import client from '../config'
 import person from '../types/person'
 import bcrypt from 'bcrypt'
-import {registerError} from '../types/error'
+import { registerError } from '../types/error'
 
 const saltRounds = process.env.SALT_ROUNDS
 const pepper = process.env.BCRYPT_PASSWORD
@@ -12,13 +12,17 @@ export default class customer {
     async authenticate(email: string, password: string): Promise<person> {
         const conn = await client.connect()
         try {
-            const query = `SELECT * FROM customers WHERE email = '${email}'`
+            let query = `SELECT * FROM customers WHERE email = '${email}'`
+
             const Customer = await conn.query(query)
             if (Customer.rows.length == 0) throw new Error(`NOT FOUND`)
             if (
                 bcrypt.compareSync(password + pepper, Customer.rows[0].password)
             )
-                return Customer.rows[0]
+                query = `SELECT COUNT(*) FROM CART WHERE CUSTOMER_ID = ${Customer.rows[0].id};`
+            let getCart = await conn.query(query)
+            Customer.rows[0].cart = Number(getCart.rows[0].count)
+            return Customer.rows[0]
             throw new Error(`NOT FOUND`)
         } catch (err) {
             throw err
@@ -56,7 +60,7 @@ export default class customer {
         try {
             const query = `SELECT email FROM customers WHERE email = '${email}'`
             const emailExists = await conn.query(query)
-            
+
             if (emailExists.rows.length)
                 throw new Error(`This email already exists`)
             return true
@@ -66,17 +70,17 @@ export default class customer {
             conn.release()
         }
     }
-    async getUserByToken(customer_id: number): Promise<person>{
-        const conn = await client.connect();
-        try{
+    async getUserByToken(customer_id: number): Promise<person> {
+        const conn = await client.connect()
+        try {
             const query = `select * from customers where id = ${customer_id};`
             const user = await conn.query(query)
-            if(user.rows.length == 0) throw new Error();
-            return user.rows[0];
-        }catch (e){
-            throw e;
-        }finally{
-            conn.release();
+            if (user.rows.length == 0) throw new Error()
+            return user.rows[0]
+        } catch (e) {
+            throw e
+        } finally {
+            conn.release()
         }
     }
 }

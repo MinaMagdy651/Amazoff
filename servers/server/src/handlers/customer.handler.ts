@@ -1,7 +1,7 @@
 import express from 'express'
 import customer from '../models/customer.model'
 import jwt from 'jsonwebtoken'
-import {registerError} from '../types/error'
+import { registerError } from '../types/error'
 
 let customerObject = new customer()
 const tokenSecret = process.env.TOKEN
@@ -68,14 +68,18 @@ export default class customerHandler {
             next()
         }
     }
-    getUserByToken = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-        try{
+    getUserByToken = async (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+    ) => {
+        try {
             const getUser = await customerObject.getUserByToken(
                 Number(req.body.decoded.id)
-            );
-            res.send(getUser);
-        }catch(err){
-            res.status(404).send(`No user Found`);
+            )
+            res.send(getUser)
+        } catch (err) {
+            res.status(404).send(`No user Found`)
         }
     }
 }
