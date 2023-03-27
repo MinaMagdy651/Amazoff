@@ -56,3 +56,20 @@
   display: inline-block;
   margin-left: 7px;
 }
+.cart{
+  display: flex;
+  justify-content: space-around;
+}
+.cart > *{
+  margin: 5px;
+}
+.cart > p{
+  margin-top: 8px;
+  color: red;
+  padding: 3px;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}

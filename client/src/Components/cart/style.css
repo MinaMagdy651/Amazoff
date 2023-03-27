@@ -1,0 +1,15 @@
+
+
+.root{
+    padding: 10%;
+    background-color: #eeeeee;
+    height: 100vh;
+}
+.cartContainer,
+.cartContainerProducts{
+    padding: 10%;
+    background-color: white;
+}   
+.cartContainerProducts{
+    padding: 5%;
+}

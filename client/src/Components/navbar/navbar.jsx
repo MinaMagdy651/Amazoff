@@ -122,11 +122,12 @@ function Navbar_() {
                   to="/cart"
                   className="nav-link active"
                   aria-current="page">
-                    <li style = {{cursor: "pointer"}}>
-                      <img src = {cart}  width = "50px" height = "50px"/>
+                    <li style = {{cursor: "pointer"}} className="cart">
+                      <img src = {cart}  width = "40px" height = "35px"/>
                       {console.log(obj)}
-                      <span>{`${obj.counter}`}</span>
+                          <p>0</p>
                     </li>
+                
                   </Link>
                 )
                 }
