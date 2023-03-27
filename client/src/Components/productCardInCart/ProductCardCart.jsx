@@ -3,7 +3,11 @@ import "./style.css"
 import { useDispatch} from 'react-redux';
 import {useState} from 'react';
 import axios from "../../APIS/axios";
-import URL from "../../APIS/url.json"
+import URL from "../../APIS/url.json";
+import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
+
 const url = URL.removeCart;
 const urlUpdate = URL.updateCart;
 
@@ -32,7 +36,7 @@ function ProductCardCart(probs){
         <div className = "row ">
             <div className = "col card-product-card">
                 <div className="imge">
-                    <img src = {probs.product.url} alt = {probs.product.product_id} width = "20%"></img>
+                    <img src = {probs.product.url} alt = {probs.product.product_id} width = "10%"></img>
                 </div>
                 <div className = "prod_details">
                     <p id ="cat">{probs.product.category}</p>
@@ -48,7 +52,9 @@ function ProductCardCart(probs){
                     <p>Price: {probs.product.price}$</p>
                 </div>
                 <div className="prod_remove">
-                    <button onClick = {() => removeProduct(probs.product.product_id)}>Remove</button>
+                    <button onClick = {() => removeProduct(probs.product.product_id)}>
+                    <DeleteForeverIcon />
+                    </button>
                 </div>
             </div>
         </div>

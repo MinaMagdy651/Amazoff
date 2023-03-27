@@ -39,7 +39,7 @@ function App() {
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
         <Route path = "/cart" element = {<Cart />}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </Router>
   );
 }
