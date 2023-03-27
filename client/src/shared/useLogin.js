@@ -11,6 +11,7 @@ const useFetchLogin = (data) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const setData = (data) => {
+    // console.log(data)
     dispatch(setDataAction(data));
   };
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const useFetchLogin = (data) => {
         } else {
           sessionStorage.setItem("access_token", response.data.token);
         }
+        // console.log(response.data)
         setData(response.data);
         navigate("/home");
         setLoading(false);
@@ -39,6 +41,7 @@ const useFetchLogin = (data) => {
     }
   };
   useEffect(() => {
+   
     if (data) postData();
     // eslint-disable-next-line
   }, [data]);

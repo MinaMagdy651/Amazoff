@@ -27,7 +27,7 @@ export default class cart{
         const conn = await client.connect();
         try{
             
-            const query = `select p.product_id ,p.name, p.price, p.rating, p.category, pi.url from product p, product_images pi , cart where p.product_id = pi.product_id and p.product_id = cart.product_id and cart.customer_id = ${customer_id};`;
+            const query = `select p.product_id ,p.name, p.price, p.rating, p.category, cart.quantity,pi.url from product p, product_images pi , cart where p.product_id = pi.product_id and p.product_id = cart.product_id and cart.customer_id = ${customer_id};`;
             const cartResult = await conn.query(query);
             if(cartResult.rows.length == 0) throw new Error(`No product Found`);
             const cartProducts = this.filtering(cartResult.rows);

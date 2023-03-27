@@ -9,7 +9,7 @@ function Products() {
   return (
     <div className="container">
       <div className="row">
-        <ProductGrid allProducts={products}></ProductGrid>
+        <ProductGrid allProducts={products} cart = {false}></ProductGrid>
       </div>
     </div>
   );

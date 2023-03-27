@@ -3,7 +3,6 @@
 .root{
     padding: 10%;
     background-color: #eeeeee;
-    height: 100vh;
 }
 .cartContainer,
 .cartContainerProducts{
@@ -12,4 +11,14 @@
 }   
 .cartContainerProducts{
     padding: 5%;
+
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+.title > p{
+    margin: 0;
+    padding: 10px;
 }

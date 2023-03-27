@@ -12,9 +12,10 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
 
-  const { error, loading } = useLogin(data ? data : null);
+    const { error, loading } = useLogin(data ? data : null);
 
   const onSubmit = (data) => {
+    
     setData(data);
   };
 

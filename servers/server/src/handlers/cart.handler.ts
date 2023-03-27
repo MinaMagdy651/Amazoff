@@ -9,6 +9,7 @@ const tokenSecret = process.env.TOKEN
 export default class cartHandler{
     addToCart = async (req: express.Request, res: express.Response, next: express.NextFunction) =>{
         try{
+            console.log(req.body);
             const insertedToCart = await cartObject.addToCart(
                 Number(req.params.product_id),
                 Number(req.body.decoded.id),
@@ -28,6 +29,7 @@ export default class cartHandler{
             const getCart = await cartObject.getCart
             (Number(req.body.decoded.id)
             );
+            console.log(getCart);
             res.send(getCart);
         }catch(err: any){
             res.status(404).send(err.message);

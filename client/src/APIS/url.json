@@ -7,5 +7,7 @@
   "register": "/customer-register",
   "purchaseList": "/customer-purchases/",
   "reviewList": "/product-reviewed/",
-  "productsCategory": "/products-category"
+  "productsCategory": "/products-category",
+  "addToCart":"/product",
+  "getCart":"/cart"
 }

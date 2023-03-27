@@ -1,11 +1,33 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector ,useDispatch} from "react-redux";
 import { Rating } from "react-simple-star-rating";
 import { FaShoppingCart } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import URL from "../../APIS/url.json"
+import axios from "../../APIS/axios";
 import "./style.css";
+import { updateCart } from "../../Redux/shopSlicer";
+const url = URL.addToCart;
+
 
 function ProductCard(probs) {
+  const obj = useSelector((state) => state.obj.obj);
+  const dispatch = useDispatch();
+  let cart = obj.cart;
+  async function addToCart(product_id){
+    try{
+      const response = await axios.post(`${url}/${product_id}/add-to-cart`,
+        {          
+          quantity: 1
+        })
+        if (response.status === 200) 
+           dispatch(updateCart(++cart));
+    } catch (error){
+        console.log(error)
+    }
+  }
+
   const navigate = useNavigate();
   return (
     <Card
@@ -36,7 +58,7 @@ function ProductCard(probs) {
               {probs.product.price + " EGP"}
             </span>
           </Card.Text>
-          <Button id="card-button" variant="primary">
+          <Button id="card-button" variant="primary" onClick={() => addToCart(probs.product.product_id)}>
             Add to<span> </span>
             <FaShoppingCart className="cart-logo"></FaShoppingCart>
           </Button>

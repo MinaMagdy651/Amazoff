@@ -1,33 +1,70 @@
 import { useSelector } from "react-redux";
+import {useState} from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import { useEffect } from "react";
+import axios from "../../APIS/axios";
+import URL from "../../APIS/url.json"
+import Productgrid from "../product_grid/product_grid";
+const url = URL.getCart;
 
-let noProducts = 
-<div className= "root">
-    <div class = "container cartContainer">
-        <div class = "row">
-            <div class = "noProductMessage">
-            <h2>Your Amazoff Cart is empty.</h2>
-                <p>Your shopping basket lives to serve. Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.
-                Continue shopping on <Link to = "/home"> Homepage</Link>
-                </p>
+let noProducts = () =>{
+    return (
+        <div className= "root">
+            <div className = "container cartContainer">
+                <div className = "row">
+                    <div className = "noProductMessage">
+                    <h2>Your Amazoff Cart is empty.</h2>
+                        <p>Your shopping basket lives to serve. Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.
+                        Continue shopping on <Link to = "/home"> Homepage</Link>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>;
+);
+}
 
-let products = 
-<div className= "root">
-    <div class = "container cartContainerProducts">
-        <h2 style = {{textAlign: "center"}}>My Shopping Cart</h2>
+
+let withProducts = (products, setAllProducts) => {
+    return (
         
-    </div>
-</div>
+        <div className= "root">
+            <div className = "container cartContainerProducts">
+                <diV className="title">
+                    <h2 style = {{textAlign: "center"}}>My Shopping Cart</h2>
+                    <p>items: {products.length}</p>
+                </diV>
+
+                    <div className = "row">
+                        <Productgrid allProducts = {products} setAllProducts = {setAllProducts} cart = {true}></Productgrid>
+                    </div>
+
+            </div>
+        </div>
+    );
+} 
+
 
 function Cart(){
     const obj = useSelector((state) => state.obj.obj);
+    let [products, setProducts] = useState([]);
+    const fetchData = async () => {
+        try{
+            const response = await axios.get(url);
+            if (response.status === 200) {
+                // console.log(response.data)
+                setProducts(response.data);
+            }
+        }catch{
 
-    return obj.counter === true? noProducts : products;
+        }
+    }
+    useEffect( () => {
+        fetchData();
+    }
+    , [])
+    return (obj.cart === 0 || products.length === 0)? noProducts() : withProducts(products, setProducts);
     
 }
 
