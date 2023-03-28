@@ -63,5 +63,13 @@
     background-color: transparent;
 }
 @media (max-width : 450px) {
-
+    .prod_quantity{
+        display:block
+    }
+    .prod_quantity > p{
+        text-align: center;
+    }
+    .imge > *{
+        display: none;
+    }
 }

@@ -124,7 +124,6 @@ function Navbar_() {
                   aria-current="page">
                     <li style = {{cursor: "pointer"}} className="cart">
                       <img src = {cart}  width = "40px" height = "35px" alt = "Cart" />
-                      {/* {console.log(obj)}   */}
                           <p>{`${obj.cart}`}</p>
                     </li>
                 
