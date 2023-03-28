@@ -31,10 +31,10 @@ let withProducts = (products, setAllProducts) => {
         
         <div className= "root">
             <div className = "container cartContainerProducts">
-                <diV className="title">
+                <div className="title">
                     <h2 style = {{textAlign: "center"}}>My Shopping Cart</h2>
                     <p>items: {products.length}</p>
-                </diV>
+                </div>
 
                     <div className = "row">
                         <Productgrid allProducts = {products} setAllProducts = {setAllProducts} cart = {true}></Productgrid>

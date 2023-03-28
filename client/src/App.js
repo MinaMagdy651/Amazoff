@@ -7,6 +7,7 @@ import Register from "./Components/register/register";
 import Product from "./Components/product/product";
 import Cart from "./Components/cart/cart";
 import Footer from "./Components/footer/footer";
+import Notify from "./Components/notify/Notify";
 import {
   useCustomerProducts,
   useCustomerReviews,
@@ -39,7 +40,8 @@ function App() {
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
         <Route path = "/cart" element = {<Cart />}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+      <Notify />
+      <Footer></Footer>
     </Router>
   );
 }

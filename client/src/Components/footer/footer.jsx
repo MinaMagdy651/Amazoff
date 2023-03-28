@@ -4,7 +4,6 @@ function Footer() {
   return (
     <div className="footer  m-top-2 bg-dark">
       <div className="container">
-        <hr></hr>
         <div className="row p-2 d-flex justify-content-center">
           <div className="col-sm-6 col-md-4 col-lg-3">
             <a
@@ -13,7 +12,7 @@ function Footer() {
               className="reset-a"
               href="https://github.com/AlyZakaria"
             >
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center justify-content-center">
                 <FaGithub className="github-icon"></FaGithub>
                 Aly Zakaria
               </div>

@@ -21,8 +21,12 @@ function ProductCard(probs) {
         {          
           quantity: 1
         })
-        if (response.status === 200) 
+        if (response.status === 200) {
            dispatch(updateCart(++cart));
+           const notify = document.getElementById("notify");
+          setTimeout(() => notify.style.visibility = "hidden" , 2000);
+          notify.style.visibility = "visible";  
+        }
     } catch (error){
         console.log(error)
     }

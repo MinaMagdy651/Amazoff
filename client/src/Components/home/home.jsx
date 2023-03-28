@@ -1,6 +1,8 @@
 import "./style.css";
 import welcomeImage from "../../Assets/welcomePage.jpeg";
 import welcomeImage2 from "../../Assets/welcomePage2.jpeg";
+import welcomeImage3 from "../../Assets/welcomePage3.jpg"
+import welcomeImage5 from "../../Assets/welcomePage5.jpg"
 import Product_categories from "../productsCategories/productsCategories";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -20,11 +22,12 @@ function Home() {
   if (error) return <>error</>;
   if (loading) return <>loading</>;
   
-  const welcomeImages = [welcomeImage, welcomeImage2];
+  const welcomeImages = [ welcomeImage3, welcomeImage5];
   return (
     <div className="home">
 
       <Carousel
+
         responsive={responsive}
         autoPlay={true}
         autoPlaySpeed={500}

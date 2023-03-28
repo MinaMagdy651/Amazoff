@@ -1,0 +1,17 @@
+
+
+#notify{
+    background-color: white;
+    color: black;
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 20;
+    visibility: hidden;
+    box-shadow: 0 0 5px 2px #979da6;
+
+}
