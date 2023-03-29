@@ -21,9 +21,9 @@ const responsive = {
     items: 1,
   },
 };
-function Product_categories({ category, products }) {
+function ProductCategories({ category, products }) {
   return (
-    <div className="products-category">
+    <div className="products-category container">
       <h2 className="category-name">{category}</h2>
       <div className="list">
         <Carousel
@@ -50,4 +50,4 @@ function Product_categories({ category, products }) {
   );
 }
 
-export default Product_categories;
+export default ProductCategories;

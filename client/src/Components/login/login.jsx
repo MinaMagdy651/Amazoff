@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../../shared/hooks";
 import logo from "../../Assets/amazoff-logo.jpeg";
+import Loading from "../loading/loading";
 import "./style.css";
 
 function Login() {
@@ -12,10 +13,9 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState();
 
-    const { error, loading } = useLogin(data ? data : null);
+  const { error, loading } = useLogin(data ? data : null);
 
   const onSubmit = (data) => {
-    
     setData(data);
   };
 
@@ -29,7 +29,6 @@ function Login() {
       navigate("/home");
     }
   });
-  if (loading) return <>loading</>;
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="container">
@@ -68,7 +67,13 @@ function Login() {
             </div>
             <div className="login-button-container">
               <button className="login-button" type="submit">
-                Sign in
+                {loading && (
+                  <i>
+                    <Loading height={20} width={20} type={"spin"}></Loading>
+                  </i>
+                )}
+
+                {!loading && <span>Sign in</span>}
               </button>
               {error && (
                 <p className="text-danger text-center">

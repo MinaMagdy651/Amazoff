@@ -1,14 +1,12 @@
 import React from "react";
 import ReactLoading from "react-loading";
-export default function Loading({ height, width }) {
+export default function Loading({ height, width, type }) {
   return (
-    <div className="container d-flex justify-content-center">
-      <ReactLoading
-        type={"bubbles"}
-        color={"#000000"}
-        height={`${height}px`}
-        width={`${width}px`}
-      />
-    </div>
+    <ReactLoading
+      type={type}
+      color={"#000000"}
+      height={`${height}px`}
+      width={`${width}px`}
+    />
   );
 }

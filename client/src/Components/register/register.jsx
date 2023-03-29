@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useCheckEmail, useRegister } from "../../shared/hooks";
+import Loading from "../loading/loading";
 import "./style.css";
 
 function Register() {
@@ -41,7 +42,6 @@ function Register() {
     else setConfirm_error(false);
   };
   if (error) return <>error</>;
-  if (loading) return <>looding</>;
   return (
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="register-container container">
@@ -155,7 +155,13 @@ function Register() {
               <option value="prefer not to say">Prefer not to say</option>
             </select>
             <button className="register-button my-2" type="submit">
-              Register
+              {loading && (
+                <i>
+                  <Loading height={20} width={20} type={"spin"}></Loading>
+                </i>
+              )}
+
+              {!loading && <span>Register</span>}
             </button>
             <div>
               Already have an account? <Link to="/login">Login</Link>

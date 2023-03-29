@@ -58,3 +58,10 @@
 .error {
   border: 1px solid red;
 }
+
+.login-button {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}

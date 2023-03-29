@@ -1,33 +1,30 @@
 import "./style.css";
-import welcomeImage from "../../Assets/welcomePage.jpeg";
-import welcomeImage2 from "../../Assets/welcomePage2.jpeg";
-import welcomeImage3 from "../../Assets/welcomePage3.jpg"
-import welcomeImage5 from "../../Assets/welcomePage5.jpg"
-import Product_categories from "../productsCategories/productsCategories";
+// import welcomeImage from "../../Assets/welcomePage.jpeg";
+// import welcomeImage2 from "../../Assets/welcomePage2.jpeg";
+import welcomeImage3 from "../../Assets/welcomePage3.jpg";
+import welcomeImage5 from "../../Assets/welcomePage5.jpg";
+import ProductCategories from "../productsCategories/productsCategories";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useGetProductsCategories from "../../shared/useGetProductsCategories";
 
-
 function Home() {
- 
- 
   let Products_categories = [];
   function categories() {
-    for (let category in products) Products_categories.push(category);
+    for (let category in products) {
+      Products_categories.push(category);
+    }
   }
-  
-  const { data: products, error, loading }  = useGetProductsCategories();
+
+  const { data: products, error, loading } = useGetProductsCategories();
 
   if (error) return <>error</>;
   if (loading) return <>loading</>;
-  
-  const welcomeImages = [ welcomeImage3, welcomeImage5];
+
+  const welcomeImages = [welcomeImage3, welcomeImage5];
   return (
     <div className="home">
-
       <Carousel
-
         responsive={responsive}
         autoPlay={true}
         autoPlaySpeed={500}
@@ -56,8 +53,7 @@ function Home() {
         {categories()}
 
         {Products_categories.map((category, index) => (
-          
-          <Product_categories
+          <ProductCategories
             key={index}
             category={category}
             products={products[`${category}`]}
@@ -69,7 +65,6 @@ function Home() {
 }
 
 export default Home;
-
 
 const responsive = {
   superLargeDesktop: {
@@ -88,5 +83,5 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-  },  
+  },
 };

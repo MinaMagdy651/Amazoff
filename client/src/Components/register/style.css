@@ -41,3 +41,10 @@
 .error {
   border: 1px solid red;
 }
+
+.register-button {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
