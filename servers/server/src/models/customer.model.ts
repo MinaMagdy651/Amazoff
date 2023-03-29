@@ -71,11 +71,16 @@ export default class customer {
         }
     }
     async getUserByToken(customer_id: number): Promise<person> {
+        console.log(customer_id)
         const conn = await client.connect()
         try {
-            const query = `select * from customers where id = ${customer_id};`
-            const user = await conn.query(query)
+            let query = `select * from customers where id = ${customer_id};`
+            let user = await conn.query(query)
             if (user.rows.length == 0) throw new Error()
+            query = `SELECT COUNT(*) FROM CART WHERE CUSTOMER_ID = ${customer_id};`
+            let cart = await (await conn.query(query)).rows[0].count
+            user.rows[0].cart = Number(cart)
+            delete user.rows[0].password
             return user.rows[0]
         } catch (e) {
             throw e

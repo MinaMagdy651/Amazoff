@@ -33,6 +33,7 @@ const useFetchRegister = (data) => {
         setLoading(false);
         setError(false);
         setData(data);
+        window.location.reload();
         navigate("/home");
       }
     } catch {
