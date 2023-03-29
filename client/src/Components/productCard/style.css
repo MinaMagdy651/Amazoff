@@ -37,7 +37,9 @@
   background-color: #098666;
   border: none;
   opacity: 0.7;
+  cursor: pointer !important;
 }
+
 
 #card-button:hover {
   opacity: 1;
@@ -51,6 +53,7 @@
 
 .cart-logo {
   margin-top: -3%;
+  cursor: pointer;
 }
 
 .price {

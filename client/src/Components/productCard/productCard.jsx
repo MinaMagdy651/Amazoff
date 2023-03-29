@@ -27,8 +27,11 @@ function ProductCard(probs) {
           setTimeout(() => notify.style.visibility = "hidden" , 2000);
           notify.style.visibility = "visible";  
         }
+        else{
+          console.log(response);
+          throw new Error("");
+        }
     } catch (error){
-        console.log(error)
     }
   }
 

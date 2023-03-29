@@ -21,3 +21,9 @@
 .github-icon {
   margin-right: 5px;
 }
+
+@media (max-width: 450px) {
+  .footer{
+    display: none;
+  }
+}
