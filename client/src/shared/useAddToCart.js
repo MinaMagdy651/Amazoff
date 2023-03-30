@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import URL from "../APIS/url.json";
 import axios from "../APIS/axios";
