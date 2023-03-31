@@ -10,7 +10,6 @@ const useAddToCart = async (product_id, cartStatus, setCartStatus) => {
     let cart = obj.cart;
     const dispatch = useDispatch();
     if(cartStatus){
-        console.log(axios)
         try {
             const response = await axios.post(`${url}/${product_id}/add-to-cart`, {
                 quantity: 1,
