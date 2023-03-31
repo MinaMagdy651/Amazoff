@@ -8,6 +8,7 @@ import Product from "./Components/product/product";
 import Cart from "./Components/cart/cart";
 import Footer from "./Components/footer/footer";
 import Notify from "./Components/notify/Notify";
+import NavbarSwithcer from "./Components/navbarSwithcer/navbarSwithcer";
 import {
   useCustomerProducts,
   useCustomerReviews,
@@ -29,16 +30,19 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <NavbarSwithcer>
+        <Navbar />
+      </NavbarSwithcer>
+
       <Routes>
         <Route path="/products" element={<Products />} />
-        <Route exact path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/search_query/:name" element={<Product></Product>}></Route>
-        <Route path = "/cart" element = {<Cart />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route exact path="/" element={<Home />} />
       </Routes>
       <Notify />
       <Footer></Footer>
