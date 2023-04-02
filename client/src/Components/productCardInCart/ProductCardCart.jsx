@@ -7,14 +7,14 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 
 function ProductCardCart(probs) {
-  let [product, setProduct] = useState(probs.product);
+
   let [removeProduct, setRemoveProduct] = useState(false);
   let [sign , setSign] = useState(["+", false]);
 
   useRemoveInCart(probs, removeProduct, setRemoveProduct);
   
-  useUpdateQuantityCart(sign, setSign,product, setProduct, probs);
-
+  useUpdateQuantityCart(sign, setSign, probs);
+  // console.log(probs.allProducts);
   return (
     <div className="row ">
       <div className="col card-product-card">

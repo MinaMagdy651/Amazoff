@@ -4,24 +4,30 @@ import URL from "../APIS/url.json";
 const urlUpdate = URL.updateCart;
 
 
-const useUpdateQuantityCart = (sign , setSign, product, setProduct , probs) => {
+const useUpdateQuantityCart = (sign , setSign, probs) => {
     const updateData = async () => {
-        if (sign[0] === "+") setProduct({ ...product, quantity: ++product.quantity });
-        else
-            setProduct({
-            ...product,
-            quantity:
-                product.quantity - 1 >= 0 ? --product.quantity : product.quantity,
+        try{
+            if (sign[0] === "+") ++probs.product.quantity;
+            else
+               probs.product.quantity =  probs.product.quantity - 1 >= 0 ? probs.product.quantity-1 : probs.product.quantity
+            await axios.patch(`${urlUpdate}/${probs.product.product_id}`, {
+                    quantity: probs.product.quantity,
             });
-
-        await axios.patch(`${urlUpdate}/${product.product_id}`, {
-                quantity: product.quantity,
-        });
-        probs.setAllProducts(probs.allProducts.map(productmapping => {
-            if(product.product_id === productmapping.product_id) return product;
+ 
+            probs.setAllProducts(probs.allProducts.map(productmapping => {
+            console.log(probs.product)
+            if(probs.product.product_id === productmapping.product_id) {
+                console.log(probs.product.product_id + " " + productmapping.product_id);
+                return probs.product;
+            }
             return productmapping;
-        }))
-        setSign("+", false);
+            }))
+        }catch{}
+        finally{
+            setSign(["+", false]);
+        }
+       
+        
     }
 
     useEffect(() => {

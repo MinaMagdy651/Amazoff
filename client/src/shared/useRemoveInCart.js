@@ -12,14 +12,16 @@ const useRemoveInCart = async (probs, removeProduct, setRemoveProduct) => {
     const deleteData = async () => {
         const response = await axios.delete(`${url}/${probs.product.product_id}`);
         if (response.status === 200) {
-          let newProducts = probs.allProducts.filter(
+          const newProducts = probs.allProducts.filter(
             (product) => product.product_id !== probs.product.product_id
           );
-         
+        
         probs.setAllProducts(newProducts);
+        
         dispatch(updateCartAction(newProducts.length));
         }
         setRemoveProduct(false);
+    
     }
 
     useEffect(() => {

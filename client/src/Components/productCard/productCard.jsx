@@ -38,6 +38,7 @@ function ProductCard(probs) {
                 transition
                 allowFraction
                 readonly
+                fillColor = {probs.product.rating >= 2.5 ? "orange" : "red"}
               />
             </span>
             <span className="d-block price">
