@@ -13,6 +13,7 @@ const initialState = {
     status: false,
     purchase_list: [],
     reviews_list: [],
+    cart_list: [],
   },
 };
 
@@ -47,7 +48,7 @@ const shopSlicer = createSlice({
     setReviewsAction: (state, data) => {
       state.obj.reviews_list = data.payload;
     },
-    updateCart: (state, data) => {
+    updateCartAction: (state, data) => {
       state.obj.cart = data.payload;
     },
     updatePurchaseAction: (state, data) => {
@@ -56,6 +57,9 @@ const shopSlicer = createSlice({
     updateReviewsAction: (state, data) => {
       state.obj.reviews_list.push(data.payload);
     },
+    setCartAction: (state, data) => {
+      state.obj.cart_list.push(data);
+    },
   },
 });
 export const {
@@ -63,7 +67,7 @@ export const {
   clearDataAction,
   setPurchaseAction,
   setReviewsAction,
-  updateCart,
+  updateCartAction,
   updatePurchaseAction,
   updateReviewsAction,
 } = shopSlicer.actions;

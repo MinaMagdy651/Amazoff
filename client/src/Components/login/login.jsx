@@ -56,8 +56,9 @@ function Login() {
               />
             </div>
             <div className="remember-me-container d-flex justify-content-start  ">
-              <label className="remember-me-label" htmlFor="">
+              <label className="remember-me-label" htmlFor="remeber-me">
                 <input
+                  id="remeber-me"
                   className="remember-me-checkbox"
                   type="checkbox"
                   {...register("remember_me")}
