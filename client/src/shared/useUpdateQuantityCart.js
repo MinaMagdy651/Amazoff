@@ -18,7 +18,7 @@ const useUpdateQuantityCart = (sign , setSign, product, setProduct , probs) => {
                 quantity: product.quantity,
         });
         probs.setAllProducts(probs.allProducts.map(productmapping => {
-            if(product.product_id == productmapping.product_id) return product;
+            if(product.product_id === productmapping.product_id) return product;
             return productmapping;
         }))
         setSign("+", false);

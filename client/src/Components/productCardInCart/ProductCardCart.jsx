@@ -15,7 +15,6 @@ function ProductCardCart(probs) {
   
   useUpdateQuantityCart(sign, setSign,product, setProduct, probs);
 
-  console.log(probs.allProducts)
   return (
     <div className="row ">
       <div className="col card-product-card">
