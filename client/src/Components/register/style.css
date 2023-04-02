@@ -48,3 +48,16 @@
   align-content: center;
   flex-wrap: wrap;
 }
+
+.amazoff-logo:hover{
+  cursor: pointer;
+}
+
+.login-logo {
+  width: 100%;
+  padding-top: 30px;
+}
+.login-logo .amazoff-logo {
+  width: 100%;
+  padding-bottom: 10px;
+}

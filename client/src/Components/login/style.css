@@ -65,3 +65,6 @@
   align-content: center;
   flex-wrap: wrap;
 }
+.amazoff-logo:hover{
+  cursor: pointer;
+}

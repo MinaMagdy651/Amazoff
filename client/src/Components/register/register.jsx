@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useCheckEmail, useRegister } from "../../shared/hooks";
 import Loading from "../loading/loading";
+import logo from "../../Assets/amazoff-logo.jpeg";
+
 import "./style.css";
 
 function Register() {
@@ -46,6 +48,11 @@ function Register() {
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="register-container container">
         <div className="row">
+           <div className="login-logo">
+              <Link to="/home">
+                <img className="amazoff-logo" src={logo} alt="Amazoff-logo" />
+              </Link>
+            </div>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Full Name
