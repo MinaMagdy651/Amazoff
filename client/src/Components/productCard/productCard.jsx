@@ -48,7 +48,7 @@ function ProductCard(probs) {
           </Card.Text>
           {
               obj.status && 
-              (<Button id="card-button" variant="primary">
+              (<Button id="card-button" variant="primary" onClick={() => setCartStatus(true)}>
               Add to<span> </span>
               <FaShoppingCart className="cart-logo"></FaShoppingCart>
             </Button>)
