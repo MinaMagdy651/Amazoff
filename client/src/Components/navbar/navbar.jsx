@@ -17,6 +17,7 @@ function Navbar_() {
     dispatch(clearDataAction());
     localStorage.removeItem("access_token");
     sessionStorage.removeItem("access_token");
+      
   };
 
   useEffect(() => {

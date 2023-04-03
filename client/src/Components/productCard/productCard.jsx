@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,7 +9,7 @@ import "./style.css";
 import useAddToCart from "../../shared/useAddToCart";
 
 function ProductCard(probs) {
-
+  const obj = useSelector((state) => state.obj.obj);
   let [cartStatus, setCartStatus] = useState(false);
   
   useAddToCart(probs.product.product_id, cartStatus,setCartStatus);
@@ -45,14 +46,13 @@ function ProductCard(probs) {
               {probs.product.price + " EGP"}
             </span>
           </Card.Text>
-          <Button
-            id="card-button"
-            variant="primary"
-            onClick={() => setCartStatus(true)}
-          >
-            Add to<span> </span>
-            <FaShoppingCart className="cart-logo"></FaShoppingCart>
-          </Button>
+          {
+              obj.status && 
+              (<Button id="card-button" variant="primary">
+              Add to<span> </span>
+              <FaShoppingCart className="cart-logo"></FaShoppingCart>
+            </Button>)
+          }
         </div>
       </Card.Body>
     </Card>
