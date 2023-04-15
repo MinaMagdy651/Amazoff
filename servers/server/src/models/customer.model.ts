@@ -17,9 +17,14 @@ export default class customer {
             const Customer = await conn.query(query)
             if (Customer.rows.length == 0) throw new Error(`NOT FOUND`)
             if (
-                bcrypt.compareSync(password + pepper, Customer.rows[0].password)
+                !bcrypt.compareSync(
+                    password + pepper,
+                    Customer.rows[0].password
+                )
             )
-                query = `SELECT COUNT(*) FROM CART WHERE CUSTOMER_ID = ${Customer.rows[0].id};`
+                throw new Error(`NOT FOUND`)
+            query = `SELECT COUNT(*) FROM CART WHERE CUSTOMER_ID = ${Customer.rows[0].id};`
+
             let getCart = await conn.query(query)
             Customer.rows[0].cart = Number(getCart.rows[0].count)
             return Customer.rows[0]
@@ -71,7 +76,6 @@ export default class customer {
         }
     }
     async getUserByToken(customer_id: number): Promise<person> {
-        console.log(customer_id)
         const conn = await client.connect()
         try {
             let query = `select * from customers where id = ${customer_id};`

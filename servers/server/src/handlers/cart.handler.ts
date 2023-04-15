@@ -18,7 +18,7 @@ export default class cartHandler {
                 Number(req.body.decoded.id),
                 Number(req.body.quantity)
             )
-            res.send(insertedToCart)
+            res.status(200).send(insertedToCart)
         } catch (err: quantityExceeds | any) {
             if (err instanceof quantityExceeds)
                 res.status(404).send(err.message)
@@ -61,7 +61,6 @@ export default class cartHandler {
         next: express.NextFunction
     ) => {
         try {
-
             const updateCart = await cartObject.updateCart(
                 Number(req.body.decoded.id),
                 Number(req.params.product_id),

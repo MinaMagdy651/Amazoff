@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,11 +8,9 @@ import "./style.css";
 import useAddToCart from "../../shared/useAddToCart";
 
 function ProductCard(probs) {
-
   let [cartStatus, setCartStatus] = useState(false);
-  
-  useAddToCart(probs.product.product_id, cartStatus,setCartStatus);
- 
+
+  useAddToCart(probs.product.product_id, cartStatus, setCartStatus);
 
   const navigate = useNavigate();
   return (
