@@ -77,6 +77,7 @@ function Product(probs) {
                 transition
                 allowFraction
                 readonly
+                fillColor = {product.rating >= 2.5 ? "orange" : "red"}
               />
               <div>
                 <h2>

@@ -36,10 +36,10 @@ function ProductCart(probs) {
               {probs.product.price + " EGP"}
             </span>
           </Card.Text>
-          <Button id="card-button" variant="primary">
-            Add to<span> </span>
-            <FaShoppingCart className="cart-logo"></FaShoppingCart>
-          </Button>
+              <Button id="card-button" variant="primary">
+              Add to<span> </span>
+              <FaShoppingCart className="cart-logo"></FaShoppingCart>
+            </Button>
         </div>
       </Card.Body>
     </Card>

@@ -31,6 +31,7 @@ const useFetchLogin = (data) => {
         }
         // console.log(response.data)
         setData(response.data);
+        window.location.reload()
         navigate("/home");
         setLoading(false);
         setError(false);

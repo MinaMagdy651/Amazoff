@@ -35,7 +35,9 @@ function Login() {
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8">
             <div className="login-logo">
-              <img className="amazoff-logo" src={logo} alt="Amazoff-logo" />
+              <Link to="/home">
+                <img className="amazoff-logo" src={logo} alt="Amazoff-logo" />
+              </Link>
             </div>
             <div className="mb-3 text-input">
               <input

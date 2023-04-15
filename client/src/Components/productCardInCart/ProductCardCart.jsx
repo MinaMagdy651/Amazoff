@@ -1,42 +1,20 @@
-import { updateCartAction } from "../../Redux/shopSlicer";
 import "./style.css";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
-import axios from "../../APIS/axios";
-import URL from "../../APIS/url.json";
+import useRemoveInCart from "../../shared/useRemoveInCart";
+import useUpdateQuantityCart from "../../shared/useUpdateQuantityCart";
 // import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-const url = URL.removeCart;
-const urlUpdate = URL.updateCart;
 
 function ProductCardCart(probs) {
-  let [product, setProduct] = useState(probs.product);
-  const dispatch = useDispatch();
-  async function removeProduct(product_id) {
-    const response = await axios.delete(`${url}/${product_id}`);
-    if (response.status === 200) {
-      let newProducts = probs.allProducts.filter(
-        (product) => product.product_id !== product_id
-      );
-      probs.setAllProducts(newProducts);
-      dispatch(updateCartAction(newProducts.length));
-    }
-  }
-  async function updateQuantity(sign) {
-    if (sign === "+") setProduct({ ...product, quantity: ++product.quantity });
-    else
-      setProduct({
-        ...product,
-        quantity:
-          product.quantity - 1 >= 0 ? --product.quantity : product.quantity,
-      });
-    const response = await axios.patch(`${urlUpdate}/${product.product_id}`, {
-      quantity: product.quantity,
-    });
-    //temp, delete later
-    if (!response) console.log("failed");
-  }
+
+  let [removeProduct, setRemoveProduct] = useState(false);
+  let [sign , setSign] = useState(["+", false]);
+
+  useRemoveInCart(probs, removeProduct, setRemoveProduct);
+  
+  useUpdateQuantityCart(sign, setSign, probs);
+  // console.log(probs.allProducts);
   return (
     <div className="row ">
       <div className="col card-product-card">
@@ -52,16 +30,16 @@ function ProductCardCart(probs) {
           <p>{probs.product.name}</p>
         </div>
         <div className="prod_quantity">
-          <button onClick={() => updateQuantity("-")}>-</button>
+          <button onClick={() => setSign(["-", true])}>-</button>
           {/* {console.log(probs.product.quantity)} */}
-          <span>{product.quantity}</span>
-          <button onClick={() => updateQuantity("+")}>+</button>
+          <span>{probs.product.quantity}</span>
+          <button onClick={() => setSign(["+" , true])}>+</button>
         </div>
         <div className="prod_price">
           <p>Price: {probs.product.price}$</p>
         </div>
         <div className="prod_remove">
-          <button onClick={() => removeProduct(probs.product.product_id)}>
+          <button onClick={() => setRemoveProduct(true)}>
             <DeleteForeverIcon />
           </button>
         </div>

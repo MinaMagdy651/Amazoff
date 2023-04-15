@@ -78,7 +78,7 @@
     .prod_quantity > *{
         flex-basis: 60%;
     }
-    .prod_quantity > p{
+    .prod_quantity > span {
         text-align: center;
         margin-bottom: 0px;
     }
