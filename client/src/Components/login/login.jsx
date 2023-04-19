@@ -31,7 +31,7 @@ function Login() {
   });
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="container">
+      <div className="container login-box">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8">
             <div className="login-logo">
