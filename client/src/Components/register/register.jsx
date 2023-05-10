@@ -67,7 +67,7 @@ function Register() {
             <div className="alert alert-danger">
               {Object.values(errors).map(
                 (error) =>
-                  error.message.length > 0 && ( // only display error message if there is one
+                  error.message.length > 0 && (
                     <p key={error.message}>{"*" + error.message}</p>
                   )
               )}
