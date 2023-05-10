@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { useState } from "react";
-=======
-import {useState} from "react";
 import { useSelector } from "react-redux";
->>>>>>> 931bab0a2593029ced245da929065eac639a9c29
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { FaShoppingCart } from "react-icons/fa";
@@ -13,10 +9,7 @@ import "./style.css";
 import useAddToCart from "../../shared/useAddToCart";
 
 function ProductCard(probs) {
-<<<<<<< HEAD
-=======
   const obj = useSelector((state) => state.obj.obj);
->>>>>>> 931bab0a2593029ced245da929065eac639a9c29
   let [cartStatus, setCartStatus] = useState(false);
 
   useAddToCart(probs.product.product_id, cartStatus, setCartStatus);
@@ -45,20 +38,23 @@ function ProductCard(probs) {
                 transition
                 allowFraction
                 readonly
-                fillColor = {probs.product.rating >= 2.5 ? "orange" : "red"}
+                fillColor={probs.product.rating >= 2.5 ? "orange" : "red"}
               />
             </span>
             <span className="d-block price">
               {probs.product.price + " EGP"}
             </span>
           </Card.Text>
-          {
-              obj.status && 
-              (<Button id="card-button" variant="primary" onClick={() => setCartStatus(true)}>
+          {obj.status && (
+            <Button
+              id="card-button"
+              variant="primary"
+              onClick={() => setCartStatus(true)}
+            >
               Add to<span> </span>
               <FaShoppingCart className="cart-logo"></FaShoppingCart>
-            </Button>)
-          }
+            </Button>
+          )}
         </div>
       </Card.Body>
     </Card>
