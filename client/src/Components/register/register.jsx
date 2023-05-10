@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useCheckEmail, useRegister } from "../../shared/hooks";
@@ -11,6 +11,16 @@ import logo from "../../Assets/amazoff-logo.jpeg";
 import "./style.css";
 
 function Register() {
+  const [visible, setVisible] = useState(true);
+  const passwordVisibility = () => {
+    setVisible((prev) => !prev);
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
   const obj = useSelector((state) => state.obj.obj);
   const navigate = useNavigate();
 
@@ -21,9 +31,15 @@ function Register() {
   });
 
   const [data, setData] = useState();
-  const { register, handleSubmit, watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
+    data.name = data.firstName + " " + data.lastName;
     setData(data);
   };
 
@@ -31,14 +47,6 @@ function Register() {
   const { error: errorCheck } = useCheckEmail(subscription);
   const { error, loading } = useRegister(data ? data : null);
   const [confirm_error, setConfirm_error] = useState(false);
-  const showPassword = () => {
-    var x = document.getElementById("password");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
-  };
   const confirmPassowrd = () => {
     if (watch("confirm-password") !== watch("password")) setConfirm_error(true);
     else setConfirm_error(false);
@@ -48,23 +56,69 @@ function Register() {
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="register-container container">
         <div className="row">
-           <div className="login-logo">
-              <Link to="/home">
-                <img className="amazoff-logo" src={logo} alt="Amazoff-logo" />
-              </Link>
+          <div className="login-logo">
+            <Link to="/home">
+              <img className="amazoff-logo" src={logo} alt="Amazoff-logo" />
+            </Link>
+          </div>
+        </div>
+        <div className="row">
+          {Object.keys(errors).length > 0 && (
+            <div className="alert alert-danger">
+              {Object.values(errors).map(
+                (error) =>
+                  error.message.length > 0 && ( // only display error message if there is one
+                    <p key={error.message}>{"*" + error.message}</p>
+                  )
+              )}
             </div>
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Full Name
+          )}
+        </div>
+        <div className="row">
+          <div className="mb-3 col-lg-6 col-md-12 col-sm-12">
+            <label htmlFor="firstName" className="form-label">
+              First Name
             </label>
             <input
               type="name"
               className="form-control"
-              id="name"
-              {...register("name", { required: true })}
+              id="firstName"
+              {...register("firstName", {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i, // regex for name
+                  message: "First Name can only contain alphabet characters",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Maximum First Name Length is 20",
+                },
+              })}
             />
           </div>
-
+          <div className="mb-3 col-lg-6 col-md-12 col-sm-12">
+            <label htmlFor="lastName" className="form-label">
+              Last Name
+            </label>
+            <input
+              type="name"
+              className="form-control"
+              id="lastName"
+              {...register("lastName", {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i, // regex for name
+                  message: "Last Name can only contain alphabet characters",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Maximum First Name Length is 20",
+                },
+              })}
+            />
+          </div>
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email address
@@ -86,7 +140,8 @@ function Register() {
               </div>
             )}
           </div>
-
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="address" className="form-label">
               Address
@@ -97,7 +152,8 @@ function Register() {
               {...register("address", { required: true })}
             />
           </div>
-
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="passowrd" className="form-label">
               Password
@@ -107,12 +163,26 @@ function Register() {
                 type="password"
                 className="form-control"
                 id="password"
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: true,
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/g, //regex for password
+                    message:
+                      "Password must contain at least 8 characters including an uppercase letter, lowercase letter, symbol, and number",
+                  },
+                })}
               />
-              <FaEye className="eye-icon" onClick={showPassword} />
+              {visible && (
+                <FaEyeSlash className="eye-icon" onClick={passwordVisibility} />
+              )}
+              {!visible && (
+                <FaEye className="eye-icon" onClick={passwordVisibility} />
+              )}
             </div>
           </div>
-
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="confirm-password" className="form-label">
               Confirm Password
@@ -129,6 +199,8 @@ function Register() {
           {confirm_error && (
             <p className="text-danger">Passwords don't match</p>
           )}
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="dob" className="form-label">
               Date of Birth
@@ -142,7 +214,8 @@ function Register() {
               {...register("dob", { required: true })}
             />
           </div>
-
+        </div>
+        <div className="row">
           <div className="mb-3">
             <label htmlFor="gender" className="form-label">
               Gender

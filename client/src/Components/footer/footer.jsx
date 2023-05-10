@@ -18,7 +18,7 @@ function Footer() {
               </div>
             </a>
           </div>
-          <div className="col-sm-6 col-md-4 col-lg-3">
+          {/* <div className="col-sm-6 col-md-4 col-lg-3">
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -30,7 +30,7 @@ function Footer() {
                 Chehab Yakoot
               </div>
             </a>
-          </div>
+          </div> */}
           <div className="col-sm-6 col-md-4 col-lg-3">
             <a
               target="_blank"

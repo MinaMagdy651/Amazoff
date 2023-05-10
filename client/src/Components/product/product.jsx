@@ -8,7 +8,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import { Rating } from "react-simple-star-rating";
-import { FaBackward, FaForward } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useGetProduct } from "../../shared/hooks";
 import "pure-react-carousel/dist/react-carousel.es.css";
@@ -45,6 +45,7 @@ function Product(probs) {
                   <Slide key={index}>
                     <img
                       key={index + "img"}
+                      width="100%"
                       className="carousel_image"
                       src={url}
                       alt=""
@@ -54,10 +55,10 @@ function Product(probs) {
               </Slider>
               <div className="d-flex justify-content-center p-2">
                 <ButtonBack className="slider-button" id="back">
-                  <FaBackward id="back-icon"></FaBackward>
+                  <FaArrowLeft id="back-icon"></FaArrowLeft>
                 </ButtonBack>
                 <ButtonNext className="slider-button" id="forward">
-                  <FaForward id="forward-icon"></FaForward>
+                  <FaArrowRight id="forward-icon"></FaArrowRight>
                 </ButtonNext>
               </div>
             </CarouselProvider>
@@ -77,7 +78,7 @@ function Product(probs) {
                 transition
                 allowFraction
                 readonly
-                fillColor = {product.rating >= 2.5 ? "orange" : "red"}
+                fillColor={product.rating >= 2.5 ? "orange" : "red"}
               />
               <div>
                 <h2>
