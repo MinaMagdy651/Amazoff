@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { clearDataAction } from "../../Redux/shopSlicer";
 import SearchBar from "../searchBar/searchBar";
 import "bootstrap/dist/css/bootstrap.css";
-import cart from "../../Assets/carts.png"
+import cart from "../../Assets/carts.png";
 import "./style.css";
 
 function Navbar_() {
@@ -17,7 +17,6 @@ function Navbar_() {
     dispatch(clearDataAction());
     localStorage.removeItem("access_token");
     sessionStorage.removeItem("access_token");
-      
   };
 
   useEffect(() => {
@@ -55,7 +54,6 @@ function Navbar_() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-
                 <li className="nav-item d-flex justify-content-center">
                   <Link
                     to="/home"
@@ -119,18 +117,17 @@ function Navbar_() {
                   </li>
                 )}
                 {login_status && (
-                  <Link      
-                  to="/cart"
-                  className="nav-link active"
-                  aria-current="page">
-                    <li style = {{cursor: "pointer"}} className="cart">
-                      <img src = {cart}  width = "40px" height = "35px" alt = "Cart" />
-                          <p>{`${obj.cart}`}</p>
+                  <Link
+                    to="/cart"
+                    className="nav-link active"
+                    aria-current="page"
+                  >
+                    <li style={{ cursor: "pointer" }} className="cart">
+                      <img src={cart} width="40px" height="35px" alt="Cart" />
+                      <p>{`${obj.cart}`}</p>
                     </li>
-                
                   </Link>
-                )
-                }
+                )}
               </ul>
             </div>
           </div>

@@ -11,6 +11,7 @@ import { Rating } from "react-simple-star-rating";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useGetProduct } from "../../shared/hooks";
+import Loading from "../loading/loading";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import Review from "../review/review";
 import "./style.css";
@@ -28,7 +29,12 @@ function Product(probs) {
     // eslint-disable-next-line
   }, [id, obj, product]);
   if (error) return <>error</>;
-  if (loading) return <>loading</>;
+  if (loading)
+    return (
+      <div className="loading-container">
+        <Loading height={70} width={70} type={"spin"} />
+      </div>
+    );
   if (product)
     return (
       <div className="container my-5">

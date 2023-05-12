@@ -5,6 +5,7 @@ import welcomeImage3 from "../../Assets/welcomePage3.jpg";
 import welcomeImage5 from "../../Assets/welcomePage5.jpg";
 import ProductCategories from "../productsCategories/productsCategories";
 import Carousel from "react-multi-carousel";
+import Loading from "../loading/loading";
 import "react-multi-carousel/lib/styles.css";
 import useGetProductsCategories from "../../shared/useGetProductsCategories";
 
@@ -19,7 +20,12 @@ function Home() {
   const { data: products, error, loading } = useGetProductsCategories();
 
   if (error) return <>error</>;
-  if (loading) return <>loading</>;
+  if (loading)
+    return (
+      <div className="loading-container">
+        <Loading height={70} width={70} type={"spin"} />
+      </div>
+    );
 
   const welcomeImages = [welcomeImage3, welcomeImage5];
   return (
